@@ -1,3 +1,4 @@
+using ShiverBot.IO;
 using ShiverBot.Network;
 using System.Text;
 
@@ -6,24 +7,33 @@ namespace ShiverBot.Forms
     public partial class MainForm : Form
     {
         private readonly ConnectionManager _connectionManager;
+        private readonly SavedBuildReader _savedBuildReader;
+        private SavedBuild? gameBuild;
 
         public MainForm()
         {
             InitializeComponent();
             _connectionManager = new();
+            _savedBuildReader = new();
 
             statusLabel.Text = "unconnected";
         }
 
         private void ShowMoney()
         {
-            byte[]? moneyData = _connectionManager.PeekAddress("BDFB12E4", 4);
+            if (gameBuild == null)
+            {
+                MessageBox.Show("error: no addresses for this version loaded.");
+                return;
+            }
+
+            byte[]? moneyData = _connectionManager.PeekAddress(gameBuild.MoneyAddress, 4);
             if (moneyData != null)
             {
                 int money = BitConverter.ToInt32(moneyData);
                 if (money < 0 || money > 9999999)
                 {
-                    MessageBox.Show("error: you have an illegal amount of money in-game.");
+                    MessageBox.Show("error: address peeking returned an invalid amount of money. please delete all AMS cheat files and restart the game.");
                     moneyNumUpDown.Value = 0;
                 }
                 else
@@ -53,15 +63,27 @@ namespace ShiverBot.Forms
             }
             else
             {
-                string titleId = _connectionManager.GetTitleId();
-                if (!titleId.ToUpper().Trim().StartsWith("0100C2500FC20000"))
+                string titleId = _connectionManager.GetTitleId()[..16];
+                if (titleId != "0100C2500FC20000")
                 {
-                    MessageBox.Show($"error: the game is not Splatoon 3.\nTitle id received is {titleId.ToUpper()}");
+                    MessageBox.Show($"error: the game is not Splatoon 3.\nTitle id received is {titleId}");
                     connectButton.Enabled = true;
                     connectButton.Text = "Connect";
                     statusLabel.Text = "unconnected";
                     return;
                 }
+
+                string buildId = _connectionManager.GetBuildId()[..16];
+                SavedBuild? build = _savedBuildReader.GetBuild(buildId);
+                if (build == null)
+                {
+                    MessageBox.Show($"error: no addresses found for this build id. Build id received is {buildId}");
+                    connectButton.Enabled = true;
+                    connectButton.Text = "Connect";
+                    statusLabel.Text = "unconnected";
+                    return;
+                }
+                gameBuild = build;
             }
 
             connectButton.Enabled = true;
@@ -127,10 +149,15 @@ namespace ShiverBot.Forms
                 MessageBox.Show("not connected >:(");
                 return;
             }
+            else if (gameBuild == null)
+            {
+                MessageBox.Show("error: no addresses for this version loaded.");
+                return;
+            }
 
             int amountToSave = (int)moneyNumUpDown.Value;
             byte[] moneyBytes = BitConverter.GetBytes(amountToSave);
-            _connectionManager.PokeAddress("BDFB12E4", Convert.ToHexString(moneyBytes, 0, 4));
+            _connectionManager.PokeAddress(gameBuild.MoneyAddress, Convert.ToHexString(moneyBytes, 0, 4));
         }
 
         private void restoreMoneyButton_Click(object sender, EventArgs e)

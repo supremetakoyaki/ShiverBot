@@ -32,7 +32,23 @@ namespace ShiverBot.Network
 
             byte[] buffer = new byte[33];
             ReceiveBytes(buffer);
-            return Encoding.ASCII.GetString(buffer);
+            return Encoding.ASCII.GetString(buffer).ToUpper();
+        }
+
+        internal string GetBuildId()
+        {
+            if (sysSocket == null || !IsSwitchConnected)
+            {
+                return string.Empty;
+            }
+
+            string message = $"getBuildID\r\n";
+            byte[] messageBytes = Encoding.ASCII.GetBytes(message);
+            sysSocket.Send(messageBytes);
+
+            byte[] buffer = new byte[33];
+            ReceiveBytes(buffer);
+            return Encoding.ASCII.GetString(buffer).ToUpper();
         }
 
         internal bool TryConnect(string ipAddress, int port, out byte responseCode)

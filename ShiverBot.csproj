@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IO\" />
     <Folder Include="Thunder\" />
   </ItemGroup>
 
