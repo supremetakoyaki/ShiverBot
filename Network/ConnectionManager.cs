@@ -14,11 +14,6 @@ namespace ShiverBot.Network
         private Socket? sysSocket;
         internal bool IsSwitchConnected => sysSocket != null && sysSocket.Connected;
 
-        internal ConnectionManager()
-        {
-
-        }
-
         internal string GetTitleId()
         {
             if (sysSocket == null || !IsSwitchConnected)
@@ -116,7 +111,7 @@ namespace ShiverBot.Network
             SendMessage($"poke 0x{address} 0x{data}\r\n");
         }
 
-        private void PokeAddress(long address, string data)
+        public void PokeAddress(long address, string data)
         {
             PokeAddress($"{address:x8}", data);
         }
