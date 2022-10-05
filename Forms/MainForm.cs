@@ -106,8 +106,32 @@ namespace ShiverBot.Forms
 
         }
 
+        private void TryDisconnect()
+        {
+            _connectionManager.TryDisconnect();
+            readyForUserInput = false;
+            connectButton.Enabled = true;
+            connectButton.Text = "Connect";
+            statusLabel.Text = "unconnected";
+
+            for (int i = 0; i < 14; i++)
+            {
+                NumericUpDown chunkNumUpDown = (NumericUpDown)chunksTabPage.Controls[$"chunk{i}NumUpDown"];
+                chunkNumUpDown.Enabled = false;
+                chunkNumUpDown.Value = 0;
+            }
+            moneyNumUpDown.Enabled = false;
+            moneyNumUpDown.Value = 0;
+        }
+
         private void connectButton_Click(object sender, EventArgs e)
         {
+            if (_connectionManager.IsSwitchConnected)
+            {
+                TryDisconnect();
+                return;
+            }
+
             connectButton.Enabled = false;
             connectButton.Text = "Connecting...";
 
