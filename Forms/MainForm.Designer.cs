@@ -44,6 +44,7 @@
             this.pokeLabel = new System.Windows.Forms.Label();
             this.peekLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.autoUpdateCheckbox = new System.Windows.Forms.CheckBox();
             this.optionTabControl = new System.Windows.Forms.TabControl();
             this.chunksTabPage = new System.Windows.Forms.TabPage();
             this.chunk13NumUpDown = new System.Windows.Forms.NumericUpDown();
@@ -76,11 +77,13 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.chunk6NumUpDown = new System.Windows.Forms.NumericUpDown();
             this.drinkTicketsTabPage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableTurfTabPage = new System.Windows.Forms.TabPage();
             this.restoreMoneyButton = new System.Windows.Forms.Button();
             this.saveMoneyButton = new System.Windows.Forms.Button();
             this.moneyLabel = new System.Windows.Forms.Label();
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.updatingLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -115,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).BeginInit();
+            this.drinkTicketsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -271,6 +275,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.updatingLabel);
+            this.groupBox1.Controls.Add(this.autoUpdateCheckbox);
             this.groupBox1.Controls.Add(this.optionTabControl);
             this.groupBox1.Controls.Add(this.restoreMoneyButton);
             this.groupBox1.Controls.Add(this.saveMoneyButton);
@@ -283,6 +289,19 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Easy Edit";
+            // 
+            // autoUpdateCheckbox
+            // 
+            this.autoUpdateCheckbox.AutoSize = true;
+            this.autoUpdateCheckbox.Checked = true;
+            this.autoUpdateCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoUpdateCheckbox.Location = new System.Drawing.Point(285, 20);
+            this.autoUpdateCheckbox.Name = "autoUpdateCheckbox";
+            this.autoUpdateCheckbox.Size = new System.Drawing.Size(92, 19);
+            this.autoUpdateCheckbox.TabIndex = 101;
+            this.autoUpdateCheckbox.Text = "auto-update";
+            this.autoUpdateCheckbox.UseVisualStyleBackColor = true;
+            this.autoUpdateCheckbox.CheckedChanged += new System.EventHandler(this.autoUpdateCheckbox_CheckedChanged);
             // 
             // optionTabControl
             // 
@@ -683,13 +702,25 @@
             // 
             // drinkTicketsTabPage
             // 
+            this.drinkTicketsTabPage.Controls.Add(this.label1);
             this.drinkTicketsTabPage.Location = new System.Drawing.Point(4, 24);
             this.drinkTicketsTabPage.Name = "drinkTicketsTabPage";
             this.drinkTicketsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.drinkTicketsTabPage.Size = new System.Drawing.Size(363, 194);
             this.drinkTicketsTabPage.TabIndex = 1;
-            this.drinkTicketsTabPage.Text = "Drink Tickets";
+            this.drinkTicketsTabPage.Text = "Food/Drink Tickets";
             this.drinkTicketsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label1.Location = new System.Drawing.Point(6, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(348, 15);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "FOOD AND DRINK TICKETS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableTurfTabPage
             // 
@@ -702,7 +733,7 @@
             // 
             // restoreMoneyButton
             // 
-            this.restoreMoneyButton.Location = new System.Drawing.Point(215, 44);
+            this.restoreMoneyButton.Location = new System.Drawing.Point(131, 45);
             this.restoreMoneyButton.Name = "restoreMoneyButton";
             this.restoreMoneyButton.Size = new System.Drawing.Size(83, 23);
             this.restoreMoneyButton.TabIndex = 6;
@@ -712,7 +743,7 @@
             // 
             // saveMoneyButton
             // 
-            this.saveMoneyButton.Location = new System.Drawing.Point(126, 44);
+            this.saveMoneyButton.Location = new System.Drawing.Point(131, 16);
             this.saveMoneyButton.Name = "saveMoneyButton";
             this.saveMoneyButton.Size = new System.Drawing.Size(83, 23);
             this.saveMoneyButton.TabIndex = 5;
@@ -743,6 +774,15 @@
             this.moneyNumUpDown.Name = "moneyNumUpDown";
             this.moneyNumUpDown.Size = new System.Drawing.Size(63, 23);
             this.moneyNumUpDown.TabIndex = 4;
+            // 
+            // updatingLabel
+            // 
+            this.updatingLabel.AutoSize = true;
+            this.updatingLabel.Location = new System.Drawing.Point(278, 42);
+            this.updatingLabel.Name = "updatingLabel";
+            this.updatingLabel.Size = new System.Drawing.Size(99, 15);
+            this.updatingLabel.TabIndex = 102;
+            this.updatingLabel.Text = "updating in {0}s...";
             // 
             // MainForm
             // 
@@ -798,6 +838,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).EndInit();
+            this.drinkTicketsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -858,5 +899,8 @@
         private TabPage drinkTicketsTabPage;
         private Label chunksLabel;
         private TabPage tableTurfTabPage;
+        private Label label1;
+        private CheckBox autoUpdateCheckbox;
+        private Label updatingLabel;
     }
 }

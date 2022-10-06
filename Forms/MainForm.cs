@@ -13,6 +13,7 @@ namespace ShiverBot.Forms
 
         private bool readyForUserInput = false;
         private bool advancedWarningShown = false;
+        private int autoUpdateCount = 10;
 
         private long[] chunkAddresses;
 
@@ -24,6 +25,8 @@ namespace ShiverBot.Forms
             chunkAddresses = new long[14];
 
             statusLabel.Text = "unconnected";
+
+            Task.Factory.StartNew(UpdateThread);
         }
 
         private void ShowMoney()
@@ -62,14 +65,14 @@ namespace ShiverBot.Forms
             readyForUserInput = false;
 
             long address = Convert.ToInt64(gameBuild.ChunkBaseAddress, 16);
-            byte[]? chunkData = _connectionManager.PeekAddress(address, 0x2D4);
+            byte[]? chunkData = _connectionManager.PeekAddress(address, 768);
             if (chunkData == null)
             {
                 MessageBox.Show("error: failed to retrieve ability chunks data. please connect your switch to the internet and try again.");
                 return;
             }
 
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 16; i++)
             {
                 int pointer = i * 0x30;
                 int abilityId = BitConverter.ToInt32(chunkData.AsSpan()[pointer..(pointer + 4)]);
@@ -124,6 +127,41 @@ namespace ShiverBot.Forms
             moneyNumUpDown.Value = 0;
         }
 
+        private void UpdateThread()
+        {
+            while (true)
+            {
+                if (autoUpdateCheckbox.Checked && _connectionManager.IsSwitchConnected)
+                {
+                    Invoke(() =>
+                    {
+                        if (!updatingLabel.Visible)
+                        {
+                            updatingLabel.Visible = true;
+                        }
+
+                        if (autoUpdateCount == 0)
+                        {
+                            updatingLabel.Text = "updating...";
+                            ShowMoney();
+                            ShowChunks();
+                            ShowDrinkTickets();
+                            ShowTableTurfData();
+                            autoUpdateCount = 10;
+                        }
+                        updatingLabel.Text = $"updating in {autoUpdateCount}s...";
+                    });
+                }
+                else
+                {
+                    updatingLabel.Visible = false;
+                }
+
+                autoUpdateCount--;
+                Thread.Sleep(999);
+            }
+        }
+
         private void connectButton_Click(object sender, EventArgs e)
         {
             if (_connectionManager.IsSwitchConnected)
@@ -148,7 +186,7 @@ namespace ShiverBot.Forms
                 string titleId = _connectionManager.GetTitleId()[..16];
                 if (titleId != "0100C2500FC20000")
                 {
-                    MessageBox.Show($"error: the game is not Splatoon 3.\nTitle id received is {titleId}");
+                    MessageBox.Show($"error: the game is not Splatoon 3.\nReceived title id is {titleId}");
                     connectButton.Enabled = true;
                     connectButton.Text = "Connect";
                     statusLabel.Text = "unconnected";
@@ -159,7 +197,7 @@ namespace ShiverBot.Forms
                 SavedBuild? build = _savedBuildReader.GetBuild(buildId);
                 if (build == null)
                 {
-                    MessageBox.Show($"error: no addresses found for this build id. Build id received is {buildId}");
+                    MessageBox.Show($"error: no addresses found for this build id.\nReceived build id is {buildId}");
                     connectButton.Enabled = true;
                     connectButton.Text = "Connect";
                     statusLabel.Text = "unconnected";
@@ -485,6 +523,14 @@ namespace ShiverBot.Forms
 
             uint amount = (uint)chunk13NumUpDown.Value;
             _connectionManager.PokeAddress(chunkAddresses[13], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void autoUpdateCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_connectionManager.IsSwitchConnected)
+            {
+                updatingLabel.Visible = autoUpdateCheckbox.Checked;
+            }
         }
     }
 }
