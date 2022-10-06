@@ -37,6 +37,7 @@
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.moneyPictureBox = new System.Windows.Forms.PictureBox();
             this.advancedGroupBox = new System.Windows.Forms.GroupBox();
+            this.readMainButton = new System.Windows.Forms.Button();
             this.saveToFileCheckBox = new System.Windows.Forms.CheckBox();
             this.writeButton = new System.Windows.Forms.Button();
             this.pokeDataTextBox = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             this.pokeLabel = new System.Windows.Forms.Label();
             this.peekLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.updatingLabel = new System.Windows.Forms.Label();
             this.autoUpdateCheckbox = new System.Windows.Forms.CheckBox();
             this.optionTabControl = new System.Windows.Forms.TabControl();
             this.chunksTabPage = new System.Windows.Forms.TabPage();
@@ -76,14 +78,55 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.chunk6NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.foodTicketsTabPage = new System.Windows.Forms.TabPage();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.food0NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.foodTicketsLabel = new System.Windows.Forms.Label();
             this.drinkTicketsTabPage = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.drinkTicketsLabel = new System.Windows.Forms.Label();
+            this.drink13NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink12NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink11NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink10NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink8NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink9NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink7NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
+            this.drink5NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink6NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink4NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink3NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink2NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink1NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drink0NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.pictureBox30 = new System.Windows.Forms.PictureBox();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.pictureBox28 = new System.Windows.Forms.PictureBox();
+            this.pictureBox27 = new System.Windows.Forms.PictureBox();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.tableTurfTabPage = new System.Windows.Forms.TabPage();
             this.restoreMoneyButton = new System.Windows.Forms.Button();
             this.saveMoneyButton = new System.Windows.Forms.Button();
             this.moneyLabel = new System.Windows.Forms.Label();
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.updatingLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -118,7 +161,48 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).BeginInit();
+            this.foodTicketsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food0NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.drinkTicketsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drink13NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink12NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink11NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink10NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink8NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink9NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink7NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink5NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink6NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink4NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink3NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink2NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink1NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink0NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,11 +226,11 @@
             // 
             // readButton
             // 
-            this.readButton.Location = new System.Drawing.Point(282, 36);
+            this.readButton.Location = new System.Drawing.Point(282, 18);
             this.readButton.Name = "readButton";
             this.readButton.Size = new System.Drawing.Size(77, 23);
             this.readButton.TabIndex = 105;
-            this.readButton.Text = "read";
+            this.readButton.Text = "read heap";
             this.readButton.UseVisualStyleBackColor = true;
             this.readButton.Click += new System.EventHandler(this.readButton_Click);
             // 
@@ -201,6 +285,7 @@
             // 
             // advancedGroupBox
             // 
+            this.advancedGroupBox.Controls.Add(this.readMainButton);
             this.advancedGroupBox.Controls.Add(this.saveToFileCheckBox);
             this.advancedGroupBox.Controls.Add(this.writeButton);
             this.advancedGroupBox.Controls.Add(this.pokeDataTextBox);
@@ -216,6 +301,16 @@
             this.advancedGroupBox.TabIndex = 100;
             this.advancedGroupBox.TabStop = false;
             this.advancedGroupBox.Text = "Advanced";
+            // 
+            // readMainButton
+            // 
+            this.readMainButton.Location = new System.Drawing.Point(282, 47);
+            this.readMainButton.Name = "readMainButton";
+            this.readMainButton.Size = new System.Drawing.Size(77, 23);
+            this.readMainButton.TabIndex = 106;
+            this.readMainButton.Text = "read main";
+            this.readMainButton.UseVisualStyleBackColor = true;
+            this.readMainButton.Click += new System.EventHandler(this.readMainButton_Click);
             // 
             // saveToFileCheckBox
             // 
@@ -235,7 +330,7 @@
             this.writeButton.Name = "writeButton";
             this.writeButton.Size = new System.Drawing.Size(77, 23);
             this.writeButton.TabIndex = 109;
-            this.writeButton.Text = "write";
+            this.writeButton.Text = "write heap";
             this.writeButton.UseVisualStyleBackColor = true;
             this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
             // 
@@ -290,6 +385,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Easy Edit";
             // 
+            // updatingLabel
+            // 
+            this.updatingLabel.AutoSize = true;
+            this.updatingLabel.Location = new System.Drawing.Point(278, 42);
+            this.updatingLabel.Name = "updatingLabel";
+            this.updatingLabel.Size = new System.Drawing.Size(99, 15);
+            this.updatingLabel.TabIndex = 102;
+            this.updatingLabel.Text = "updating in {0}s...";
+            // 
             // autoUpdateCheckbox
             // 
             this.autoUpdateCheckbox.AutoSize = true;
@@ -306,6 +410,7 @@
             // optionTabControl
             // 
             this.optionTabControl.Controls.Add(this.chunksTabPage);
+            this.optionTabControl.Controls.Add(this.foodTicketsTabPage);
             this.optionTabControl.Controls.Add(this.drinkTicketsTabPage);
             this.optionTabControl.Controls.Add(this.tableTurfTabPage);
             this.optionTabControl.Location = new System.Drawing.Point(6, 73);
@@ -375,7 +480,7 @@
             this.chunksLabel.Name = "chunksLabel";
             this.chunksLabel.Size = new System.Drawing.Size(348, 15);
             this.chunksLabel.TabIndex = 9;
-            this.chunksLabel.Text = "CHUNKS";
+            this.chunksLabel.Text = "ABILITY CHUNKS";
             this.chunksLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox7
@@ -700,27 +805,548 @@
             this.chunk6NumUpDown.TabIndex = 16;
             this.chunk6NumUpDown.ValueChanged += new System.EventHandler(this.chunk6NumUpDown_ValueChanged);
             // 
+            // foodTicketsTabPage
+            // 
+            this.foodTicketsTabPage.Controls.Add(this.numericUpDown5);
+            this.foodTicketsTabPage.Controls.Add(this.numericUpDown4);
+            this.foodTicketsTabPage.Controls.Add(this.numericUpDown3);
+            this.foodTicketsTabPage.Controls.Add(this.numericUpDown2);
+            this.foodTicketsTabPage.Controls.Add(this.numericUpDown1);
+            this.foodTicketsTabPage.Controls.Add(this.food0NumUpDown);
+            this.foodTicketsTabPage.Controls.Add(this.pictureBox20);
+            this.foodTicketsTabPage.Controls.Add(this.pictureBox19);
+            this.foodTicketsTabPage.Controls.Add(this.pictureBox18);
+            this.foodTicketsTabPage.Controls.Add(this.pictureBox16);
+            this.foodTicketsTabPage.Controls.Add(this.pictureBox15);
+            this.foodTicketsTabPage.Controls.Add(this.pictureBox14);
+            this.foodTicketsTabPage.Controls.Add(this.foodTicketsLabel);
+            this.foodTicketsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.foodTicketsTabPage.Name = "foodTicketsTabPage";
+            this.foodTicketsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.foodTicketsTabPage.Size = new System.Drawing.Size(363, 194);
+            this.foodTicketsTabPage.TabIndex = 1;
+            this.foodTicketsTabPage.Text = "Food Tickets";
+            this.foodTicketsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Enabled = false;
+            this.numericUpDown5.Location = new System.Drawing.Point(227, 164);
+            this.numericUpDown5.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(35, 23);
+            this.numericUpDown5.TabIndex = 23;
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Enabled = false;
+            this.numericUpDown4.Location = new System.Drawing.Point(141, 164);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(35, 23);
+            this.numericUpDown4.TabIndex = 22;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Enabled = false;
+            this.numericUpDown3.Location = new System.Drawing.Point(55, 164);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(35, 23);
+            this.numericUpDown3.TabIndex = 21;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Enabled = false;
+            this.numericUpDown2.Location = new System.Drawing.Point(227, 78);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(35, 23);
+            this.numericUpDown2.TabIndex = 20;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Enabled = false;
+            this.numericUpDown1.Location = new System.Drawing.Point(141, 78);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(35, 23);
+            this.numericUpDown1.TabIndex = 19;
+            // 
+            // food0NumUpDown
+            // 
+            this.food0NumUpDown.Enabled = false;
+            this.food0NumUpDown.Location = new System.Drawing.Point(55, 78);
+            this.food0NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.food0NumUpDown.Name = "food0NumUpDown";
+            this.food0NumUpDown.Size = new System.Drawing.Size(35, 23);
+            this.food0NumUpDown.TabIndex = 18;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Image = global::ShiverBot.Properties.Resources.IconShopParty_01;
+            this.pictureBox20.Location = new System.Drawing.Point(227, 107);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox20.TabIndex = 17;
+            this.pictureBox20.TabStop = false;
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Image = global::ShiverBot.Properties.Resources.IconShopFoodRankL;
+            this.pictureBox19.Location = new System.Drawing.Point(141, 107);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox19.TabIndex = 16;
+            this.pictureBox19.TabStop = false;
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Image = global::ShiverBot.Properties.Resources.IconShopFoodRank_cropped;
+            this.pictureBox18.Location = new System.Drawing.Point(55, 107);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox18.TabIndex = 15;
+            this.pictureBox18.TabStop = false;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Image = global::ShiverBot.Properties.Resources.IconShopParty_00_cropped;
+            this.pictureBox16.Location = new System.Drawing.Point(227, 21);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox16.TabIndex = 13;
+            this.pictureBox16.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Image = global::ShiverBot.Properties.Resources.IconShopFoodL_cropped;
+            this.pictureBox15.Location = new System.Drawing.Point(141, 21);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox15.TabIndex = 12;
+            this.pictureBox15.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = global::ShiverBot.Properties.Resources.IconShopFood_cropped;
+            this.pictureBox14.Location = new System.Drawing.Point(55, 21);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox14.TabIndex = 11;
+            this.pictureBox14.TabStop = false;
+            // 
+            // foodTicketsLabel
+            // 
+            this.foodTicketsLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.foodTicketsLabel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.foodTicketsLabel.Location = new System.Drawing.Point(6, 3);
+            this.foodTicketsLabel.Name = "foodTicketsLabel";
+            this.foodTicketsLabel.Size = new System.Drawing.Size(348, 15);
+            this.foodTicketsLabel.TabIndex = 10;
+            this.foodTicketsLabel.Text = "FOOD TICKETS";
+            this.foodTicketsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // drinkTicketsTabPage
             // 
-            this.drinkTicketsTabPage.Controls.Add(this.label1);
+            this.drinkTicketsTabPage.Controls.Add(this.drinkTicketsLabel);
+            this.drinkTicketsTabPage.Controls.Add(this.drink13NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink12NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink11NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink10NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink8NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink9NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink7NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox32);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox33);
+            this.drinkTicketsTabPage.Controls.Add(this.drink5NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink6NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink4NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink3NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink2NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink1NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.drink0NumUpDown);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox31);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox30);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox29);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox28);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox27);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox26);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox25);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox24);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox23);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox22);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox21);
+            this.drinkTicketsTabPage.Controls.Add(this.pictureBox17);
             this.drinkTicketsTabPage.Location = new System.Drawing.Point(4, 24);
             this.drinkTicketsTabPage.Name = "drinkTicketsTabPage";
-            this.drinkTicketsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.drinkTicketsTabPage.Size = new System.Drawing.Size(363, 194);
-            this.drinkTicketsTabPage.TabIndex = 1;
-            this.drinkTicketsTabPage.Text = "Food/Drink Tickets";
+            this.drinkTicketsTabPage.TabIndex = 3;
+            this.drinkTicketsTabPage.Text = "Drink Tickets";
             this.drinkTicketsTabPage.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // drinkTicketsLabel
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(6, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 15);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "FOOD AND DRINK TICKETS";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.drinkTicketsLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.drinkTicketsLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.drinkTicketsLabel.Location = new System.Drawing.Point(277, 135);
+            this.drinkTicketsLabel.Name = "drinkTicketsLabel";
+            this.drinkTicketsLabel.Size = new System.Drawing.Size(83, 55);
+            this.drinkTicketsLabel.TabIndex = 110;
+            this.drinkTicketsLabel.Text = "DRINK TICKETS";
+            this.drinkTicketsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // drink13NumUpDown
+            // 
+            this.drink13NumUpDown.Enabled = false;
+            this.drink13NumUpDown.Location = new System.Drawing.Point(215, 167);
+            this.drink13NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink13NumUpDown.Name = "drink13NumUpDown";
+            this.drink13NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink13NumUpDown.TabIndex = 109;
+            // 
+            // drink12NumUpDown
+            // 
+            this.drink12NumUpDown.Enabled = false;
+            this.drink12NumUpDown.Location = new System.Drawing.Point(153, 167);
+            this.drink12NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink12NumUpDown.Name = "drink12NumUpDown";
+            this.drink12NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink12NumUpDown.TabIndex = 108;
+            // 
+            // drink11NumUpDown
+            // 
+            this.drink11NumUpDown.Enabled = false;
+            this.drink11NumUpDown.Location = new System.Drawing.Point(91, 167);
+            this.drink11NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink11NumUpDown.Name = "drink11NumUpDown";
+            this.drink11NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink11NumUpDown.TabIndex = 107;
+            // 
+            // drink10NumUpDown
+            // 
+            this.drink10NumUpDown.Enabled = false;
+            this.drink10NumUpDown.Location = new System.Drawing.Point(30, 167);
+            this.drink10NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink10NumUpDown.Name = "drink10NumUpDown";
+            this.drink10NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink10NumUpDown.TabIndex = 106;
+            // 
+            // drink8NumUpDown
+            // 
+            this.drink8NumUpDown.Enabled = false;
+            this.drink8NumUpDown.Location = new System.Drawing.Point(215, 102);
+            this.drink8NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink8NumUpDown.Name = "drink8NumUpDown";
+            this.drink8NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink8NumUpDown.TabIndex = 105;
+            // 
+            // drink9NumUpDown
+            // 
+            this.drink9NumUpDown.Enabled = false;
+            this.drink9NumUpDown.Location = new System.Drawing.Point(277, 102);
+            this.drink9NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink9NumUpDown.Name = "drink9NumUpDown";
+            this.drink9NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink9NumUpDown.TabIndex = 105;
+            // 
+            // drink7NumUpDown
+            // 
+            this.drink7NumUpDown.Enabled = false;
+            this.drink7NumUpDown.Location = new System.Drawing.Point(153, 102);
+            this.drink7NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink7NumUpDown.Name = "drink7NumUpDown";
+            this.drink7NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink7NumUpDown.TabIndex = 104;
+            // 
+            // pictureBox32
+            // 
+            this.pictureBox32.Image = global::ShiverBot.Properties.Resources.Drink11;
+            this.pictureBox32.Location = new System.Drawing.Point(92, 135);
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox32.TabIndex = 12;
+            this.pictureBox32.TabStop = false;
+            // 
+            // pictureBox33
+            // 
+            this.pictureBox33.Image = global::ShiverBot.Properties.Resources.Drink13;
+            this.pictureBox33.Location = new System.Drawing.Point(215, 135);
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox33.TabIndex = 103;
+            this.pictureBox33.TabStop = false;
+            // 
+            // drink5NumUpDown
+            // 
+            this.drink5NumUpDown.Enabled = false;
+            this.drink5NumUpDown.Location = new System.Drawing.Point(29, 102);
+            this.drink5NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink5NumUpDown.Name = "drink5NumUpDown";
+            this.drink5NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink5NumUpDown.TabIndex = 18;
+            // 
+            // drink6NumUpDown
+            // 
+            this.drink6NumUpDown.Enabled = false;
+            this.drink6NumUpDown.Location = new System.Drawing.Point(91, 102);
+            this.drink6NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink6NumUpDown.Name = "drink6NumUpDown";
+            this.drink6NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink6NumUpDown.TabIndex = 17;
+            // 
+            // drink4NumUpDown
+            // 
+            this.drink4NumUpDown.Enabled = false;
+            this.drink4NumUpDown.Location = new System.Drawing.Point(277, 40);
+            this.drink4NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink4NumUpDown.Name = "drink4NumUpDown";
+            this.drink4NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink4NumUpDown.TabIndex = 16;
+            // 
+            // drink3NumUpDown
+            // 
+            this.drink3NumUpDown.Enabled = false;
+            this.drink3NumUpDown.Location = new System.Drawing.Point(215, 40);
+            this.drink3NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink3NumUpDown.Name = "drink3NumUpDown";
+            this.drink3NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink3NumUpDown.TabIndex = 15;
+            // 
+            // drink2NumUpDown
+            // 
+            this.drink2NumUpDown.Enabled = false;
+            this.drink2NumUpDown.Location = new System.Drawing.Point(153, 40);
+            this.drink2NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink2NumUpDown.Name = "drink2NumUpDown";
+            this.drink2NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink2NumUpDown.TabIndex = 14;
+            // 
+            // drink1NumUpDown
+            // 
+            this.drink1NumUpDown.Enabled = false;
+            this.drink1NumUpDown.Location = new System.Drawing.Point(91, 40);
+            this.drink1NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink1NumUpDown.Name = "drink1NumUpDown";
+            this.drink1NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink1NumUpDown.TabIndex = 13;
+            // 
+            // drink0NumUpDown
+            // 
+            this.drink0NumUpDown.Enabled = false;
+            this.drink0NumUpDown.Location = new System.Drawing.Point(29, 40);
+            this.drink0NumUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.drink0NumUpDown.Name = "drink0NumUpDown";
+            this.drink0NumUpDown.Size = new System.Drawing.Size(56, 23);
+            this.drink0NumUpDown.TabIndex = 12;
+            // 
+            // pictureBox31
+            // 
+            this.pictureBox31.Image = global::ShiverBot.Properties.Resources.Drink8;
+            this.pictureBox31.Location = new System.Drawing.Point(215, 70);
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox31.TabIndex = 11;
+            this.pictureBox31.TabStop = false;
+            // 
+            // pictureBox30
+            // 
+            this.pictureBox30.Image = global::ShiverBot.Properties.Resources.Drink9;
+            this.pictureBox30.Location = new System.Drawing.Point(277, 70);
+            this.pictureBox30.Name = "pictureBox30";
+            this.pictureBox30.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox30.TabIndex = 10;
+            this.pictureBox30.TabStop = false;
+            // 
+            // pictureBox29
+            // 
+            this.pictureBox29.Image = global::ShiverBot.Properties.Resources.Drink12;
+            this.pictureBox29.Location = new System.Drawing.Point(153, 135);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox29.TabIndex = 9;
+            this.pictureBox29.TabStop = false;
+            // 
+            // pictureBox28
+            // 
+            this.pictureBox28.Image = global::ShiverBot.Properties.Resources.Drink10;
+            this.pictureBox28.Location = new System.Drawing.Point(30, 135);
+            this.pictureBox28.Name = "pictureBox28";
+            this.pictureBox28.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox28.TabIndex = 8;
+            this.pictureBox28.TabStop = false;
+            // 
+            // pictureBox27
+            // 
+            this.pictureBox27.Image = global::ShiverBot.Properties.Resources.Drink7;
+            this.pictureBox27.Location = new System.Drawing.Point(153, 70);
+            this.pictureBox27.Name = "pictureBox27";
+            this.pictureBox27.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox27.TabIndex = 7;
+            this.pictureBox27.TabStop = false;
+            // 
+            // pictureBox26
+            // 
+            this.pictureBox26.Image = global::ShiverBot.Properties.Resources.Drink6;
+            this.pictureBox26.Location = new System.Drawing.Point(91, 70);
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox26.TabIndex = 6;
+            this.pictureBox26.TabStop = false;
+            // 
+            // pictureBox25
+            // 
+            this.pictureBox25.Image = global::ShiverBot.Properties.Resources.Drink5;
+            this.pictureBox25.Location = new System.Drawing.Point(29, 70);
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox25.TabIndex = 5;
+            this.pictureBox25.TabStop = false;
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.Image = global::ShiverBot.Properties.Resources.Drink4;
+            this.pictureBox24.Location = new System.Drawing.Point(277, 8);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox24.TabIndex = 4;
+            this.pictureBox24.TabStop = false;
+            // 
+            // pictureBox23
+            // 
+            this.pictureBox23.Image = global::ShiverBot.Properties.Resources.Drink3;
+            this.pictureBox23.Location = new System.Drawing.Point(215, 8);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox23.TabIndex = 3;
+            this.pictureBox23.TabStop = false;
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Image = global::ShiverBot.Properties.Resources.Drink2;
+            this.pictureBox22.Location = new System.Drawing.Point(153, 8);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox22.TabIndex = 2;
+            this.pictureBox22.TabStop = false;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Image = global::ShiverBot.Properties.Resources.Drink1;
+            this.pictureBox21.Location = new System.Drawing.Point(91, 8);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox21.TabIndex = 1;
+            this.pictureBox21.TabStop = false;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Image = global::ShiverBot.Properties.Resources.Drink0;
+            this.pictureBox17.Location = new System.Drawing.Point(29, 8);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(56, 30);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox17.TabIndex = 0;
+            this.pictureBox17.TabStop = false;
             // 
             // tableTurfTabPage
             // 
@@ -774,15 +1400,6 @@
             this.moneyNumUpDown.Name = "moneyNumUpDown";
             this.moneyNumUpDown.Size = new System.Drawing.Size(63, 23);
             this.moneyNumUpDown.TabIndex = 4;
-            // 
-            // updatingLabel
-            // 
-            this.updatingLabel.AutoSize = true;
-            this.updatingLabel.Location = new System.Drawing.Point(278, 42);
-            this.updatingLabel.Name = "updatingLabel";
-            this.updatingLabel.Size = new System.Drawing.Size(99, 15);
-            this.updatingLabel.TabIndex = 102;
-            this.updatingLabel.Text = "updating in {0}s...";
             // 
             // MainForm
             // 
@@ -838,7 +1455,48 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).EndInit();
+            this.foodTicketsTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food0NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.drinkTicketsTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.drink13NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink12NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink11NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink10NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink8NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink9NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink7NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink5NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink6NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink4NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink3NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink2NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink1NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drink0NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -896,11 +1554,54 @@
         private PictureBox pictureBox1;
         private TabControl optionTabControl;
         private TabPage chunksTabPage;
-        private TabPage drinkTicketsTabPage;
+        private TabPage foodTicketsTabPage;
         private Label chunksLabel;
         private TabPage tableTurfTabPage;
-        private Label label1;
+        private Label foodTicketsLabel;
         private CheckBox autoUpdateCheckbox;
         private Label updatingLabel;
+        private Button readMainButton;
+        private PictureBox pictureBox20;
+        private PictureBox pictureBox19;
+        private PictureBox pictureBox18;
+        private PictureBox pictureBox16;
+        private PictureBox pictureBox15;
+        private PictureBox pictureBox14;
+        private PictureBox pictureBox33;
+        private PictureBox pictureBox32;
+        private NumericUpDown numericUpDown5;
+        private NumericUpDown numericUpDown4;
+        private NumericUpDown numericUpDown3;
+        private NumericUpDown numericUpDown2;
+        private NumericUpDown numericUpDown1;
+        private NumericUpDown food0NumUpDown;
+        private TabPage drinkTicketsTabPage;
+        private PictureBox pictureBox31;
+        private PictureBox pictureBox30;
+        private PictureBox pictureBox29;
+        private PictureBox pictureBox28;
+        private PictureBox pictureBox27;
+        private PictureBox pictureBox26;
+        private PictureBox pictureBox25;
+        private PictureBox pictureBox24;
+        private PictureBox pictureBox23;
+        private PictureBox pictureBox22;
+        private PictureBox pictureBox21;
+        private PictureBox pictureBox17;
+        private Label drinkTicketsLabel;
+        private NumericUpDown drink13NumUpDown;
+        private NumericUpDown drink12NumUpDown;
+        private NumericUpDown drink11NumUpDown;
+        private NumericUpDown drink10NumUpDown;
+        private NumericUpDown drink8NumUpDown;
+        private NumericUpDown drink9NumUpDown;
+        private NumericUpDown drink7NumUpDown;
+        private NumericUpDown drink5NumUpDown;
+        private NumericUpDown drink6NumUpDown;
+        private NumericUpDown drink4NumUpDown;
+        private NumericUpDown drink3NumUpDown;
+        private NumericUpDown drink2NumUpDown;
+        private NumericUpDown drink1NumUpDown;
+        private NumericUpDown drink0NumUpDown;
     }
 }

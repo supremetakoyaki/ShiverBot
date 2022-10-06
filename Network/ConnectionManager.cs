@@ -105,6 +105,22 @@ namespace ShiverBot.Network
         {
             return PeekAddress($"{address:x8}", size);
         }
+
+        public byte[]? PeekMainAddress(string address, int size)
+        {
+            if (sysSocket == null || !IsSwitchConnected)
+            {
+                return null;
+            }
+
+            string message = $"peekMain 0x{address} {size}\r\n";
+            byte[] messageBytes = Encoding.ASCII.GetBytes(message);
+            sysSocket.Send(messageBytes);
+
+            byte[] buffer = new byte[(size * 2) + 1];
+            ReceiveBytes(buffer);
+            return DecoderUtil.ConvertHexByteStringToBytes(buffer);
+        }
         
         public void PokeAddress(string address, string data)
         {

@@ -118,49 +118,112 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SpecialIncrease_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SpecialIncrease_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="HumanMove_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HumanMove_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Money" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Drink7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="JumpTime_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JumpTime_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RespawnSpecialGauge_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RespawnSpecialGauge_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Drink2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MainInk_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MainInk_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpInkEffect_Reduction" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OpInkEffect_Reduction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RespawnTime_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RespawnTime_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SubInk_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SubInk_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="InkRecovery_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InkRecovery_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SpecialSpec_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SpecialSpec_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HumanMove_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HumanMove_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SubSpec_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SubSpec_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SubEffect_Reduction" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SubEffect_Reduction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Drink6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SquidMove_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SquidMove_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconShopFoodRank_cropped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconShopFoodRank_cropped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SubEffect_Reduction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SubEffect_Reduction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconShopParty_00_cropped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconShopParty_00_cropped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InkRecovery_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InkRecovery_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconShopFoodL_cropped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconShopFoodL_cropped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Action_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Action_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconShopFoodRankL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconShopFoodRankL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpInkEffect_Reduction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpInkEffect_Reduction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RespawnSpecialGauge_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RespawnSpecialGauge_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpecialIncrease_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpecialIncrease_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconShopFood_cropped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconShopFood_cropped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SubInk_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SubInk_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpecialSpec_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpecialSpec_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RespawnTime_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RespawnTime_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Money" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconShopFood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconShopFood.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JumpTime_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JumpTime_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconShopParty_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconShopParty_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drink13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

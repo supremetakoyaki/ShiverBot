@@ -140,7 +140,7 @@ namespace ShiverBot.Forms
                             updatingLabel.Visible = true;
                         }
 
-                        if (autoUpdateCount == 0)
+                        if (autoUpdateCount <= 0)
                         {
                             updatingLabel.Text = "updating...";
                             ShowMoney();
@@ -154,7 +154,15 @@ namespace ShiverBot.Forms
                 }
                 else
                 {
-                    updatingLabel.Visible = false;
+                    if (autoUpdateCount < 0)
+                    {
+                        autoUpdateCount = 10;
+                    }
+
+                    Invoke(() =>
+                    {
+                        updatingLabel.Visible = false;
+                    });
                 }
 
                 autoUpdateCount--;
@@ -232,6 +240,44 @@ namespace ShiverBot.Forms
                 {
                     using SaveFileDialog sfd = new();
                     sfd.FileName = "data.bin";
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        File.WriteAllBytes(sfd.FileName, data);
+                    }
+                }
+                else if (bytesToReadNumUpDown.Value > 128)
+                {
+                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
+                }
+                else
+                {
+                    StringBuilder sb = new();
+                    foreach (byte b in data)
+                    {
+                        sb.Append($"{b:x2} ");
+                    }
+
+                    MessageBox.Show(sb.ToString());
+                }
+            }
+        }
+
+        private void readMainButton_Click(object sender, EventArgs e)
+        {
+            if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            byte[]? data = _connectionManager.PeekMainAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
+
+            if (data != null)
+            {
+                if (saveToFileCheckBox.Checked)
+                {
+                    using SaveFileDialog sfd = new();
+                    sfd.FileName = "dataMain.bin";
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(sfd.FileName, data);
