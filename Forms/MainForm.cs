@@ -1,6 +1,8 @@
 using ShiverBot.IO;
 using ShiverBot.Network;
 using ShiverBot.Thunder;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace ShiverBot.Forms
@@ -16,6 +18,8 @@ namespace ShiverBot.Forms
         private int autoUpdateCount = 10;
 
         private long[] chunkAddresses;
+        private long[] foodTicketAddresses;
+        private long[] drinkTicketAddresses;
 
         public MainForm()
         {
@@ -23,6 +27,8 @@ namespace ShiverBot.Forms
             _connectionManager = new();
             _savedBuildReader = new();
             chunkAddresses = new long[14];
+            foodTicketAddresses = new long[6];
+            drinkTicketAddresses = new long[14];
 
             statusLabel.Text = "unconnected";
 
@@ -99,9 +105,83 @@ namespace ShiverBot.Forms
             readyForUserInput = true;
         }
 
-        private void ShowDrinkTickets()
+        private void ShowFoodAndDrinkTickets()
         {
+            if (gameBuild == null)
+            {
+                MessageBox.Show("error: no addresses for this version loaded.");
+                return;
+            }
 
+            readyForUserInput = false;
+
+            // food
+            long foodTicketAddress = Convert.ToInt64(gameBuild.FoodTicketBase, 16);
+            byte[]? foodTicketData = _connectionManager.PeekAddress(foodTicketAddress, 288);
+            if (foodTicketData == null)
+            {
+                MessageBox.Show("error: failed to retrieve food tickets data. please connect your switch to the internet and try again.");
+                return;
+            }
+
+            for (int i = 0; i < 6; i++)
+            {
+                int pointer = i * 0x30;
+                int foodTicketId = BitConverter.ToInt32(foodTicketData.AsSpan()[pointer..(pointer + 4)]);
+
+                if (foodTicketId > 0 && foodTicketId < 7)
+                {
+                    FoodTicket foodTicket = (FoodTicket)foodTicketId;
+
+                    int foodTicketAmount = BitConverter.ToInt32(foodTicketData.AsSpan()[(pointer + 4)..(pointer + 8)]);
+                    if (foodTicketAmount < 0 || foodTicketAmount > 99)
+                    {
+                        MessageBox.Show($"error: retrieved an invalid amount of food tickets {foodTicketId} ({foodTicket}). please delete all AMS cheat files, restart the game and try again.");
+                        return;
+                    }
+
+                    NumericUpDown foodNumUpDown = (NumericUpDown)foodTicketsTabPage.Controls[$"food{foodTicketId}NumUpDown"];
+                    foodNumUpDown.Value = foodTicketAmount;
+                    foodNumUpDown.Enabled = true;
+                    foodNumUpDown.Tag = foodTicket;
+                    foodTicketAddresses[foodTicketId - 1] = foodTicketAddress + pointer + 4;
+                }
+            }
+
+            // drink
+            long drinkTicketAddress = Convert.ToInt64(gameBuild.DrinkTicketBase, 16);
+            byte[]? drinkTicketData = _connectionManager.PeekAddress(drinkTicketAddress, 672);
+            if (drinkTicketData == null)
+            {
+                MessageBox.Show("error: failed to retrieve food tickets data. please connect your switch to the internet and try again.");
+                return;
+            }
+
+            for (int i = 0; i < 14; i++)
+            {
+                int pointer = i * 0x30;
+                int drinkTicketId = BitConverter.ToInt32(drinkTicketData.AsSpan()[pointer..(pointer + 4)]);
+
+                if (drinkTicketId > -1 && drinkTicketId < 14)
+                {
+                    GearAbility drinkTicket = (GearAbility)drinkTicketId;
+
+                    int drinkTicketAmount = BitConverter.ToInt32(drinkTicketData.AsSpan()[(pointer + 4)..(pointer + 8)]);
+                    if (drinkTicketAmount < 0 || drinkTicketAmount > 99)
+                    {
+                        MessageBox.Show($"error: retrieved an invalid amount of drink tickets {drinkTicketId} ({drinkTicket}). please delete all AMS cheat files, restart the game and try again.");
+                        return;
+                    }
+
+                    NumericUpDown drinkNumUpDown = (NumericUpDown)drinkTicketsTabPage.Controls[$"drink{drinkTicketId}NumUpDown"];
+                    drinkNumUpDown.Value = drinkTicketAmount;
+                    drinkNumUpDown.Enabled = true;
+                    drinkNumUpDown.Tag = drinkTicket;
+                    drinkTicketAddresses[drinkTicketId] = drinkTicketAddress + pointer + 4;
+                }
+            }
+
+            readyForUserInput = true;
         }
 
         private void ShowTableTurfData()
@@ -145,7 +225,7 @@ namespace ShiverBot.Forms
                             updatingLabel.Text = "updating...";
                             ShowMoney();
                             ShowChunks();
-                            ShowDrinkTickets();
+                            ShowFoodAndDrinkTickets();
                             ShowTableTurfData();
                             autoUpdateCount = 10;
                         }
@@ -219,10 +299,39 @@ namespace ShiverBot.Forms
             statusLabel.Text = "connected";
             ShowMoney();
             ShowChunks();
-            ShowDrinkTickets();
+            ShowFoodAndDrinkTickets();
             ShowTableTurfData();
             readyForUserInput = true;
         }
+
+        private void OpenUrl(string url)
+        {
+            try
+            {
+                Process.Start(url);
+            }
+            catch
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    url = url.Replace("&", "^&");
+                    Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", url);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", url);
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
 
         private void readButton_Click(object sender, EventArgs e)
         {
@@ -577,6 +686,336 @@ namespace ShiverBot.Forms
             {
                 updatingLabel.Visible = autoUpdateCheckbox.Checked;
             }
+        }
+
+        private void creatorLabel_Click(object sender, EventArgs e)
+        {
+            OpenUrl("http://github.com/supremetakoyaki");
+        }
+
+        private void creatorLabel2_Click(object sender, EventArgs e)
+        {
+            OpenUrl("http://github.com/supremetakoyaki");
+        }
+
+        private void food1NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)food1NumUpDown.Value;
+            _connectionManager.PokeAddress(foodTicketAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void food2NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)food2NumUpDown.Value;
+            _connectionManager.PokeAddress(foodTicketAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void food3NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)food3NumUpDown.Value;
+            _connectionManager.PokeAddress(foodTicketAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void food4NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)food4NumUpDown.Value;
+            _connectionManager.PokeAddress(foodTicketAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void food5NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)food5NumUpDown.Value;
+            _connectionManager.PokeAddress(foodTicketAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void food6NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)food6NumUpDown.Value;
+            _connectionManager.PokeAddress(foodTicketAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink0NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink0NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink1NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink1NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink2NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink2NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink3NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink3NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink4NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink4NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink5NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink5NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink6NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink6NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[6], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink7NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink7NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[7], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink8NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink8NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[8], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink9NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink9NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[9], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink10NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink10NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[10], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink11NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink11NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[11], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink12NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink12NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[12], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void drink13NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint amount = (uint)drink13NumUpDown.Value;
+            _connectionManager.PokeAddress(drinkTicketAddresses[13], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
     }
 }

@@ -14,7 +14,8 @@
                 string? version = null;
                 string? moneyBase = null;
                 string? chunkBase = null;
-                string? ticketBase = null;
+                string? foodTicketBase = null;
+                string? drinkTicketBase = null;
                 string? tableTurfBase = null;
 
                 foreach (string line in contents)
@@ -42,8 +43,12 @@
                                 chunkBase = data[1];
                                 break;
 
-                            case "ticketBase":
-                                ticketBase = data[1];
+                            case "foodTicketBase":
+                                foodTicketBase = data[1];
+                                break;
+
+                            case "drinkTicketBase":
+                                drinkTicketBase = data[1];
                                 break;
 
                             case "tableTurfBase":
@@ -53,13 +58,13 @@
                     }
                 }
 
-                if (version == null || moneyBase == null || chunkBase == null || ticketBase == null || tableTurfBase == null)
+                if (version == null || moneyBase == null || chunkBase == null || foodTicketBase == null || drinkTicketBase == null || tableTurfBase == null)
                 {
                     MessageBox.Show("error: build file {buildId} is incomplete.");
                 }
                 else
                 {
-                    savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, ticketBase, tableTurfBase));
+                    savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, tableTurfBase));
                 }
             }
 
@@ -71,7 +76,7 @@
 
         internal SavedBuild? GetBuild(string buildId)
         {
-            if (savedBuilds.TryGetValue(buildId, out SavedBuild build))
+            if (savedBuilds.TryGetValue(buildId, out SavedBuild? build))
             {
                 return build;
             }

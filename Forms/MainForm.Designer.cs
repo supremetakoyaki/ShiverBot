@@ -79,12 +79,12 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.chunk6NumUpDown = new System.Windows.Forms.NumericUpDown();
             this.foodTicketsTabPage = new System.Windows.Forms.TabPage();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.food0NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.food5NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.food3NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.food1NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.food6NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.food4NumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.food2NumUpDown = new System.Windows.Forms.NumericUpDown();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
@@ -123,10 +123,13 @@
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.tableTurfTabPage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.restoreMoneyButton = new System.Windows.Forms.Button();
             this.saveMoneyButton = new System.Windows.Forms.Button();
             this.moneyLabel = new System.Windows.Forms.Label();
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.creatorLabel = new System.Windows.Forms.Label();
+            this.creatorLabel2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -162,12 +165,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).BeginInit();
             this.foodTicketsTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food0NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food5NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food3NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food1NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food6NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food4NumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food2NumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
@@ -203,6 +206,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.tableTurfTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -807,12 +811,12 @@
             // 
             // foodTicketsTabPage
             // 
-            this.foodTicketsTabPage.Controls.Add(this.numericUpDown5);
-            this.foodTicketsTabPage.Controls.Add(this.numericUpDown4);
-            this.foodTicketsTabPage.Controls.Add(this.numericUpDown3);
-            this.foodTicketsTabPage.Controls.Add(this.numericUpDown2);
-            this.foodTicketsTabPage.Controls.Add(this.numericUpDown1);
-            this.foodTicketsTabPage.Controls.Add(this.food0NumUpDown);
+            this.foodTicketsTabPage.Controls.Add(this.food5NumUpDown);
+            this.foodTicketsTabPage.Controls.Add(this.food3NumUpDown);
+            this.foodTicketsTabPage.Controls.Add(this.food1NumUpDown);
+            this.foodTicketsTabPage.Controls.Add(this.food6NumUpDown);
+            this.foodTicketsTabPage.Controls.Add(this.food4NumUpDown);
+            this.foodTicketsTabPage.Controls.Add(this.food2NumUpDown);
             this.foodTicketsTabPage.Controls.Add(this.pictureBox20);
             this.foodTicketsTabPage.Controls.Add(this.pictureBox19);
             this.foodTicketsTabPage.Controls.Add(this.pictureBox18);
@@ -828,83 +832,89 @@
             this.foodTicketsTabPage.Text = "Food Tickets";
             this.foodTicketsTabPage.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown5
+            // food5NumUpDown
             // 
-            this.numericUpDown5.Enabled = false;
-            this.numericUpDown5.Location = new System.Drawing.Point(227, 164);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.food5NumUpDown.Enabled = false;
+            this.food5NumUpDown.Location = new System.Drawing.Point(227, 164);
+            this.food5NumUpDown.Maximum = new decimal(new int[] {
             99,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(35, 23);
-            this.numericUpDown5.TabIndex = 23;
+            this.food5NumUpDown.Name = "food5NumUpDown";
+            this.food5NumUpDown.Size = new System.Drawing.Size(35, 23);
+            this.food5NumUpDown.TabIndex = 23;
+            this.food5NumUpDown.ValueChanged += new System.EventHandler(this.food5NumUpDown_ValueChanged);
             // 
-            // numericUpDown4
+            // food3NumUpDown
             // 
-            this.numericUpDown4.Enabled = false;
-            this.numericUpDown4.Location = new System.Drawing.Point(141, 164);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.food3NumUpDown.Enabled = false;
+            this.food3NumUpDown.Location = new System.Drawing.Point(141, 164);
+            this.food3NumUpDown.Maximum = new decimal(new int[] {
             99,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(35, 23);
-            this.numericUpDown4.TabIndex = 22;
+            this.food3NumUpDown.Name = "food3NumUpDown";
+            this.food3NumUpDown.Size = new System.Drawing.Size(35, 23);
+            this.food3NumUpDown.TabIndex = 22;
+            this.food3NumUpDown.ValueChanged += new System.EventHandler(this.food3NumUpDown_ValueChanged);
             // 
-            // numericUpDown3
+            // food1NumUpDown
             // 
-            this.numericUpDown3.Enabled = false;
-            this.numericUpDown3.Location = new System.Drawing.Point(55, 164);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.food1NumUpDown.Enabled = false;
+            this.food1NumUpDown.Location = new System.Drawing.Point(55, 164);
+            this.food1NumUpDown.Maximum = new decimal(new int[] {
             99,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(35, 23);
-            this.numericUpDown3.TabIndex = 21;
+            this.food1NumUpDown.Name = "food1NumUpDown";
+            this.food1NumUpDown.Size = new System.Drawing.Size(35, 23);
+            this.food1NumUpDown.TabIndex = 21;
+            this.food1NumUpDown.ValueChanged += new System.EventHandler(this.food1NumUpDown_ValueChanged);
             // 
-            // numericUpDown2
+            // food6NumUpDown
             // 
-            this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Location = new System.Drawing.Point(227, 78);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.food6NumUpDown.Enabled = false;
+            this.food6NumUpDown.Location = new System.Drawing.Point(227, 78);
+            this.food6NumUpDown.Maximum = new decimal(new int[] {
             99,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(35, 23);
-            this.numericUpDown2.TabIndex = 20;
+            this.food6NumUpDown.Name = "food6NumUpDown";
+            this.food6NumUpDown.Size = new System.Drawing.Size(35, 23);
+            this.food6NumUpDown.TabIndex = 20;
+            this.food6NumUpDown.ValueChanged += new System.EventHandler(this.food6NumUpDown_ValueChanged);
             // 
-            // numericUpDown1
+            // food4NumUpDown
             // 
-            this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(141, 78);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.food4NumUpDown.Enabled = false;
+            this.food4NumUpDown.Location = new System.Drawing.Point(141, 78);
+            this.food4NumUpDown.Maximum = new decimal(new int[] {
             99,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(35, 23);
-            this.numericUpDown1.TabIndex = 19;
+            this.food4NumUpDown.Name = "food4NumUpDown";
+            this.food4NumUpDown.Size = new System.Drawing.Size(35, 23);
+            this.food4NumUpDown.TabIndex = 19;
+            this.food4NumUpDown.ValueChanged += new System.EventHandler(this.food4NumUpDown_ValueChanged);
             // 
-            // food0NumUpDown
+            // food2NumUpDown
             // 
-            this.food0NumUpDown.Enabled = false;
-            this.food0NumUpDown.Location = new System.Drawing.Point(55, 78);
-            this.food0NumUpDown.Maximum = new decimal(new int[] {
+            this.food2NumUpDown.Enabled = false;
+            this.food2NumUpDown.Location = new System.Drawing.Point(55, 78);
+            this.food2NumUpDown.Maximum = new decimal(new int[] {
             99,
             0,
             0,
             0});
-            this.food0NumUpDown.Name = "food0NumUpDown";
-            this.food0NumUpDown.Size = new System.Drawing.Size(35, 23);
-            this.food0NumUpDown.TabIndex = 18;
+            this.food2NumUpDown.Name = "food2NumUpDown";
+            this.food2NumUpDown.Size = new System.Drawing.Size(35, 23);
+            this.food2NumUpDown.TabIndex = 18;
+            this.food2NumUpDown.ValueChanged += new System.EventHandler(this.food2NumUpDown_ValueChanged);
             // 
             // pictureBox20
             // 
@@ -1038,6 +1048,7 @@
             this.drink13NumUpDown.Name = "drink13NumUpDown";
             this.drink13NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink13NumUpDown.TabIndex = 109;
+            this.drink13NumUpDown.ValueChanged += new System.EventHandler(this.drink13NumUpDown_ValueChanged);
             // 
             // drink12NumUpDown
             // 
@@ -1051,6 +1062,7 @@
             this.drink12NumUpDown.Name = "drink12NumUpDown";
             this.drink12NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink12NumUpDown.TabIndex = 108;
+            this.drink12NumUpDown.ValueChanged += new System.EventHandler(this.drink12NumUpDown_ValueChanged);
             // 
             // drink11NumUpDown
             // 
@@ -1064,6 +1076,7 @@
             this.drink11NumUpDown.Name = "drink11NumUpDown";
             this.drink11NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink11NumUpDown.TabIndex = 107;
+            this.drink11NumUpDown.ValueChanged += new System.EventHandler(this.drink11NumUpDown_ValueChanged);
             // 
             // drink10NumUpDown
             // 
@@ -1077,6 +1090,7 @@
             this.drink10NumUpDown.Name = "drink10NumUpDown";
             this.drink10NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink10NumUpDown.TabIndex = 106;
+            this.drink10NumUpDown.ValueChanged += new System.EventHandler(this.drink10NumUpDown_ValueChanged);
             // 
             // drink8NumUpDown
             // 
@@ -1090,6 +1104,7 @@
             this.drink8NumUpDown.Name = "drink8NumUpDown";
             this.drink8NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink8NumUpDown.TabIndex = 105;
+            this.drink8NumUpDown.ValueChanged += new System.EventHandler(this.drink8NumUpDown_ValueChanged);
             // 
             // drink9NumUpDown
             // 
@@ -1103,6 +1118,7 @@
             this.drink9NumUpDown.Name = "drink9NumUpDown";
             this.drink9NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink9NumUpDown.TabIndex = 105;
+            this.drink9NumUpDown.ValueChanged += new System.EventHandler(this.drink9NumUpDown_ValueChanged);
             // 
             // drink7NumUpDown
             // 
@@ -1116,6 +1132,7 @@
             this.drink7NumUpDown.Name = "drink7NumUpDown";
             this.drink7NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink7NumUpDown.TabIndex = 104;
+            this.drink7NumUpDown.ValueChanged += new System.EventHandler(this.drink7NumUpDown_ValueChanged);
             // 
             // pictureBox32
             // 
@@ -1149,6 +1166,7 @@
             this.drink5NumUpDown.Name = "drink5NumUpDown";
             this.drink5NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink5NumUpDown.TabIndex = 18;
+            this.drink5NumUpDown.ValueChanged += new System.EventHandler(this.drink5NumUpDown_ValueChanged);
             // 
             // drink6NumUpDown
             // 
@@ -1162,6 +1180,7 @@
             this.drink6NumUpDown.Name = "drink6NumUpDown";
             this.drink6NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink6NumUpDown.TabIndex = 17;
+            this.drink6NumUpDown.ValueChanged += new System.EventHandler(this.drink6NumUpDown_ValueChanged);
             // 
             // drink4NumUpDown
             // 
@@ -1175,6 +1194,7 @@
             this.drink4NumUpDown.Name = "drink4NumUpDown";
             this.drink4NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink4NumUpDown.TabIndex = 16;
+            this.drink4NumUpDown.ValueChanged += new System.EventHandler(this.drink4NumUpDown_ValueChanged);
             // 
             // drink3NumUpDown
             // 
@@ -1188,6 +1208,7 @@
             this.drink3NumUpDown.Name = "drink3NumUpDown";
             this.drink3NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink3NumUpDown.TabIndex = 15;
+            this.drink3NumUpDown.ValueChanged += new System.EventHandler(this.drink3NumUpDown_ValueChanged);
             // 
             // drink2NumUpDown
             // 
@@ -1201,6 +1222,7 @@
             this.drink2NumUpDown.Name = "drink2NumUpDown";
             this.drink2NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink2NumUpDown.TabIndex = 14;
+            this.drink2NumUpDown.ValueChanged += new System.EventHandler(this.drink2NumUpDown_ValueChanged);
             // 
             // drink1NumUpDown
             // 
@@ -1214,6 +1236,7 @@
             this.drink1NumUpDown.Name = "drink1NumUpDown";
             this.drink1NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink1NumUpDown.TabIndex = 13;
+            this.drink1NumUpDown.ValueChanged += new System.EventHandler(this.drink1NumUpDown_ValueChanged);
             // 
             // drink0NumUpDown
             // 
@@ -1227,6 +1250,7 @@
             this.drink0NumUpDown.Name = "drink0NumUpDown";
             this.drink0NumUpDown.Size = new System.Drawing.Size(56, 23);
             this.drink0NumUpDown.TabIndex = 12;
+            this.drink0NumUpDown.ValueChanged += new System.EventHandler(this.drink0NumUpDown_ValueChanged);
             // 
             // pictureBox31
             // 
@@ -1350,12 +1374,22 @@
             // 
             // tableTurfTabPage
             // 
+            this.tableTurfTabPage.Controls.Add(this.label1);
             this.tableTurfTabPage.Location = new System.Drawing.Point(4, 24);
             this.tableTurfTabPage.Name = "tableTurfTabPage";
             this.tableTurfTabPage.Size = new System.Drawing.Size(363, 194);
             this.tableTurfTabPage.TabIndex = 2;
             this.tableTurfTabPage.Text = "Table Turf";
             this.tableTurfTabPage.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(136, 89);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "coming soon~!";
             // 
             // restoreMoneyButton
             // 
@@ -1401,11 +1435,38 @@
             this.moneyNumUpDown.Size = new System.Drawing.Size(63, 23);
             this.moneyNumUpDown.TabIndex = 4;
             // 
+            // creatorLabel
+            // 
+            this.creatorLabel.AutoSize = true;
+            this.creatorLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.creatorLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.creatorLabel.Location = new System.Drawing.Point(292, 26);
+            this.creatorLabel.Name = "creatorLabel";
+            this.creatorLabel.Size = new System.Drawing.Size(85, 13);
+            this.creatorLabel.TabIndex = 101;
+            this.creatorLabel.Text = "made by T with";
+            this.creatorLabel.Click += new System.EventHandler(this.creatorLabel_Click);
+            // 
+            // creatorLabel2
+            // 
+            this.creatorLabel2.AutoSize = true;
+            this.creatorLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.creatorLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.creatorLabel2.ForeColor = System.Drawing.Color.Red;
+            this.creatorLabel2.Location = new System.Drawing.Point(373, 26);
+            this.creatorLabel2.Name = "creatorLabel2";
+            this.creatorLabel2.Size = new System.Drawing.Size(21, 13);
+            this.creatorLabel2.TabIndex = 102;
+            this.creatorLabel2.Text = "<3";
+            this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 492);
+            this.Controls.Add(this.creatorLabel2);
+            this.Controls.Add(this.creatorLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.advancedGroupBox);
             this.Controls.Add(this.statusLabel);
@@ -1418,7 +1479,7 @@
             this.MaximumSize = new System.Drawing.Size(423, 531);
             this.MinimumSize = new System.Drawing.Size(423, 531);
             this.Name = "MainForm";
-            this.Text = "ShiverBot";
+            this.Text = "ShiverBot v1.0";
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).EndInit();
             this.advancedGroupBox.ResumeLayout(false);
@@ -1456,12 +1517,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).EndInit();
             this.foodTicketsTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food0NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food5NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food3NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food1NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food6NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food4NumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.food2NumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
@@ -1497,6 +1558,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            this.tableTurfTabPage.ResumeLayout(false);
+            this.tableTurfTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1569,12 +1632,12 @@
         private PictureBox pictureBox14;
         private PictureBox pictureBox33;
         private PictureBox pictureBox32;
-        private NumericUpDown numericUpDown5;
-        private NumericUpDown numericUpDown4;
-        private NumericUpDown numericUpDown3;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown food0NumUpDown;
+        private NumericUpDown food5NumUpDown;
+        private NumericUpDown food3NumUpDown;
+        private NumericUpDown food1NumUpDown;
+        private NumericUpDown food6NumUpDown;
+        private NumericUpDown food4NumUpDown;
+        private NumericUpDown food2NumUpDown;
         private TabPage drinkTicketsTabPage;
         private PictureBox pictureBox31;
         private PictureBox pictureBox30;
@@ -1603,5 +1666,8 @@
         private NumericUpDown drink2NumUpDown;
         private NumericUpDown drink1NumUpDown;
         private NumericUpDown drink0NumUpDown;
+        private Label creatorLabel;
+        private Label creatorLabel2;
+        private Label label1;
     }
 }
