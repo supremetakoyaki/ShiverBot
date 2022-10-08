@@ -20,6 +20,7 @@ namespace ShiverBot.Forms
         private long[] chunkAddresses;
         private long[] foodTicketAddresses;
         private long[] drinkTicketAddresses;
+        private bool ismFlag = false;
 
         public MainForm()
         {
@@ -88,12 +89,21 @@ namespace ShiverBot.Forms
                     GearAbility ability = (GearAbility)abilityId;
 
                     int chunkAmount = BitConverter.ToInt32(chunkData.AsSpan()[(pointer + 4)..(pointer + 8)]);
+                    if (abilityId == 0 && chunkAmount == 0 && ismFlag)
+                    {
+                        continue;
+                    }
+                    else if (abilityId == 0 && chunkAmount > 0)
+                    {
+                        ismFlag = true;
+                    }
+
                     if (chunkAmount < 0 || chunkAmount > 999)
                     {
                         MessageBox.Show($"error: retrieved an invalid amount of chunks for ability {abilityId} ({ability}). please delete all AMS cheat files, restart the game and try again.");
                         return;
                     }
-
+                    
                     NumericUpDown chunkNumUpDown = (NumericUpDown)chunksTabPage.Controls[$"chunk{abilityId}NumUpDown"];
                     chunkNumUpDown.Value = chunkAmount;
                     chunkNumUpDown.Enabled = true;
