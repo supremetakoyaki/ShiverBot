@@ -1073,14 +1073,7 @@ namespace ShiverBot.Forms
             }
 
             long baseAddress = Convert.ToInt64(gameBuild.GearBase, 16);
-            if (gearTypeComboBox.SelectedIndex == 1)
-            {
-                baseAddress += 0x2C020;
-            }
-            else if (gearTypeComboBox.SelectedIndex == 2)
-            {
-                baseAddress += 0x2C020 + 0x2C020;
-            }
+            baseAddress += gearTypeComboBox.SelectedIndex * 0x2C020;
 
             int maxGearAmount = 1023;
             int gearRamSize = 176;

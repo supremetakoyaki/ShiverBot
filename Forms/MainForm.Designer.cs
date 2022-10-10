@@ -148,6 +148,7 @@
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
+            this.comingSoonLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -224,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.tableTurfTabPage.SuspendLayout();
             this.gearTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).BeginInit();
@@ -1395,6 +1397,7 @@
             // 
             // tableTurfTabPage
             // 
+            this.tableTurfTabPage.Controls.Add(this.comingSoonLabel);
             this.tableTurfTabPage.Location = new System.Drawing.Point(4, 24);
             this.tableTurfTabPage.Name = "tableTurfTabPage";
             this.tableTurfTabPage.Size = new System.Drawing.Size(363, 194);
@@ -1778,6 +1781,15 @@
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
             // 
+            // comingSoonLabel
+            // 
+            this.comingSoonLabel.AutoSize = true;
+            this.comingSoonLabel.Location = new System.Drawing.Point(139, 86);
+            this.comingSoonLabel.Name = "comingSoonLabel";
+            this.comingSoonLabel.Size = new System.Drawing.Size(85, 15);
+            this.comingSoonLabel.TabIndex = 0;
+            this.comingSoonLabel.Text = "coming soon~";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1876,6 +1888,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            this.tableTurfTabPage.ResumeLayout(false);
+            this.tableTurfTabPage.PerformLayout();
             this.gearTabPage.ResumeLayout(false);
             this.gearTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).EndInit();
@@ -2007,5 +2021,6 @@
         private Label gearSubAbility2Label;
         private ComboBox gearS1ComboBox;
         private Label gearSubAbility1Label;
+        private Label comingSoonLabel;
     }
 }
