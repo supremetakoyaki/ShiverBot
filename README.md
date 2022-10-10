@@ -5,8 +5,12 @@ At the moment you can easily edit money, ability chunks and food/drink ticket am
 ![Screenshot showing the ability chunks tab](https://i.imgur.com/WpC7khW.png)
 ![Screenshot showing the food tickets tab](https://i.imgur.com/kUIMNOb.png)
 
+**Update:** From version 1.1, you can now search for your gear's RNG seed :)
+![Screenshot showing the gear seed finder](https://i.imgur.com/8ItDfs1.png)
+
+
 # Read this
-There is a ban risk associated to anything you modify in this game because every action you do sends telemetry, but the easy options this tool has are considered the safest, harmless and have a minimal risk (8+ days without ban, as of October 8th 2022).
+There is a ban risk associated to anything you modify in this game because every action you do sends telemetry, but the easy options this tool has are considered the safest, harmless and have a minimal risk (10+ days without ban, as of October 10th 2022).
 
 There is also an advanced RAM editing option, for debugging and making tests. If you ever use it, I assume you know what you're doing.
 
