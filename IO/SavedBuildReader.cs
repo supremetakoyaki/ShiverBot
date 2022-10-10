@@ -17,6 +17,7 @@
                 string? foodTicketBase = null;
                 string? drinkTicketBase = null;
                 string? tableTurfBase = null;
+                string? gearBase = null;
 
                 foreach (string line in contents)
                 {
@@ -54,17 +55,21 @@
                             case "tableTurfBase":
                                 tableTurfBase = data[1];
                                 break;
+
+                            case "gearBase":
+                                gearBase = data[1];
+                                break;
                         }
                     }
                 }
 
-                if (version == null || moneyBase == null || chunkBase == null || foodTicketBase == null || drinkTicketBase == null || tableTurfBase == null)
+                if (version == null || moneyBase == null || chunkBase == null || foodTicketBase == null || drinkTicketBase == null || tableTurfBase == null || gearBase == null)
                 {
                     MessageBox.Show("error: build file {buildId} is incomplete.");
                 }
                 else
                 {
-                    savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, tableTurfBase));
+                    savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, tableTurfBase, gearBase));
                 }
             }
 

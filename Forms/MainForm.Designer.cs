@@ -123,7 +123,25 @@
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.tableTurfTabPage = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gearTabPage = new System.Windows.Forms.TabPage();
+            this.gearSeedFinderLabel2 = new System.Windows.Forms.Label();
+            this.gearSearchButton = new System.Windows.Forms.Button();
+            this.gearS3ComboBox = new System.Windows.Forms.ComboBox();
+            this.gearSubAbility3Label = new System.Windows.Forms.Label();
+            this.gearS2ComboBox = new System.Windows.Forms.ComboBox();
+            this.gearSubAbility2Label = new System.Windows.Forms.Label();
+            this.gearS1ComboBox = new System.Windows.Forms.ComboBox();
+            this.gearSubAbility1Label = new System.Windows.Forms.Label();
+            this.gearMAComboBox = new System.Windows.Forms.ComboBox();
+            this.gearMainAbilityLabel = new System.Windows.Forms.Label();
+            this.gearStarsNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.gearStarsLabel = new System.Windows.Forms.Label();
+            this.gearidkExpCheckbox = new System.Windows.Forms.CheckBox();
+            this.gearExpNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.currenteExpLabel = new System.Windows.Forms.Label();
+            this.gearTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.gearTypeLabel = new System.Windows.Forms.Label();
+            this.gearSeedFinderLabel = new System.Windows.Forms.Label();
             this.restoreMoneyButton = new System.Windows.Forms.Button();
             this.saveMoneyButton = new System.Windows.Forms.Button();
             this.moneyLabel = new System.Windows.Forms.Label();
@@ -206,7 +224,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            this.tableTurfTabPage.SuspendLayout();
+            this.gearTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -417,6 +437,7 @@
             this.optionTabControl.Controls.Add(this.foodTicketsTabPage);
             this.optionTabControl.Controls.Add(this.drinkTicketsTabPage);
             this.optionTabControl.Controls.Add(this.tableTurfTabPage);
+            this.optionTabControl.Controls.Add(this.gearTabPage);
             this.optionTabControl.Location = new System.Drawing.Point(6, 73);
             this.optionTabControl.Name = "optionTabControl";
             this.optionTabControl.SelectedIndex = 0;
@@ -1374,7 +1395,6 @@
             // 
             // tableTurfTabPage
             // 
-            this.tableTurfTabPage.Controls.Add(this.label1);
             this.tableTurfTabPage.Location = new System.Drawing.Point(4, 24);
             this.tableTurfTabPage.Name = "tableTurfTabPage";
             this.tableTurfTabPage.Size = new System.Drawing.Size(363, 194);
@@ -1382,14 +1402,312 @@
             this.tableTurfTabPage.Text = "Table Turf";
             this.tableTurfTabPage.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // gearTabPage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "coming soon~!";
+            this.gearTabPage.Controls.Add(this.gearSeedFinderLabel2);
+            this.gearTabPage.Controls.Add(this.gearSearchButton);
+            this.gearTabPage.Controls.Add(this.gearS3ComboBox);
+            this.gearTabPage.Controls.Add(this.gearSubAbility3Label);
+            this.gearTabPage.Controls.Add(this.gearS2ComboBox);
+            this.gearTabPage.Controls.Add(this.gearSubAbility2Label);
+            this.gearTabPage.Controls.Add(this.gearS1ComboBox);
+            this.gearTabPage.Controls.Add(this.gearSubAbility1Label);
+            this.gearTabPage.Controls.Add(this.gearMAComboBox);
+            this.gearTabPage.Controls.Add(this.gearMainAbilityLabel);
+            this.gearTabPage.Controls.Add(this.gearStarsNumUpDown);
+            this.gearTabPage.Controls.Add(this.gearStarsLabel);
+            this.gearTabPage.Controls.Add(this.gearidkExpCheckbox);
+            this.gearTabPage.Controls.Add(this.gearExpNumUpDown);
+            this.gearTabPage.Controls.Add(this.currenteExpLabel);
+            this.gearTabPage.Controls.Add(this.gearTypeComboBox);
+            this.gearTabPage.Controls.Add(this.gearTypeLabel);
+            this.gearTabPage.Controls.Add(this.gearSeedFinderLabel);
+            this.gearTabPage.Location = new System.Drawing.Point(4, 24);
+            this.gearTabPage.Name = "gearTabPage";
+            this.gearTabPage.Size = new System.Drawing.Size(363, 194);
+            this.gearTabPage.TabIndex = 4;
+            this.gearTabPage.Text = "Gear";
+            this.gearTabPage.UseVisualStyleBackColor = true;
+            // 
+            // gearSeedFinderLabel2
+            // 
+            this.gearSeedFinderLabel2.AutoSize = true;
+            this.gearSeedFinderLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.gearSeedFinderLabel2.ForeColor = System.Drawing.Color.SlateGray;
+            this.gearSeedFinderLabel2.Location = new System.Drawing.Point(233, 108);
+            this.gearSeedFinderLabel2.Name = "gearSeedFinderLabel2";
+            this.gearSeedFinderLabel2.Size = new System.Drawing.Size(119, 30);
+            this.gearSeedFinderLabel2.TabIndex = 24;
+            this.gearSeedFinderLabel2.Text = "Fill in everything\r\nbefore clicking search";
+            this.gearSeedFinderLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // gearSearchButton
+            // 
+            this.gearSearchButton.Enabled = false;
+            this.gearSearchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearSearchButton.Location = new System.Drawing.Point(232, 147);
+            this.gearSearchButton.Name = "gearSearchButton";
+            this.gearSearchButton.Size = new System.Drawing.Size(120, 36);
+            this.gearSearchButton.TabIndex = 23;
+            this.gearSearchButton.Text = "Search";
+            this.gearSearchButton.UseVisualStyleBackColor = true;
+            this.gearSearchButton.Click += new System.EventHandler(this.gearSearchButton_Click);
+            // 
+            // gearS3ComboBox
+            // 
+            this.gearS3ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gearS3ComboBox.Enabled = false;
+            this.gearS3ComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearS3ComboBox.FormattingEnabled = true;
+            this.gearS3ComboBox.Items.AddRange(new object[] {
+            "None",
+            "Ink Saver Main",
+            "Ink Saver Sub",
+            "Ink Recovery Up",
+            "Run Speed Up",
+            "Swim Speed Up",
+            "Special Charge Up",
+            "Special Saver",
+            "Special Power Up",
+            "Quick Respawn",
+            "Quick Super Jump",
+            "Sub Power Up",
+            "Ink Resistance Up",
+            "Sub Resistance Up",
+            "Intensify Action"});
+            this.gearS3ComboBox.Location = new System.Drawing.Point(86, 162);
+            this.gearS3ComboBox.Name = "gearS3ComboBox";
+            this.gearS3ComboBox.Size = new System.Drawing.Size(118, 21);
+            this.gearS3ComboBox.TabIndex = 22;
+            // 
+            // gearSubAbility3Label
+            // 
+            this.gearSubAbility3Label.AutoSize = true;
+            this.gearSubAbility3Label.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearSubAbility3Label.Location = new System.Drawing.Point(6, 165);
+            this.gearSubAbility3Label.Name = "gearSubAbility3Label";
+            this.gearSubAbility3Label.Size = new System.Drawing.Size(74, 13);
+            this.gearSubAbility3Label.TabIndex = 21;
+            this.gearSubAbility3Label.Text = "Sub Ability 3:";
+            // 
+            // gearS2ComboBox
+            // 
+            this.gearS2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gearS2ComboBox.Enabled = false;
+            this.gearS2ComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearS2ComboBox.FormattingEnabled = true;
+            this.gearS2ComboBox.Items.AddRange(new object[] {
+            "None",
+            "Ink Saver Main",
+            "Ink Saver Sub",
+            "Ink Recovery Up",
+            "Run Speed Up",
+            "Swim Speed Up",
+            "Special Charge Up",
+            "Special Saver",
+            "Special Power Up",
+            "Quick Respawn",
+            "Quick Super Jump",
+            "Sub Power Up",
+            "Ink Resistance Up",
+            "Sub Resistance Up",
+            "Intensify Action"});
+            this.gearS2ComboBox.Location = new System.Drawing.Point(86, 135);
+            this.gearS2ComboBox.Name = "gearS2ComboBox";
+            this.gearS2ComboBox.Size = new System.Drawing.Size(118, 21);
+            this.gearS2ComboBox.TabIndex = 20;
+            // 
+            // gearSubAbility2Label
+            // 
+            this.gearSubAbility2Label.AutoSize = true;
+            this.gearSubAbility2Label.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearSubAbility2Label.Location = new System.Drawing.Point(6, 138);
+            this.gearSubAbility2Label.Name = "gearSubAbility2Label";
+            this.gearSubAbility2Label.Size = new System.Drawing.Size(74, 13);
+            this.gearSubAbility2Label.TabIndex = 19;
+            this.gearSubAbility2Label.Text = "Sub Ability 2:";
+            // 
+            // gearS1ComboBox
+            // 
+            this.gearS1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gearS1ComboBox.Enabled = false;
+            this.gearS1ComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearS1ComboBox.FormattingEnabled = true;
+            this.gearS1ComboBox.Items.AddRange(new object[] {
+            "None",
+            "Ink Saver Main",
+            "Ink Saver Sub",
+            "Ink Recovery Up",
+            "Run Speed Up",
+            "Swim Speed Up",
+            "Special Charge Up",
+            "Special Saver",
+            "Special Power Up",
+            "Quick Respawn",
+            "Quick Super Jump",
+            "Sub Power Up",
+            "Ink Resistance Up",
+            "Sub Resistance Up",
+            "Intensify Action"});
+            this.gearS1ComboBox.Location = new System.Drawing.Point(86, 108);
+            this.gearS1ComboBox.Name = "gearS1ComboBox";
+            this.gearS1ComboBox.Size = new System.Drawing.Size(118, 21);
+            this.gearS1ComboBox.TabIndex = 18;
+            // 
+            // gearSubAbility1Label
+            // 
+            this.gearSubAbility1Label.AutoSize = true;
+            this.gearSubAbility1Label.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearSubAbility1Label.Location = new System.Drawing.Point(6, 111);
+            this.gearSubAbility1Label.Name = "gearSubAbility1Label";
+            this.gearSubAbility1Label.Size = new System.Drawing.Size(72, 13);
+            this.gearSubAbility1Label.TabIndex = 17;
+            this.gearSubAbility1Label.Text = "Sub Ability 1:";
+            // 
+            // gearMAComboBox
+            // 
+            this.gearMAComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gearMAComboBox.Enabled = false;
+            this.gearMAComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearMAComboBox.FormattingEnabled = true;
+            this.gearMAComboBox.Items.AddRange(new object[] {
+            "Ink Saver Main",
+            "Ink Saver Sub",
+            "Ink Recovery Up",
+            "Run Speed Up",
+            "Swim Speed Up",
+            "Special Charge Up",
+            "Special Saver",
+            "Special Power Up",
+            "Quick Respawn",
+            "Quick Super Jump",
+            "Sub Power Up",
+            "Ink Resistance Up",
+            "Sub Resistance Up",
+            "Intensify Action",
+            "Opening Gambit",
+            "Last Ditch Effort",
+            "Tenacity",
+            "Comeback",
+            "Ninja Squid",
+            "Haunt",
+            "Thermal Ink",
+            "Respawn Punisher",
+            "Ability Doubler",
+            "Stealth Jump",
+            "Object Shredder",
+            "Drop Roller"});
+            this.gearMAComboBox.Location = new System.Drawing.Point(86, 81);
+            this.gearMAComboBox.Name = "gearMAComboBox";
+            this.gearMAComboBox.Size = new System.Drawing.Size(118, 21);
+            this.gearMAComboBox.TabIndex = 16;
+            // 
+            // gearMainAbilityLabel
+            // 
+            this.gearMainAbilityLabel.AutoSize = true;
+            this.gearMainAbilityLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearMainAbilityLabel.Location = new System.Drawing.Point(6, 84);
+            this.gearMainAbilityLabel.Name = "gearMainAbilityLabel";
+            this.gearMainAbilityLabel.Size = new System.Drawing.Size(71, 13);
+            this.gearMainAbilityLabel.TabIndex = 15;
+            this.gearMainAbilityLabel.Text = "Main Ability:";
+            // 
+            // gearStarsNumUpDown
+            // 
+            this.gearStarsNumUpDown.Enabled = false;
+            this.gearStarsNumUpDown.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearStarsNumUpDown.Location = new System.Drawing.Point(221, 26);
+            this.gearStarsNumUpDown.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.gearStarsNumUpDown.Name = "gearStarsNumUpDown";
+            this.gearStarsNumUpDown.Size = new System.Drawing.Size(35, 22);
+            this.gearStarsNumUpDown.TabIndex = 14;
+            // 
+            // gearStarsLabel
+            // 
+            this.gearStarsLabel.AutoSize = true;
+            this.gearStarsLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearStarsLabel.Location = new System.Drawing.Point(180, 29);
+            this.gearStarsLabel.Name = "gearStarsLabel";
+            this.gearStarsLabel.Size = new System.Drawing.Size(35, 13);
+            this.gearStarsLabel.TabIndex = 3;
+            this.gearStarsLabel.Text = "Stars:";
+            // 
+            // gearidkExpCheckbox
+            // 
+            this.gearidkExpCheckbox.AutoSize = true;
+            this.gearidkExpCheckbox.Enabled = false;
+            this.gearidkExpCheckbox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearidkExpCheckbox.Location = new System.Drawing.Point(180, 56);
+            this.gearidkExpCheckbox.Name = "gearidkExpCheckbox";
+            this.gearidkExpCheckbox.Size = new System.Drawing.Size(88, 17);
+            this.gearidkExpCheckbox.TabIndex = 2;
+            this.gearidkExpCheckbox.Text = "I don\'t know";
+            this.gearidkExpCheckbox.UseVisualStyleBackColor = true;
+            this.gearidkExpCheckbox.CheckedChanged += new System.EventHandler(this.gearidkExpCheckbox_CheckedChanged);
+            // 
+            // gearExpNumUpDown
+            // 
+            this.gearExpNumUpDown.Enabled = false;
+            this.gearExpNumUpDown.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearExpNumUpDown.Location = new System.Drawing.Point(86, 53);
+            this.gearExpNumUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gearExpNumUpDown.Name = "gearExpNumUpDown";
+            this.gearExpNumUpDown.Size = new System.Drawing.Size(79, 22);
+            this.gearExpNumUpDown.TabIndex = 1;
+            // 
+            // currenteExpLabel
+            // 
+            this.currenteExpLabel.AutoSize = true;
+            this.currenteExpLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.currenteExpLabel.Location = new System.Drawing.Point(6, 57);
+            this.currenteExpLabel.Name = "currenteExpLabel";
+            this.currenteExpLabel.Size = new System.Drawing.Size(69, 13);
+            this.currenteExpLabel.TabIndex = 0;
+            this.currenteExpLabel.Text = "Current EXP:";
+            // 
+            // gearTypeComboBox
+            // 
+            this.gearTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gearTypeComboBox.Enabled = false;
+            this.gearTypeComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearTypeComboBox.FormattingEnabled = true;
+            this.gearTypeComboBox.Items.AddRange(new object[] {
+            "Headgear",
+            "Clothes",
+            "Shoes"});
+            this.gearTypeComboBox.Location = new System.Drawing.Point(86, 26);
+            this.gearTypeComboBox.Name = "gearTypeComboBox";
+            this.gearTypeComboBox.Size = new System.Drawing.Size(79, 21);
+            this.gearTypeComboBox.TabIndex = 13;
+            // 
+            // gearTypeLabel
+            // 
+            this.gearTypeLabel.AutoSize = true;
+            this.gearTypeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gearTypeLabel.Location = new System.Drawing.Point(6, 30);
+            this.gearTypeLabel.Name = "gearTypeLabel";
+            this.gearTypeLabel.Size = new System.Drawing.Size(61, 13);
+            this.gearTypeLabel.TabIndex = 12;
+            this.gearTypeLabel.Text = "Gear Type:";
+            // 
+            // gearSeedFinderLabel
+            // 
+            this.gearSeedFinderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.gearSeedFinderLabel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.gearSeedFinderLabel.Location = new System.Drawing.Point(6, 3);
+            this.gearSeedFinderLabel.Name = "gearSeedFinderLabel";
+            this.gearSeedFinderLabel.Size = new System.Drawing.Size(348, 15);
+            this.gearSeedFinderLabel.TabIndex = 11;
+            this.gearSeedFinderLabel.Text = "GEAR SEED FINDER";
+            this.gearSeedFinderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // restoreMoneyButton
             // 
@@ -1479,7 +1797,7 @@
             this.MaximumSize = new System.Drawing.Size(423, 531);
             this.MinimumSize = new System.Drawing.Size(423, 531);
             this.Name = "MainForm";
-            this.Text = "ShiverBot v1.0";
+            this.Text = "ShiverBot v1.1";
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).EndInit();
             this.advancedGroupBox.ResumeLayout(false);
@@ -1558,8 +1876,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            this.tableTurfTabPage.ResumeLayout(false);
-            this.tableTurfTabPage.PerformLayout();
+            this.gearTabPage.ResumeLayout(false);
+            this.gearTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1668,6 +1988,24 @@
         private NumericUpDown drink0NumUpDown;
         private Label creatorLabel;
         private Label creatorLabel2;
-        private Label label1;
+        private TabPage gearTabPage;
+        private Label gearSeedFinderLabel;
+        private ComboBox gearMAComboBox;
+        private Label gearMainAbilityLabel;
+        private NumericUpDown gearStarsNumUpDown;
+        private Label gearStarsLabel;
+        private CheckBox gearidkExpCheckbox;
+        private NumericUpDown gearExpNumUpDown;
+        private Label currenteExpLabel;
+        private ComboBox gearTypeComboBox;
+        private Label gearTypeLabel;
+        private Label gearSeedFinderLabel2;
+        private Button gearSearchButton;
+        private ComboBox gearS3ComboBox;
+        private Label gearSubAbility3Label;
+        private ComboBox gearS2ComboBox;
+        private Label gearSubAbility2Label;
+        private ComboBox gearS1ComboBox;
+        private Label gearSubAbility1Label;
     }
 }

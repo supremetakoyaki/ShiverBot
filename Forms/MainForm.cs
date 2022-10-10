@@ -32,6 +32,11 @@ namespace ShiverBot.Forms
             drinkTicketAddresses = new long[14];
 
             statusLabel.Text = "unconnected";
+            gearTypeComboBox.SelectedIndex = 0;
+            gearMAComboBox.SelectedIndex = 0;
+            gearS1ComboBox.SelectedIndex = 0;
+            gearS2ComboBox.SelectedIndex = 0;
+            gearS3ComboBox.SelectedIndex = 0;
 
             Task.Factory.StartNew(UpdateThread);
         }
@@ -199,6 +204,26 @@ namespace ShiverBot.Forms
 
         }
 
+        private void SetGearSeedFinderBoxesStatus(bool flag)
+        {
+            gearTypeComboBox.Enabled = flag;
+            gearidkExpCheckbox.Enabled = flag;
+            if (flag && gearidkExpCheckbox.Checked)
+            {
+                gearExpNumUpDown.Enabled = false;
+            }
+            else
+            {
+                gearExpNumUpDown.Enabled = flag;
+            }
+            gearStarsNumUpDown.Enabled = flag;
+            gearMAComboBox.Enabled = flag;
+            gearS1ComboBox.Enabled = flag;
+            gearS2ComboBox.Enabled = flag;
+            gearS3ComboBox.Enabled = flag;
+            gearSearchButton.Enabled = flag;
+        }
+
         private void TryDisconnect()
         {
             _connectionManager.TryDisconnect();
@@ -215,6 +240,7 @@ namespace ShiverBot.Forms
             }
             moneyNumUpDown.Enabled = false;
             moneyNumUpDown.Value = 0;
+            SetGearSeedFinderBoxesStatus(false);
         }
 
         private void UpdateThread()
@@ -311,6 +337,7 @@ namespace ShiverBot.Forms
             ShowChunks();
             ShowFoodAndDrinkTickets();
             ShowTableTurfData();
+            SetGearSeedFinderBoxesStatus(true);
             readyForUserInput = true;
         }
 
@@ -1026,6 +1053,81 @@ namespace ShiverBot.Forms
 
             uint amount = (uint)drink13NumUpDown.Value;
             _connectionManager.PokeAddress(drinkTicketAddresses[13], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+        }
+
+        private void gearidkExpCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            gearExpNumUpDown.Enabled = !gearidkExpCheckbox.Checked;
+        }
+
+        private void gearSearchButton_Click(object sender, EventArgs e)
+        {
+            if (!readyForUserInput || gameBuild == null)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            long baseAddress = Convert.ToInt64(gameBuild.GearBase, 16);
+            if (gearTypeComboBox.SelectedIndex == 1)
+            {
+                baseAddress += 0x2C020;
+            }
+            else if (gearTypeComboBox.SelectedIndex == 2)
+            {
+                baseAddress += 0x2C020 + 0x2C020;
+            }
+
+            int maxGearAmount = 1023;
+            int gearRamSize = 176;
+            byte[]? searchData = _connectionManager.PeekAddress(baseAddress, maxGearAmount * gearRamSize);
+            if (searchData == null)
+            {
+                MessageBox.Show("error: failed to search");
+                return;
+            }
+
+            List<(long, uint)> results = new();
+
+            int pointer = 0;
+            for (int i = 0; i < maxGearAmount; i++)
+            {
+                int gearExp = BitConverter.ToInt32(searchData.AsSpan()[pointer..(pointer + 4)]);
+                int stars = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 8)..(pointer + 12)]);
+                int mainAbility = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 12)..(pointer + 16)]) - 1;
+                //int subAmount = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 32)..(pointer + 36)]);
+                int sub1 = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 36)..(pointer + 40)]);
+                int sub2 = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 40)..(pointer + 44)]);
+                int sub3 = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 44)..(pointer + 48)]);
+                uint gearSeed = BitConverter.ToUInt32(searchData.AsSpan()[(pointer + 56)..(pointer + 60)]);
+
+                if (stars == gearStarsNumUpDown.Value 
+                    && mainAbility == gearMAComboBox.SelectedIndex
+                    && sub1 == gearS1ComboBox.SelectedIndex
+                    && sub2 == gearS2ComboBox.SelectedIndex
+                    && sub3 == gearS3ComboBox.SelectedIndex
+                    && (gearidkExpCheckbox.Checked || gearExp == gearExpNumUpDown.Value))
+                {
+                    results.Add((baseAddress + pointer, gearSeed));
+                }
+
+                pointer += gearRamSize;
+            }
+
+            if (results.Count == 0)
+            {
+                MessageBox.Show("no results");
+            }
+            else
+            {
+                GearSeedFinderResultsForm resultsForm = new();
+                resultsForm.ShowResults(results);
+                resultsForm.ShowDialog();
+            }
         }
     }
 }
