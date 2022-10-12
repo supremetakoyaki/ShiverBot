@@ -25,3 +25,8 @@ There is also an advanced RAM editing option, for debugging and making tests. If
 2. You must be in the game's lobby, as making modifications elsewhere may cause an error in the game.
 3. Click "save" to inject the amount of money you inputted. Ability chunks and tickets get injected automatically when you change the values.
 4. To store your changes in-game, make a transaction in a place **that is not a shop** (buy a gacha capsule, get a food/drink, use your chunks via Murch etc.)
+
+# Troubleshooting
+- If you can't open the program because you're missing frameworks for .NET, [download and install this](https://dotnet.microsoft.com/en-us/...u/runtime-desktop-6.0.9-windows-x64-installer).
+- Make sure you're running the game in English (US or EU). Other languages are known to have differences in memory addresses.
+- If you can't connect to sys-botbase, follow this [external guide](https://github.com/kwsch/SysBot.NET/wiki/Troubleshooting-Connection-Errors) for advice.
