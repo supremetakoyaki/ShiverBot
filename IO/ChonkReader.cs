@@ -4,7 +4,7 @@ namespace ShiverBot.IO
 {
     internal static class ChonkReader
     {
-        internal static void GetData(string addressStr, int bytesToRead, bool main, ConnectionManager cM, string fileName)
+        internal static void GetData(string addressStr, int bytesToRead, byte mode, ConnectionManager cM, string fileName)
         {
             using FileStream fS = new(fileName, FileMode.Create, FileAccess.Write);
             long address = Convert.ToInt64(addressStr, 16);
@@ -19,13 +19,20 @@ namespace ShiverBot.IO
                 }
 
                 byte[]? data;
-                if (main)
+                switch (mode)
                 {
-                    data = cM.PeekMainAddress(address, chunkSize);
-                }
-                else
-                {
-                    data = cM.PeekAddress(address, chunkSize);
+                    case 0:
+                    default:
+                        data = cM.PeekAddress(address, chunkSize);
+                        break;
+
+                    case 1:
+                        data = cM.PeekMainAddress(address, chunkSize);
+                        break;
+
+                    case 2:
+                        data = cM.PeekAbsoluteAddress(address, chunkSize);
+                        break;
                 }
 
                 fS.Write(data);

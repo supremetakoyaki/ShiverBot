@@ -126,7 +126,28 @@ namespace ShiverBot.Network
         {
             return PeekMainAddress($"{address:x8}", size);
         }
-        
+
+        public byte[]? PeekAbsoluteAddress(string address, int size)
+        {
+            if (sysSocket == null || !IsSwitchConnected)
+            {
+                return null;
+            }
+
+            string message = $"peekAbsolute 0x{address} {size}\r\n";
+            byte[] messageBytes = Encoding.ASCII.GetBytes(message);
+            sysSocket.Send(messageBytes);
+
+            byte[] buffer = new byte[(size * 2) + 1];
+            ReceiveBytes(buffer);
+            return DecoderUtil.ConvertHexByteStringToBytes(buffer);
+        }
+
+        public byte[]? PeekAbsoluteAddress(long address, int size)
+        {
+            return PeekAbsoluteAddress($"{address:x8}", size);
+        }
+
         public void PokeAddress(string address, string data)
         {
             SendMessage($"poke 0x{address} 0x{data}\r\n");

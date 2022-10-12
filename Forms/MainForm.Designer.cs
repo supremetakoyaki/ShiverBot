@@ -123,6 +123,8 @@
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.tableTurfTabPage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableTurfExpLabel = new System.Windows.Forms.Label();
             this.gearTabPage = new System.Windows.Forms.TabPage();
             this.gearSeedFinderLabel2 = new System.Windows.Forms.Label();
             this.gearSearchButton = new System.Windows.Forms.Button();
@@ -148,8 +150,7 @@
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
-            this.tableTurfExpLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.readAbsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -253,7 +254,7 @@
             // 
             // readButton
             // 
-            this.readButton.Location = new System.Drawing.Point(282, 18);
+            this.readButton.Location = new System.Drawing.Point(217, 53);
             this.readButton.Name = "readButton";
             this.readButton.Size = new System.Drawing.Size(77, 23);
             this.readButton.TabIndex = 105;
@@ -274,7 +275,7 @@
             // 
             this.bytesToReadNumUpDown.Location = new System.Drawing.Point(136, 38);
             this.bytesToReadNumUpDown.Maximum = new decimal(new int[] {
-            4000000,
+            40000000,
             0,
             0,
             0});
@@ -284,7 +285,7 @@
             0,
             0});
             this.bytesToReadNumUpDown.Name = "bytesToReadNumUpDown";
-            this.bytesToReadNumUpDown.Size = new System.Drawing.Size(54, 23);
+            this.bytesToReadNumUpDown.Size = new System.Drawing.Size(70, 23);
             this.bytesToReadNumUpDown.TabIndex = 103;
             this.bytesToReadNumUpDown.Value = new decimal(new int[] {
             4,
@@ -312,6 +313,7 @@
             // 
             // advancedGroupBox
             // 
+            this.advancedGroupBox.Controls.Add(this.readAbsButton);
             this.advancedGroupBox.Controls.Add(this.readMainButton);
             this.advancedGroupBox.Controls.Add(this.saveToFileCheckBox);
             this.advancedGroupBox.Controls.Add(this.writeButton);
@@ -331,7 +333,7 @@
             // 
             // readMainButton
             // 
-            this.readMainButton.Location = new System.Drawing.Point(282, 47);
+            this.readMainButton.Location = new System.Drawing.Point(300, 53);
             this.readMainButton.Name = "readMainButton";
             this.readMainButton.Size = new System.Drawing.Size(77, 23);
             this.readMainButton.TabIndex = 106;
@@ -344,7 +346,7 @@
             this.saveToFileCheckBox.AutoSize = true;
             this.saveToFileCheckBox.Checked = true;
             this.saveToFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.saveToFileCheckBox.Location = new System.Drawing.Point(196, 39);
+            this.saveToFileCheckBox.Location = new System.Drawing.Point(136, 67);
             this.saveToFileCheckBox.Name = "saveToFileCheckBox";
             this.saveToFileCheckBox.Size = new System.Drawing.Size(82, 19);
             this.saveToFileCheckBox.TabIndex = 104;
@@ -353,7 +355,7 @@
             // 
             // writeButton
             // 
-            this.writeButton.Location = new System.Drawing.Point(282, 97);
+            this.writeButton.Location = new System.Drawing.Point(300, 103);
             this.writeButton.Name = "writeButton";
             this.writeButton.Size = new System.Drawing.Size(77, 23);
             this.writeButton.TabIndex = 109;
@@ -363,7 +365,7 @@
             // 
             // pokeDataTextBox
             // 
-            this.pokeDataTextBox.Location = new System.Drawing.Point(136, 97);
+            this.pokeDataTextBox.Location = new System.Drawing.Point(136, 103);
             this.pokeDataTextBox.Name = "pokeDataTextBox";
             this.pokeDataTextBox.PlaceholderText = "Data (without 0x)";
             this.pokeDataTextBox.Size = new System.Drawing.Size(124, 23);
@@ -371,7 +373,7 @@
             // 
             // pokeAddressTextBox
             // 
-            this.pokeAddressTextBox.Location = new System.Drawing.Point(6, 97);
+            this.pokeAddressTextBox.Location = new System.Drawing.Point(6, 103);
             this.pokeAddressTextBox.Name = "pokeAddressTextBox";
             this.pokeAddressTextBox.PlaceholderText = "Address (without 0x)";
             this.pokeAddressTextBox.Size = new System.Drawing.Size(124, 23);
@@ -380,7 +382,7 @@
             // pokeLabel
             // 
             this.pokeLabel.AutoSize = true;
-            this.pokeLabel.Location = new System.Drawing.Point(6, 79);
+            this.pokeLabel.Location = new System.Drawing.Point(6, 85);
             this.pokeLabel.Name = "pokeLabel";
             this.pokeLabel.Size = new System.Drawing.Size(62, 15);
             this.pokeLabel.TabIndex = 106;
@@ -1407,6 +1409,27 @@
             this.tableTurfTabPage.Text = "Table Turf";
             this.tableTurfTabPage.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.Location = new System.Drawing.Point(6, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(348, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "TABLE TURF";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableTurfExpLabel
+            // 
+            this.tableTurfExpLabel.AutoSize = true;
+            this.tableTurfExpLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.tableTurfExpLabel.Location = new System.Drawing.Point(6, 36);
+            this.tableTurfExpLabel.Name = "tableTurfExpLabel";
+            this.tableTurfExpLabel.Size = new System.Drawing.Size(161, 15);
+            this.tableTurfExpLabel.TabIndex = 0;
+            this.tableTurfExpLabel.Text = "Table Turf Level: {0} ({1} EXP)";
+            // 
             // gearTabPage
             // 
             this.gearTabPage.Controls.Add(this.gearSeedFinderLabel2);
@@ -1783,26 +1806,15 @@
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
             // 
-            // tableTurfExpLabel
+            // readAbsButton
             // 
-            this.tableTurfExpLabel.AutoSize = true;
-            this.tableTurfExpLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.tableTurfExpLabel.Location = new System.Drawing.Point(6, 36);
-            this.tableTurfExpLabel.Name = "tableTurfExpLabel";
-            this.tableTurfExpLabel.Size = new System.Drawing.Size(161, 15);
-            this.tableTurfExpLabel.TabIndex = 0;
-            this.tableTurfExpLabel.Text = "Table Turf Level: {0} ({1} EXP)";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(6, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 15);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "TABLE TURF";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.readAbsButton.Location = new System.Drawing.Point(217, 24);
+            this.readAbsButton.Name = "readAbsButton";
+            this.readAbsButton.Size = new System.Drawing.Size(158, 23);
+            this.readAbsButton.TabIndex = 110;
+            this.readAbsButton.Text = "read absolute";
+            this.readAbsButton.UseVisualStyleBackColor = true;
+            this.readAbsButton.Click += new System.EventHandler(this.readAbsButton_Click);
             // 
             // MainForm
             // 
@@ -2037,5 +2049,6 @@
         private Label gearSubAbility1Label;
         private Label label1;
         private Label tableTurfExpLabel;
+        private Button readAbsButton;
     }
 }
