@@ -396,22 +396,29 @@ namespace ShiverBot.Forms
                 return;
             }
 
-            byte[]? data = _connectionManager.PeekAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
-
-            if (data != null)
+            int bytesToRead = (int)bytesToReadNumUpDown.Value;
+            if (bytesToRead < 4194304)
             {
+                if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
+                {
+                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
+                    return;
+                }
+
+                byte[]? data = _connectionManager.PeekAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
+                if (data == null)
+                {
+                    return;
+                }
+
                 if (saveToFileCheckBox.Checked)
                 {
                     using SaveFileDialog sfd = new();
-                    sfd.FileName = $"HEAP+{addressTextBox.Text} ({bytesToReadNumUpDown.Value}).bin";
+                    sfd.FileName = $"HEAP+{addressTextBox.Text} ({bytesToRead}).bin";
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(sfd.FileName, data);
                     }
-                }
-                else if (bytesToReadNumUpDown.Value > 128)
-                {
-                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
                 }
                 else
                 {
@@ -423,6 +430,18 @@ namespace ShiverBot.Forms
 
                     MessageBox.Show(sb.ToString());
                 }
+            }
+            else if (bytesToRead > 4194304 && MessageBox.Show("This may take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+            {
+                using SaveFileDialog sfd = new();
+                sfd.FileName = $"HEAP+{addressTextBox.Text} ({bytesToRead}).bin";
+                if (sfd.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                ChonkReader.GetData(addressTextBox.Text, bytesToRead, false, _connectionManager, sfd.FileName);
+                MessageBox.Show("finished~!");
             }
         }
 
@@ -434,22 +453,29 @@ namespace ShiverBot.Forms
                 return;
             }
 
-            byte[]? data = _connectionManager.PeekMainAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
-
-            if (data != null)
+            int bytesToRead = (int)bytesToReadNumUpDown.Value;
+            if (bytesToRead < 4194304)
             {
+                if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
+                {
+                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
+                    return;
+                }
+
+                byte[]? data = _connectionManager.PeekMainAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
+                if (data == null)
+                {
+                    return;
+                }
+
                 if (saveToFileCheckBox.Checked)
                 {
                     using SaveFileDialog sfd = new();
-                    sfd.FileName = $"MAIN+{addressTextBox.Text} ({bytesToReadNumUpDown.Value}).bin";
+                    sfd.FileName = $"MAIN+{addressTextBox.Text} ({bytesToRead}).bin";
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(sfd.FileName, data);
                     }
-                }
-                else if (bytesToReadNumUpDown.Value > 128)
-                {
-                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
                 }
                 else
                 {
@@ -461,6 +487,18 @@ namespace ShiverBot.Forms
 
                     MessageBox.Show(sb.ToString());
                 }
+            }
+            else if (bytesToRead > 4194304 && MessageBox.Show("This may take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+            {
+                using SaveFileDialog sfd = new();
+                sfd.FileName = $"MAIN+{addressTextBox.Text} ({bytesToRead}).bin";
+                if (sfd.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                ChonkReader.GetData(addressTextBox.Text, bytesToRead, true, _connectionManager, sfd.FileName);
+                MessageBox.Show("finished~!");
             }
         }
 

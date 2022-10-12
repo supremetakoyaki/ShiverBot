@@ -121,6 +121,11 @@ namespace ShiverBot.Network
             ReceiveBytes(buffer);
             return DecoderUtil.ConvertHexByteStringToBytes(buffer);
         }
+
+        public byte[]? PeekMainAddress(long address, int size)
+        {
+            return PeekMainAddress($"{address:x8}", size);
+        }
         
         public void PokeAddress(string address, string data)
         {
