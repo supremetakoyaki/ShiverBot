@@ -2,11 +2,11 @@
 {
     internal class SavedBuildReader
     {
-        private Dictionary<string, SavedBuild> savedBuilds;
+        private readonly Dictionary<string, SavedBuild> _savedBuilds;
 
         internal SavedBuildReader()
         {
-            savedBuilds = new();
+            _savedBuilds = new();
             foreach (string fileName in Directory.GetFiles("addresses/"))
             {
                 string[] contents = File.ReadAllLines(fileName);
@@ -16,8 +16,8 @@
                 string? chunkBase = null;
                 string? foodTicketBase = null;
                 string? drinkTicketBase = null;
-                string? tableTurfBase = null;
                 string? gearBase = null;
+                string? tableTurfRankBase = null;
 
                 foreach (string line in contents)
                 {
@@ -52,28 +52,28 @@
                                 drinkTicketBase = data[1];
                                 break;
 
-                            case "tableTurfBase":
-                                tableTurfBase = data[1];
-                                break;
-
                             case "gearBase":
                                 gearBase = data[1];
+                                break;
+
+                            case "tableTurfRankBase":
+                                tableTurfRankBase = data[1];
                                 break;
                         }
                     }
                 }
 
-                if (version == null || moneyBase == null || chunkBase == null || foodTicketBase == null || drinkTicketBase == null || tableTurfBase == null || gearBase == null)
+                if (version == null || moneyBase == null || chunkBase == null || foodTicketBase == null || drinkTicketBase == null || gearBase == null || tableTurfRankBase == null)
                 {
                     MessageBox.Show("error: build file {buildId} is incomplete.");
                 }
                 else
                 {
-                    savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, tableTurfBase, gearBase));
+                    _savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, gearBase, tableTurfRankBase));
                 }
             }
 
-            if (savedBuilds.Count == 0)
+            if (_savedBuilds.Count == 0)
             {
                 MessageBox.Show("error: there were no valid address files.");
             }
@@ -81,7 +81,7 @@
 
         internal SavedBuild? GetBuild(string buildId)
         {
-            if (savedBuilds.TryGetValue(buildId, out SavedBuild? build))
+            if (_savedBuilds.TryGetValue(buildId, out SavedBuild? build))
             {
                 return build;
             }

@@ -148,7 +148,8 @@
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
-            this.comingSoonLabel = new System.Windows.Forms.Label();
+            this.tableTurfExpLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -490,7 +491,7 @@
             this.chunk13NumUpDown.Enabled = false;
             this.chunk13NumUpDown.Location = new System.Drawing.Point(312, 162);
             this.chunk13NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -535,7 +536,7 @@
             this.chunk12NumUpDown.Enabled = false;
             this.chunk12NumUpDown.Location = new System.Drawing.Point(261, 162);
             this.chunk12NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -549,7 +550,7 @@
             this.chunk0NumUpDown.Enabled = false;
             this.chunk0NumUpDown.Location = new System.Drawing.Point(6, 72);
             this.chunk0NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -583,7 +584,7 @@
             this.chunk11NumUpDown.Enabled = false;
             this.chunk11NumUpDown.Location = new System.Drawing.Point(210, 162);
             this.chunk11NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -597,7 +598,7 @@
             this.chunk1NumUpDown.Enabled = false;
             this.chunk1NumUpDown.Location = new System.Drawing.Point(57, 72);
             this.chunk1NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -631,7 +632,7 @@
             this.chunk10NumUpDown.Enabled = false;
             this.chunk10NumUpDown.Location = new System.Drawing.Point(159, 162);
             this.chunk10NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -645,7 +646,7 @@
             this.chunk2NumUpDown.Enabled = false;
             this.chunk2NumUpDown.Location = new System.Drawing.Point(108, 72);
             this.chunk2NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -679,7 +680,7 @@
             this.chunk9NumUpDown.Enabled = false;
             this.chunk9NumUpDown.Location = new System.Drawing.Point(108, 162);
             this.chunk9NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -693,7 +694,7 @@
             this.chunk3NumUpDown.Enabled = false;
             this.chunk3NumUpDown.Location = new System.Drawing.Point(159, 72);
             this.chunk3NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -727,7 +728,7 @@
             this.chunk8NumUpDown.Enabled = false;
             this.chunk8NumUpDown.Location = new System.Drawing.Point(57, 162);
             this.chunk8NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -741,7 +742,7 @@
             this.chunk4NumUpDown.Enabled = false;
             this.chunk4NumUpDown.Location = new System.Drawing.Point(210, 72);
             this.chunk4NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -775,7 +776,7 @@
             this.chunk7NumUpDown.Enabled = false;
             this.chunk7NumUpDown.Location = new System.Drawing.Point(6, 162);
             this.chunk7NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -789,7 +790,7 @@
             this.chunk5NumUpDown.Enabled = false;
             this.chunk5NumUpDown.Location = new System.Drawing.Point(261, 72);
             this.chunk5NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -823,7 +824,7 @@
             this.chunk6NumUpDown.Enabled = false;
             this.chunk6NumUpDown.Location = new System.Drawing.Point(312, 72);
             this.chunk6NumUpDown.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -1397,7 +1398,8 @@
             // 
             // tableTurfTabPage
             // 
-            this.tableTurfTabPage.Controls.Add(this.comingSoonLabel);
+            this.tableTurfTabPage.Controls.Add(this.label1);
+            this.tableTurfTabPage.Controls.Add(this.tableTurfExpLabel);
             this.tableTurfTabPage.Location = new System.Drawing.Point(4, 24);
             this.tableTurfTabPage.Name = "tableTurfTabPage";
             this.tableTurfTabPage.Size = new System.Drawing.Size(363, 194);
@@ -1781,14 +1783,26 @@
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
             // 
-            // comingSoonLabel
+            // tableTurfExpLabel
             // 
-            this.comingSoonLabel.AutoSize = true;
-            this.comingSoonLabel.Location = new System.Drawing.Point(139, 86);
-            this.comingSoonLabel.Name = "comingSoonLabel";
-            this.comingSoonLabel.Size = new System.Drawing.Size(85, 15);
-            this.comingSoonLabel.TabIndex = 0;
-            this.comingSoonLabel.Text = "coming soon~";
+            this.tableTurfExpLabel.AutoSize = true;
+            this.tableTurfExpLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.tableTurfExpLabel.Location = new System.Drawing.Point(6, 36);
+            this.tableTurfExpLabel.Name = "tableTurfExpLabel";
+            this.tableTurfExpLabel.Size = new System.Drawing.Size(161, 15);
+            this.tableTurfExpLabel.TabIndex = 0;
+            this.tableTurfExpLabel.Text = "Table Turf Level: {0} ({1} EXP)";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.Location = new System.Drawing.Point(6, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(348, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "TABLE TURF";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -1809,7 +1823,7 @@
             this.MaximumSize = new System.Drawing.Size(423, 531);
             this.MinimumSize = new System.Drawing.Size(423, 531);
             this.Name = "MainForm";
-            this.Text = "ShiverBot v1.1";
+            this.Text = "ShiverBot v1.2";
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).EndInit();
             this.advancedGroupBox.ResumeLayout(false);
@@ -2021,6 +2035,7 @@
         private Label gearSubAbility2Label;
         private ComboBox gearS1ComboBox;
         private Label gearSubAbility1Label;
-        private Label comingSoonLabel;
+        private Label label1;
+        private Label tableTurfExpLabel;
     }
 }

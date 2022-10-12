@@ -17,9 +17,9 @@ namespace ShiverBot.Forms
         private bool advancedWarningShown = false;
         private int autoUpdateCount = 10;
 
-        private long[] chunkAddresses;
-        private long[] foodTicketAddresses;
-        private long[] drinkTicketAddresses;
+        private readonly long[] _chunkAddresses;
+        private readonly long[] _foodTicketAddresses;
+        private readonly long[] _drinkTicketAddresses;
         private bool ismFlag = false;
 
         public MainForm()
@@ -27,9 +27,9 @@ namespace ShiverBot.Forms
             InitializeComponent();
             _connectionManager = new();
             _savedBuildReader = new();
-            chunkAddresses = new long[14];
-            foodTicketAddresses = new long[6];
-            drinkTicketAddresses = new long[14];
+            _chunkAddresses = new long[14];
+            _foodTicketAddresses = new long[6];
+            _drinkTicketAddresses = new long[14];
 
             statusLabel.Text = "unconnected";
             gearTypeComboBox.SelectedIndex = 0;
@@ -103,7 +103,7 @@ namespace ShiverBot.Forms
                         ismFlag = true;
                     }
 
-                    if (chunkAmount < 0 || chunkAmount > 999)
+                    if (chunkAmount < 0 || chunkAmount > 1000)
                     {
                         MessageBox.Show($"error: retrieved an invalid amount of chunks for ability {abilityId} ({ability}). please delete all AMS cheat files, restart the game and try again.");
                         return;
@@ -113,7 +113,7 @@ namespace ShiverBot.Forms
                     chunkNumUpDown.Value = chunkAmount;
                     chunkNumUpDown.Enabled = true;
                     chunkNumUpDown.Tag = ability;
-                    chunkAddresses[abilityId] = address + pointer + 4;
+                    _chunkAddresses[abilityId] = address + pointer + 4;
                 }
             }
 
@@ -159,7 +159,7 @@ namespace ShiverBot.Forms
                     foodNumUpDown.Value = foodTicketAmount;
                     foodNumUpDown.Enabled = true;
                     foodNumUpDown.Tag = foodTicket;
-                    foodTicketAddresses[foodTicketId - 1] = foodTicketAddress + pointer + 4;
+                    _foodTicketAddresses[foodTicketId - 1] = foodTicketAddress + pointer + 4;
                 }
             }
 
@@ -192,7 +192,7 @@ namespace ShiverBot.Forms
                     drinkNumUpDown.Value = drinkTicketAmount;
                     drinkNumUpDown.Enabled = true;
                     drinkNumUpDown.Tag = drinkTicket;
-                    drinkTicketAddresses[drinkTicketId] = drinkTicketAddress + pointer + 4;
+                    _drinkTicketAddresses[drinkTicketId] = drinkTicketAddress + pointer + 4;
                 }
             }
 
@@ -201,7 +201,18 @@ namespace ShiverBot.Forms
 
         private void ShowTableTurfData()
         {
+            if (gameBuild == null)
+            {
+                MessageBox.Show("error: no addresses for this version loaded.");
+                return;
+            }
 
+            byte[]? rankData = _connectionManager.PeekAddress(gameBuild.TableTurfRankBase, 4);
+            if (rankData != null)
+            {
+                int expPts = BitConverter.ToInt32(rankData);
+                tableTurfExpLabel.Text = $"Table Turf Level: {TableTurfLevelTable.GetLevel(expPts)} ({expPts} EXP)";
+            }
         }
 
         private void SetGearSeedFinderBoxesStatus(bool flag)
@@ -299,7 +310,14 @@ namespace ShiverBot.Forms
 
             if (!_connectionManager.TryConnect(ipTextBox.Text, 6000, out byte responseCode))
             {
-                MessageBox.Show($"error: {responseCode}");
+                if (responseCode == 0)
+                {
+                    MessageBox.Show($"error: failed to connect to the IP address.");
+                }
+                else
+                {
+                    MessageBox.Show($"error: code {responseCode}");
+                }
                 connectButton.Enabled = true;
                 connectButton.Text = "Connect";
                 statusLabel.Text = "unconnected";
@@ -385,7 +403,7 @@ namespace ShiverBot.Forms
                 if (saveToFileCheckBox.Checked)
                 {
                     using SaveFileDialog sfd = new();
-                    sfd.FileName = "data.bin";
+                    sfd.FileName = $"HEAP+{addressTextBox.Text} ({bytesToReadNumUpDown.Value}).bin";
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(sfd.FileName, data);
@@ -423,7 +441,7 @@ namespace ShiverBot.Forms
                 if (saveToFileCheckBox.Checked)
                 {
                     using SaveFileDialog sfd = new();
-                    sfd.FileName = "dataMain.bin";
+                    sfd.FileName = $"MAIN+{addressTextBox.Text} ({bytesToReadNumUpDown.Value}).bin";
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(sfd.FileName, data);
@@ -506,7 +524,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk0NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk1NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -522,7 +540,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk1NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk2NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -538,7 +556,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk2NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk3NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -554,7 +572,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk3NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk4NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -570,7 +588,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk4NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk5NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -586,7 +604,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk5NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk6NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -602,7 +620,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk6NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[6], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[6], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk7NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -618,7 +636,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk7NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[7], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[7], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk8NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -634,7 +652,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk8NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[8], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[8], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk9NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -650,7 +668,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk9NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[9], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[9], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk10NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -666,7 +684,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk10NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[10], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[10], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk11NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -682,7 +700,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk11NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[11], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[11], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk12NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -698,7 +716,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk12NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[12], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[12], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void chunk13NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -714,7 +732,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)chunk13NumUpDown.Value;
-            _connectionManager.PokeAddress(chunkAddresses[13], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_chunkAddresses[13], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void autoUpdateCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -748,7 +766,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)food1NumUpDown.Value;
-            _connectionManager.PokeAddress(foodTicketAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_foodTicketAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void food2NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -764,7 +782,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)food2NumUpDown.Value;
-            _connectionManager.PokeAddress(foodTicketAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_foodTicketAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void food3NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -780,7 +798,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)food3NumUpDown.Value;
-            _connectionManager.PokeAddress(foodTicketAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_foodTicketAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void food4NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -796,7 +814,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)food4NumUpDown.Value;
-            _connectionManager.PokeAddress(foodTicketAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_foodTicketAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void food5NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -812,7 +830,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)food5NumUpDown.Value;
-            _connectionManager.PokeAddress(foodTicketAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_foodTicketAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void food6NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -828,7 +846,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)food6NumUpDown.Value;
-            _connectionManager.PokeAddress(foodTicketAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_foodTicketAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink0NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -844,7 +862,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink0NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[0], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink1NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -860,7 +878,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink1NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[1], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink2NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -876,7 +894,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink2NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[2], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink3NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -892,7 +910,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink3NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[3], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink4NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -908,7 +926,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink4NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[4], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink5NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -924,7 +942,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink5NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[5], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink6NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -940,7 +958,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink6NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[6], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[6], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink7NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -956,7 +974,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink7NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[7], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[7], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink8NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -972,7 +990,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink8NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[8], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[8], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink9NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -988,7 +1006,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink9NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[9], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[9], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink10NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -1004,7 +1022,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink10NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[10], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[10], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink11NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -1020,7 +1038,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink11NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[11], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[11], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink12NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -1036,7 +1054,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink12NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[12], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[12], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void drink13NumUpDown_ValueChanged(object sender, EventArgs e)
@@ -1052,7 +1070,7 @@ namespace ShiverBot.Forms
             }
 
             uint amount = (uint)drink13NumUpDown.Value;
-            _connectionManager.PokeAddress(drinkTicketAddresses[13], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAddress(_drinkTicketAddresses[13], $"{(amount & 0x000000FF) << 24 | (amount & 0x0000FF00) << 8 | (amount & 0x00FF0000) >> 8 | (amount & 0xFF000000) >> 24:X8}");
         }
 
         private void gearidkExpCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -1092,7 +1110,6 @@ namespace ShiverBot.Forms
                 int gearExp = BitConverter.ToInt32(searchData.AsSpan()[pointer..(pointer + 4)]);
                 int stars = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 8)..(pointer + 12)]);
                 int mainAbility = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 12)..(pointer + 16)]) - 1;
-                //int subAmount = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 32)..(pointer + 36)]);
                 int sub1 = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 36)..(pointer + 40)]);
                 int sub2 = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 40)..(pointer + 44)]);
                 int sub3 = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 44)..(pointer + 48)]);
