@@ -263,7 +263,7 @@
             this.ipTextBox.Name = "ipTextBox";
             this.ipTextBox.PlaceholderText = "IP Address";
             this.ipTextBox.Size = new System.Drawing.Size(100, 23);
-            this.ipTextBox.TabIndex = 1;
+            this.ipTextBox.TabIndex = 0;
             this.ipTextBox.TextChanged += new System.EventHandler(this.ipTextBox_TextChanged);
             // 
             // connectButton
@@ -271,7 +271,7 @@
             this.connectButton.Location = new System.Drawing.Point(118, 11);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(80, 23);
-            this.connectButton.TabIndex = 2;
+            this.connectButton.TabIndex = 1;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);

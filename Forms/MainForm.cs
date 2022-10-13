@@ -325,41 +325,56 @@ namespace ShiverBot.Forms
         {
             while (true)
             {
-                if (autoUpdateCheckbox.Checked && _connectionManager.IsSwitchConnected)
+                try
                 {
-                    Invoke(() =>
+                    if (autoUpdateCheckbox.Checked && _connectionManager.IsSwitchConnected)
                     {
-                        if (!updatingLabel.Visible)
+                        Invoke(() =>
                         {
-                            updatingLabel.Visible = true;
-                        }
+                            if (!updatingLabel.Visible)
+                            {
+                                updatingLabel.Visible = true;
+                            }
 
-                        if (autoUpdateCount <= 0)
+                            if (autoUpdateCount <= 0)
+                            {
+                                updatingLabel.Text = "updating...";
+                                ShowMoney();
+                                ShowChunks();
+                                ShowFoodAndDrinkTickets();
+                                ShowTableTurfData();
+                                autoUpdateCount = 10;
+                            }
+                            updatingLabel.Text = $"updating in {autoUpdateCount}s...";
+                        });
+                    }
+                    else
+                    {
+                        if (autoUpdateCount < 0)
                         {
-                            updatingLabel.Text = "updating...";
-                            ShowMoney();
-                            ShowChunks();
-                            ShowFoodAndDrinkTickets();
-                            ShowTableTurfData();
                             autoUpdateCount = 10;
                         }
-                        updatingLabel.Text = $"updating in {autoUpdateCount}s...";
-                    });
-                }
-                else
-                {
-                    if (autoUpdateCount < 0)
-                    {
-                        autoUpdateCount = 10;
+
+                        if (InvokeRequired)
+                        {
+                            Invoke(() =>
+                            {
+                                updatingLabel.Visible = false;
+                            });
+                        }
+                        else
+                        {
+                            updatingLabel.Visible = false;
+                        }
+
                     }
 
-                    Invoke(() =>
-                    {
-                        updatingLabel.Visible = false;
-                    });
+                    autoUpdateCount--;
                 }
+                catch
+                {
 
-                autoUpdateCount--;
+                }
                 Thread.Sleep(999);
             }
         }
@@ -1451,7 +1466,7 @@ namespace ShiverBot.Forms
                 return;
             }
 
-            if (tableTurfPointLockCheckbox.Checked)
+            if (tableTurfCpuPointLockCheckbox.Checked)
             {
                 uint points = (uint)tableTurfCpuPointsNumUpDown.Value;
                 _connectionManager.FreezeAddress(tableTurfPointAddress + 4, $"{(points & 0x000000FF) << 24 | (points & 0x0000FF00) << 8 | (points & 0x00FF0000) >> 8 | (points & 0xFF000000) >> 24:X8}");
@@ -1490,7 +1505,7 @@ namespace ShiverBot.Forms
                 return;
             }
 
-            if (tableTurfSpecialLockCheckbox.Checked)
+            if (tableTurfCpuSpecialLockCheckbox.Checked)
             {
                 uint special = (uint)tableTurfCpuSpecialNumUpDown.Value;
                 _connectionManager.FreezeAddress(tableTurfSpecialAddress + 4, $"{(special & 0x000000FF) << 24 | (special & 0x0000FF00) << 8 | (special & 0x00FF0000) >> 8 | (special & 0xFF000000) >> 24:X8}");
@@ -1504,6 +1519,7 @@ namespace ShiverBot.Forms
         private void ipTextBox_TextChanged(object sender, EventArgs e)
         {
             Settings.Default.ipAddress = ipTextBox.Text;
+            Settings.Default.Save();
         }
     }
 }
