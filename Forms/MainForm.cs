@@ -1450,7 +1450,7 @@ namespace ShiverBot.Forms
             }
 
             uint points = (uint)tableTurfCpuPointsNumUpDown.Value;
-            _connectionManager.PokeAddress(tableTurfPointAddress + 4, $"{(points & 0x000000FF) << 24 | (points & 0x0000FF00) << 8 | (points & 0x00FF0000) >> 8 | (points & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAbsoluteAddress(tableTurfPointAddress + 4, $"{(points & 0x000000FF) << 24 | (points & 0x0000FF00) << 8 | (points & 0x00FF0000) >> 8 | (points & 0xFF000000) >> 24:X8}");
 
         }
 
@@ -1490,7 +1490,7 @@ namespace ShiverBot.Forms
             }
 
             uint special = (uint)tableTurfCpuSpecialNumUpDown.Value;
-            _connectionManager.PokeAddress(tableTurfSpecialAddress + 4, $"{(special & 0x000000FF) << 24 | (special & 0x0000FF00) << 8 | (special & 0x00FF0000) >> 8 | (special & 0xFF000000) >> 24:X8}");
+            _connectionManager.PokeAbsoluteAddress(tableTurfSpecialAddress + 4, $"{(special & 0x000000FF) << 24 | (special & 0x0000FF00) << 8 | (special & 0x00FF0000) >> 8 | (special & 0xFF000000) >> 24:X8}");
         }
 
         private void tableTurfCpuSpecialLockCheckbox_CheckedChanged(object sender, EventArgs e)

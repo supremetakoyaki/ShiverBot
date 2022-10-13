@@ -130,6 +130,16 @@ namespace ShiverBot.Network
             PokeAddress($"{address:x8}", data);
         }
 
+        public void PokeAbsoluteAddress(string address, string data)
+        {
+            SendMessage($"pokeAbsolute 0x{address} 0x{data}\r\n");
+        }
+
+        public void PokeAbsoluteAddress(long address, string data)
+        {
+            PokeAbsoluteAddress($"{address:x16}", data);
+        }
+
         public void FreezeAddress(string address, string data)
         {
             SendMessage($"freeze 0x{address} 0x{data}\r\n");
