@@ -20,6 +20,8 @@ namespace ShiverBot.Forms
         private readonly long[] _chunkAddresses;
         private readonly long[] _foodTicketAddresses;
         private readonly long[] _drinkTicketAddresses;
+        private long tableTurfSpecialAddress;
+        private long tableTurfPointAddress;
         private bool ismFlag = false;
 
         public MainForm()
@@ -30,6 +32,8 @@ namespace ShiverBot.Forms
             _chunkAddresses = new long[14];
             _foodTicketAddresses = new long[6];
             _drinkTicketAddresses = new long[14];
+            tableTurfSpecialAddress = 0;
+            tableTurfPointAddress = 0;
 
             statusLabel.Text = "unconnected";
             gearTypeComboBox.SelectedIndex = 0;
@@ -108,7 +112,7 @@ namespace ShiverBot.Forms
                         MessageBox.Show($"error: retrieved an invalid amount of chunks for ability {abilityId} ({ability}). please delete all AMS cheat files, restart the game and try again.");
                         return;
                     }
-                    
+
                     NumericUpDown chunkNumUpDown = (NumericUpDown)chunksTabPage.Controls[$"chunk{abilityId}NumUpDown"];
                     chunkNumUpDown.Value = chunkAmount;
                     chunkNumUpDown.Enabled = true;
@@ -211,8 +215,45 @@ namespace ShiverBot.Forms
             if (rankData != null)
             {
                 int expPts = BitConverter.ToInt32(rankData);
-                tableTurfExpLabel.Text = $"Table Turf Level: {TableTurfLevelTable.GetLevel(expPts)} ({expPts} EXP)";
+                tableTurfExpLabel.Text = $"Rank: {TableTurfLevelTable.GetLevel(expPts)} ({expPts} EXP)";
             }
+
+            ShowTableTurfMatch();
+        }
+
+        private void ShowTableTurfMatch()
+        {
+            if (tableTurfSpecialAddress == 0 || tableTurfPointAddress == 0)
+            {
+                SetTableTurfControlsStatus(false);
+                return;
+            }
+
+            int mySpecialPoints = BitConverter.ToInt32(_connectionManager.PeekAbsoluteAddress(tableTurfSpecialAddress, 4));
+            int cpuSpecialPoints = BitConverter.ToInt32(_connectionManager.PeekAbsoluteAddress(tableTurfSpecialAddress + 4, 4));
+
+            if (mySpecialPoints < 0 || mySpecialPoints > 10 || cpuSpecialPoints < 0 || cpuSpecialPoints > 10)
+            {
+                SetTableTurfControlsStatus(false);
+                return;
+            }
+
+            int myTurfPoints = BitConverter.ToInt32(_connectionManager.PeekAbsoluteAddress(tableTurfPointAddress, 4));
+            int cpuTurfPoints = BitConverter.ToInt32(_connectionManager.PeekAbsoluteAddress(tableTurfPointAddress + 4, 4));
+
+            if (myTurfPoints < 0 || myTurfPoints > 999 || cpuTurfPoints < 0 || cpuTurfPoints > 999)
+            {
+                SetTableTurfControlsStatus(false);
+                return;
+            }
+
+            readyForUserInput = false;
+            tableTurfSpecialNumUpDown.Value = mySpecialPoints;
+            tableTurfPointsNumUpDown.Value = myTurfPoints;
+            tableTurfCpuSpecialNumUpDown.Value = cpuSpecialPoints;
+            tableTurfCpuPointsNumUpDown.Value = cpuTurfPoints;
+            SetTableTurfControlsStatus(true);
+            readyForUserInput = true;
         }
 
         private void SetGearSeedFinderBoxesStatus(bool flag)
@@ -235,6 +276,29 @@ namespace ShiverBot.Forms
             gearSearchButton.Enabled = flag;
         }
 
+        private void SetTableTurfControlsStatus(bool flag)
+        {
+            if (!flag)
+            {
+                tableTurfPointAddress = 0;
+                tableTurfSpecialAddress = 0;
+                tableTurfPointLockCheckbox.Checked = false;
+                tableTurfSpecialLockCheckbox.Checked = false;
+                tableTurfCpuPointLockCheckbox.Checked = false;
+                tableTurfCpuSpecialLockCheckbox.Checked = false;
+                _connectionManager.UnfreezeAllAddresses();
+            }
+
+            tableTurfPointsNumUpDown.Enabled = flag;
+            tableTurfSpecialNumUpDown.Enabled = flag;
+            tableTurfCpuPointsNumUpDown.Enabled = flag;
+            tableTurfCpuSpecialNumUpDown.Enabled = flag;
+            tableTurfPointLockCheckbox.Enabled = flag;
+            tableTurfSpecialLockCheckbox.Enabled = flag;
+            tableTurfCpuPointLockCheckbox.Enabled = flag;
+            tableTurfCpuSpecialLockCheckbox.Enabled = flag;
+        }
+
         private void TryDisconnect()
         {
             _connectionManager.TryDisconnect();
@@ -252,6 +316,7 @@ namespace ShiverBot.Forms
             moneyNumUpDown.Enabled = false;
             moneyNumUpDown.Value = 0;
             SetGearSeedFinderBoxesStatus(false);
+            SetTableTurfControlsStatus(false);
         }
 
         private void UpdateThread()
@@ -325,7 +390,7 @@ namespace ShiverBot.Forms
             }
             else
             {
-                string titleId = _connectionManager.GetTitleId()[..16];
+                string titleId = _connectionManager.SendCommandAsIs("getTitleID", 33)[..16];
                 if (titleId != "0100C2500FC20000")
                 {
                     MessageBox.Show($"error: the game is not Splatoon 3.\nReceived title id is {titleId}");
@@ -335,7 +400,7 @@ namespace ShiverBot.Forms
                     return;
                 }
 
-                string buildId = _connectionManager.GetBuildId()[..16];
+                string buildId = _connectionManager.SendCommandAsIs("getBuildID", 33)[..16];
                 SavedBuild? build = _savedBuildReader.GetBuild(buildId);
                 if (build == null)
                 {
@@ -397,14 +462,14 @@ namespace ShiverBot.Forms
             }
 
             int bytesToRead = (int)bytesToReadNumUpDown.Value;
+            if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
+            {
+                MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
+                return;
+            }
+
             if (bytesToRead < 4194304)
             {
-                if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
-                {
-                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
-                    return;
-                }
-
                 byte[]? data = _connectionManager.PeekAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
                 if (data == null)
                 {
@@ -431,7 +496,7 @@ namespace ShiverBot.Forms
                     MessageBox.Show(sb.ToString());
                 }
             }
-            else if (bytesToRead > 4194304 && MessageBox.Show("This may take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            else if (bytesToRead > 4194304 && MessageBox.Show("This might take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using SaveFileDialog sfd = new();
                 sfd.FileName = $"HEAP+{addressTextBox.Text} ({bytesToRead}).bin";
@@ -454,14 +519,14 @@ namespace ShiverBot.Forms
             }
 
             int bytesToRead = (int)bytesToReadNumUpDown.Value;
+            if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
+            {
+                MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
+                return;
+            }
+
             if (bytesToRead < 4194304)
             {
-                if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
-                {
-                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
-                    return;
-                }
-
                 byte[]? data = _connectionManager.PeekMainAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
                 if (data == null)
                 {
@@ -488,7 +553,7 @@ namespace ShiverBot.Forms
                     MessageBox.Show(sb.ToString());
                 }
             }
-            else if (bytesToRead > 4194304 && MessageBox.Show("This may take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            else if (bytesToRead > 4194304 && MessageBox.Show("This might take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using SaveFileDialog sfd = new();
                 sfd.FileName = $"MAIN+{addressTextBox.Text} ({bytesToRead}).bin";
@@ -511,14 +576,14 @@ namespace ShiverBot.Forms
             }
 
             int bytesToRead = (int)bytesToReadNumUpDown.Value;
+            if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
+            {
+                MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
+                return;
+            }
+
             if (bytesToRead < 4194304)
             {
-                if (bytesToRead > 128 && !saveToFileCheckBox.Checked)
-                {
-                    MessageBox.Show("There are too many bytes to display! Please use the save file method for this.");
-                    return;
-                }
-
                 byte[]? data = _connectionManager.PeekAbsoluteAddress(addressTextBox.Text, (int)bytesToReadNumUpDown.Value);
                 if (data == null)
                 {
@@ -545,7 +610,7 @@ namespace ShiverBot.Forms
                     MessageBox.Show(sb.ToString());
                 }
             }
-            else if (bytesToRead > 4194304 && MessageBox.Show("This may take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            else if (bytesToRead > 4194304 && MessageBox.Show("This might take several minutes. Are you sure you want to proceed?", "prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 using SaveFileDialog sfd = new();
                 sfd.FileName = $"0+{addressTextBox.Text} ({bytesToRead}).bin";
@@ -557,6 +622,31 @@ namespace ShiverBot.Forms
                 ChonkReader.GetData(addressTextBox.Text, bytesToRead, 2, _connectionManager, sfd.FileName);
                 MessageBox.Show("finished~!");
             }
+        }
+
+        private void metaDataButton_Click(object sender, EventArgs e)
+        {
+            if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            string titleId = _connectionManager.SendCommandAsIs("getTitleID", 33)[..16];
+            string buildId = _connectionManager.SendCommandAsIs("getBuildID", 33)[..16];
+            string languageCode = _connectionManager.SendCommandAsIs("getSystemLanguage", 4)[..1];
+            string mainAddress = _connectionManager.SendCommandAsIs("getMainNsoBase", 33)[..16];
+            string heapAddress = _connectionManager.SendCommandAsIs("getHeapBase", 33)[..16];
+
+            StringBuilder sb = new();
+            sb.AppendLine($"Title ID: {titleId}");
+            sb.AppendLine($"Build ID: {buildId}");
+            sb.AppendLine($"Language: {languageCode}");
+            sb.AppendLine($"Main Address: 0x{mainAddress}");
+            sb.AppendLine($"Heap Address: 0x{heapAddress}");
+            sb.AppendLine();
+            sb.AppendLine("(to copy, CTRL+C while in this dialog)");
+            MessageBox.Show(sb.ToString(), "metadata");
         }
 
         private void writeButton_Click(object sender, EventArgs e)
@@ -1210,7 +1300,7 @@ namespace ShiverBot.Forms
                 int sub3 = BitConverter.ToInt32(searchData.AsSpan()[(pointer + 44)..(pointer + 48)]);
                 uint gearSeed = BitConverter.ToUInt32(searchData.AsSpan()[(pointer + 56)..(pointer + 60)]);
 
-                if (stars == gearStarsNumUpDown.Value 
+                if (stars == gearStarsNumUpDown.Value
                     && mainAbility == gearMAComboBox.SelectedIndex
                     && sub1 == gearS1ComboBox.SelectedIndex
                     && sub2 == gearS2ComboBox.SelectedIndex
@@ -1232,6 +1322,180 @@ namespace ShiverBot.Forms
                 GearSeedFinderResultsForm resultsForm = new();
                 resultsForm.ShowResults(results);
                 resultsForm.ShowDialog();
+            }
+        }
+
+        private void tableTurfRetrieveMatchButton_Click(object sender, EventArgs e)
+        {
+            if (!readyForUserInput || gameBuild == null)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            tableTurfSpecialAddress = _connectionManager.TrackStepsAddress(gameBuild.TableTurf.SpecialBaseAddress, gameBuild.TableTurf.SpecialMemorySteps, 1);
+            tableTurfPointAddress = _connectionManager.TrackStepsAddress(gameBuild.TableTurf.PointsBaseAddress, gameBuild.TableTurf.PointsMemorySteps, 1);
+            ShowTableTurfData();
+        }
+
+        private void tableTurfPointLockCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            if (tableTurfPointLockCheckbox.Checked)
+            {
+                uint points = (uint)tableTurfPointsNumUpDown.Value;
+                _connectionManager.FreezeAddress(tableTurfPointAddress, $"{(points & 0x000000FF) << 24 | (points & 0x0000FF00) << 8 | (points & 0x00FF0000) >> 8 | (points & 0xFF000000) >> 24:X8}");
+            }
+            else
+            {
+                _connectionManager.UnfreezeAddress(tableTurfPointAddress);
+            }
+        }
+
+        private void tableTurfPointsNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint points = (uint)tableTurfPointsNumUpDown.Value;
+            _connectionManager.PokeAddress(tableTurfPointAddress, $"{(points & 0x000000FF) << 24 | (points & 0x0000FF00) << 8 | (points & 0x00FF0000) >> 8 | (points & 0xFF000000) >> 24:X8}");
+        }
+
+        private void tableTurfSpecialLockCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            if (tableTurfSpecialLockCheckbox.Checked)
+            {
+                uint special = (uint)tableTurfSpecialNumUpDown.Value;
+                _connectionManager.FreezeAddress(tableTurfSpecialAddress, $"{(special & 0x000000FF) << 24 | (special & 0x0000FF00) << 8 | (special & 0x00FF0000) >> 8 | (special & 0xFF000000) >> 24:X8}");
+            }
+            else
+            {
+                _connectionManager.UnfreezeAddress(tableTurfSpecialAddress);
+            }
+        }
+
+        private void tableTurfSpecialNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint special = (uint)tableTurfSpecialNumUpDown.Value;
+            _connectionManager.PokeAddress(tableTurfSpecialAddress, $"{(special & 0x000000FF) << 24 | (special & 0x0000FF00) << 8 | (special & 0x00FF0000) >> 8 | (special & 0xFF000000) >> 24:X8}");
+        }
+
+        private void tableTurfCpuPointsNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint points = (uint)tableTurfCpuPointsNumUpDown.Value;
+            _connectionManager.PokeAddress(tableTurfPointAddress + 4, $"{(points & 0x000000FF) << 24 | (points & 0x0000FF00) << 8 | (points & 0x00FF0000) >> 8 | (points & 0xFF000000) >> 24:X8}");
+
+        }
+
+        private void tableTurfCpuPointLockCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            if (tableTurfPointLockCheckbox.Checked)
+            {
+                uint points = (uint)tableTurfCpuPointsNumUpDown.Value;
+                _connectionManager.FreezeAddress(tableTurfPointAddress + 4, $"{(points & 0x000000FF) << 24 | (points & 0x0000FF00) << 8 | (points & 0x00FF0000) >> 8 | (points & 0xFF000000) >> 24:X8}");
+            }
+            else
+            {
+                _connectionManager.UnfreezeAddress(tableTurfPointAddress + 4);
+            }
+        }
+
+        private void tableTurfCpuSpecialNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            uint special = (uint)tableTurfCpuSpecialNumUpDown.Value;
+            _connectionManager.PokeAddress(tableTurfSpecialAddress + 4, $"{(special & 0x000000FF) << 24 | (special & 0x0000FF00) << 8 | (special & 0x00FF0000) >> 8 | (special & 0xFF000000) >> 24:X8}");
+        }
+
+        private void tableTurfCpuSpecialLockCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!readyForUserInput)
+            {
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+
+            if (tableTurfSpecialLockCheckbox.Checked)
+            {
+                uint special = (uint)tableTurfCpuSpecialNumUpDown.Value;
+                _connectionManager.FreezeAddress(tableTurfSpecialAddress + 4, $"{(special & 0x000000FF) << 24 | (special & 0x0000FF00) << 8 | (special & 0x00FF0000) >> 8 | (special & 0xFF000000) >> 24:X8}");
+            }
+            else
+            {
+                _connectionManager.UnfreezeAddress(tableTurfSpecialAddress + 4);
             }
         }
     }

@@ -12,39 +12,9 @@ namespace ShiverBot.Network
     internal class ConnectionManager
     {
         private Socket? sysSocket;
+        private List<string>? frozenAddresses;
         internal bool IsSwitchConnected => sysSocket != null && sysSocket.Connected;
-
-        internal string GetTitleId()
-        {
-            if (sysSocket == null || !IsSwitchConnected)
-            {
-                return string.Empty;
-            }
-
-            string message = $"getTitleID\r\n";
-            byte[] messageBytes = Encoding.ASCII.GetBytes(message);
-            sysSocket.Send(messageBytes);
-
-            byte[] buffer = new byte[33];
-            ReceiveBytes(buffer);
-            return Encoding.ASCII.GetString(buffer).ToUpper();
-        }
-
-        internal string GetBuildId()
-        {
-            if (sysSocket == null || !IsSwitchConnected)
-            {
-                return string.Empty;
-            }
-
-            string message = $"getBuildID\r\n";
-            byte[] messageBytes = Encoding.ASCII.GetBytes(message);
-            sysSocket.Send(messageBytes);
-
-            byte[] buffer = new byte[33];
-            ReceiveBytes(buffer);
-            return Encoding.ASCII.GetString(buffer).ToUpper();
-        }
+        private long heapBase;
 
         internal bool TryConnect(string ipAddress, int port, out byte responseCode)
         {
@@ -77,6 +47,8 @@ namespace ShiverBot.Network
                 }
 
                 responseCode = 2;
+                frozenAddresses = new();
+                heapBase = Convert.ToInt64(SendCommandAsIs("getHeapBase", 33)[..16], 16);
                 return true;
             }
 
@@ -158,14 +130,122 @@ namespace ShiverBot.Network
             PokeAddress($"{address:x8}", data);
         }
 
-        private void FreezeAddress(string address, string data)
+        public void FreezeAddress(string address, string data)
         {
             SendMessage($"freeze 0x{address} 0x{data}\r\n");
+            if (frozenAddresses != null && !frozenAddresses.Contains(address))
+            {
+                frozenAddresses.Add(address);
+            }
         }
 
-        private void UnfreezeAddress(string address)
+        public void FreezeAddress(long address, string data)
+        {
+            if (address > 0xFFFFFFFF)
+            {
+                FreezeAddress($"{address - heapBase:x8}", data);
+            }
+            else
+            {
+                FreezeAddress($"{address:x8}", data);
+            }
+        }
+
+        public void UnfreezeAddress(string address)
         {
             SendMessage($"unFreeze 0x{address}\r\n");
+            if (frozenAddresses != null && frozenAddresses.Contains(address))
+            {
+                frozenAddresses.Remove(address);
+            }
+        }
+
+        public void UnfreezeAddress(long address)
+        {
+            if (address > 0xFFFFFFFF)
+            {
+                UnfreezeAddress($"{address - heapBase:x8}");
+            }
+            else
+            {
+                UnfreezeAddress("${address:x8}");
+            }
+        }
+
+        public void UnfreezeAllAddresses()
+        {
+            if (frozenAddresses != null)
+            {
+                foreach (string address in frozenAddresses)
+                {
+                    long address64 = Convert.ToInt64(address, 16);
+                    if (address64 > 0xFFFFFFFF)
+                    {
+                        UnfreezeAddress($"{address64 - heapBase:x8}");
+                    }
+                    else
+                    {
+                        UnfreezeAddress(address);
+                    }
+                }
+            }
+        }
+
+        public long TrackStepsAddress(string address, List<MemoryStep> steps, byte mode)
+        {
+            long rf;
+
+            byte[]? baseData;
+            switch (mode)
+            {
+                case 0:
+                default:
+                    baseData = PeekAddress(address, 8);
+                    break;
+
+                case 1:
+                    baseData = PeekMainAddress(address, 8);
+                    break;
+
+                case 2:
+                    baseData = PeekAbsoluteAddress(address, 8);
+                    break;
+            }
+
+            rf = BitConverter.ToInt64(baseData);
+
+            foreach (MemoryStep step in steps)
+            {
+                switch (step.Action)
+                {
+                    case '+':
+                        rf += step.Step;
+                        break;
+
+                    case 'L':
+                        byte[]? data = PeekAbsoluteAddress(rf + step.Step, 8);
+                        rf = BitConverter.ToInt64(data);
+                        break;
+                }
+            }
+
+            return rf;
+        }
+
+        internal string SendCommandAsIs(string command, int bufferSize)
+        {
+            if (sysSocket == null || !IsSwitchConnected)
+            {
+                return string.Empty;
+            }
+
+            string message = $"{command}\r\n";
+            byte[] messageBytes = Encoding.ASCII.GetBytes(message);
+            sysSocket.Send(messageBytes);
+
+            byte[] buffer = new byte[bufferSize];
+            ReceiveBytes(buffer);
+            return Encoding.ASCII.GetString(buffer).ToUpper();
         }
 
         private void SendMessage(string message)
@@ -202,6 +282,8 @@ namespace ShiverBot.Network
 
             try
             {
+                UnfreezeAllAddresses();
+
                 IAsyncResult result = sysSocket.BeginDisconnect(true, null, null);
 
                 bool disconnectionSuccess = result.AsyncWaitHandle.WaitOne(3000, true);

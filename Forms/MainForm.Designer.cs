@@ -37,6 +37,8 @@
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.moneyPictureBox = new System.Windows.Forms.PictureBox();
             this.advancedGroupBox = new System.Windows.Forms.GroupBox();
+            this.metaDataButton = new System.Windows.Forms.Button();
+            this.readAbsButton = new System.Windows.Forms.Button();
             this.readMainButton = new System.Windows.Forms.Button();
             this.saveToFileCheckBox = new System.Windows.Forms.CheckBox();
             this.writeButton = new System.Windows.Forms.Button();
@@ -123,7 +125,24 @@
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.tableTurfTabPage = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tableTurfMatchGroupBox = new System.Windows.Forms.GroupBox();
+            this.tableTurfCpuSpecialLockCheckbox = new System.Windows.Forms.CheckBox();
+            this.tableTurfCpuPointLockCheckbox = new System.Windows.Forms.CheckBox();
+            this.tableTurfCpuSpecialNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tableTurfCpuPointsNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tableTurfSpecialLabel2 = new System.Windows.Forms.Label();
+            this.tableTurfPointsLabel2 = new System.Windows.Forms.Label();
+            this.tableTurfCpuLabel = new System.Windows.Forms.Label();
+            this.tableTurfSpecialLockCheckbox = new System.Windows.Forms.CheckBox();
+            this.tableTurfPointLockCheckbox = new System.Windows.Forms.CheckBox();
+            this.tableTurfSpecialNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tableTurfPointsNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tableTurfSpecialLabel1 = new System.Windows.Forms.Label();
+            this.tableTurfPointsLabel1 = new System.Windows.Forms.Label();
+            this.tableTurfMeLabel = new System.Windows.Forms.Label();
+            this.tableTurfRetrieveMatchButton = new System.Windows.Forms.Button();
+            this.tableTurfExplLabel = new System.Windows.Forms.Label();
+            this.tableTurfLabel = new System.Windows.Forms.Label();
             this.tableTurfExpLabel = new System.Windows.Forms.Label();
             this.gearTabPage = new System.Windows.Forms.TabPage();
             this.gearSeedFinderLabel2 = new System.Windows.Forms.Label();
@@ -150,7 +169,6 @@
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
-            this.readAbsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -228,6 +246,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.tableTurfTabPage.SuspendLayout();
+            this.tableTurfMatchGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuSpecialNumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuPointsNumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfSpecialNumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfPointsNumUpDown)).BeginInit();
             this.gearTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).BeginInit();
@@ -313,6 +336,7 @@
             // 
             // advancedGroupBox
             // 
+            this.advancedGroupBox.Controls.Add(this.metaDataButton);
             this.advancedGroupBox.Controls.Add(this.readAbsButton);
             this.advancedGroupBox.Controls.Add(this.readMainButton);
             this.advancedGroupBox.Controls.Add(this.saveToFileCheckBox);
@@ -330,6 +354,26 @@
             this.advancedGroupBox.TabIndex = 100;
             this.advancedGroupBox.TabStop = false;
             this.advancedGroupBox.Text = "Advanced";
+            // 
+            // metaDataButton
+            // 
+            this.metaDataButton.Location = new System.Drawing.Point(319, 24);
+            this.metaDataButton.Name = "metaDataButton";
+            this.metaDataButton.Size = new System.Drawing.Size(58, 23);
+            this.metaDataButton.TabIndex = 111;
+            this.metaDataButton.Text = "meta";
+            this.metaDataButton.UseVisualStyleBackColor = true;
+            this.metaDataButton.Click += new System.EventHandler(this.metaDataButton_Click);
+            // 
+            // readAbsButton
+            // 
+            this.readAbsButton.Location = new System.Drawing.Point(217, 24);
+            this.readAbsButton.Name = "readAbsButton";
+            this.readAbsButton.Size = new System.Drawing.Size(96, 23);
+            this.readAbsButton.TabIndex = 110;
+            this.readAbsButton.Text = "read absolute";
+            this.readAbsButton.UseVisualStyleBackColor = true;
+            this.readAbsButton.Click += new System.EventHandler(this.readAbsButton_Click);
             // 
             // readMainButton
             // 
@@ -1400,35 +1444,250 @@
             // 
             // tableTurfTabPage
             // 
-            this.tableTurfTabPage.Controls.Add(this.label1);
+            this.tableTurfTabPage.Controls.Add(this.tableTurfMatchGroupBox);
+            this.tableTurfTabPage.Controls.Add(this.tableTurfRetrieveMatchButton);
+            this.tableTurfTabPage.Controls.Add(this.tableTurfExplLabel);
+            this.tableTurfTabPage.Controls.Add(this.tableTurfLabel);
             this.tableTurfTabPage.Controls.Add(this.tableTurfExpLabel);
             this.tableTurfTabPage.Location = new System.Drawing.Point(4, 24);
             this.tableTurfTabPage.Name = "tableTurfTabPage";
             this.tableTurfTabPage.Size = new System.Drawing.Size(363, 194);
             this.tableTurfTabPage.TabIndex = 2;
-            this.tableTurfTabPage.Text = "Table Turf";
+            this.tableTurfTabPage.Text = "Tableturf";
             this.tableTurfTabPage.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // tableTurfMatchGroupBox
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(6, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 15);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "TABLE TURF";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuSpecialLockCheckbox);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuPointLockCheckbox);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuSpecialNumUpDown);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuPointsNumUpDown);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialLabel2);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointsLabel2);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuLabel);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialLockCheckbox);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointLockCheckbox);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialNumUpDown);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointsNumUpDown);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialLabel1);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointsLabel1);
+            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfMeLabel);
+            this.tableTurfMatchGroupBox.Location = new System.Drawing.Point(160, 3);
+            this.tableTurfMatchGroupBox.Name = "tableTurfMatchGroupBox";
+            this.tableTurfMatchGroupBox.Size = new System.Drawing.Size(200, 188);
+            this.tableTurfMatchGroupBox.TabIndex = 15;
+            this.tableTurfMatchGroupBox.TabStop = false;
+            this.tableTurfMatchGroupBox.Text = "Tableturf Match";
+            // 
+            // tableTurfCpuSpecialLockCheckbox
+            // 
+            this.tableTurfCpuSpecialLockCheckbox.AutoSize = true;
+            this.tableTurfCpuSpecialLockCheckbox.Enabled = false;
+            this.tableTurfCpuSpecialLockCheckbox.Location = new System.Drawing.Point(141, 156);
+            this.tableTurfCpuSpecialLockCheckbox.Name = "tableTurfCpuSpecialLockCheckbox";
+            this.tableTurfCpuSpecialLockCheckbox.Size = new System.Drawing.Size(48, 19);
+            this.tableTurfCpuSpecialLockCheckbox.TabIndex = 10;
+            this.tableTurfCpuSpecialLockCheckbox.Text = "lock";
+            this.tableTurfCpuSpecialLockCheckbox.UseVisualStyleBackColor = true;
+            this.tableTurfCpuSpecialLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfCpuSpecialLockCheckbox_CheckedChanged);
+            // 
+            // tableTurfCpuPointLockCheckbox
+            // 
+            this.tableTurfCpuPointLockCheckbox.AutoSize = true;
+            this.tableTurfCpuPointLockCheckbox.Enabled = false;
+            this.tableTurfCpuPointLockCheckbox.Location = new System.Drawing.Point(141, 127);
+            this.tableTurfCpuPointLockCheckbox.Name = "tableTurfCpuPointLockCheckbox";
+            this.tableTurfCpuPointLockCheckbox.Size = new System.Drawing.Size(48, 19);
+            this.tableTurfCpuPointLockCheckbox.TabIndex = 8;
+            this.tableTurfCpuPointLockCheckbox.Text = "lock";
+            this.tableTurfCpuPointLockCheckbox.UseVisualStyleBackColor = true;
+            this.tableTurfCpuPointLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfCpuPointLockCheckbox_CheckedChanged);
+            // 
+            // tableTurfCpuSpecialNumUpDown
+            // 
+            this.tableTurfCpuSpecialNumUpDown.Enabled = false;
+            this.tableTurfCpuSpecialNumUpDown.Location = new System.Drawing.Point(95, 155);
+            this.tableTurfCpuSpecialNumUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.tableTurfCpuSpecialNumUpDown.Name = "tableTurfCpuSpecialNumUpDown";
+            this.tableTurfCpuSpecialNumUpDown.Size = new System.Drawing.Size(40, 23);
+            this.tableTurfCpuSpecialNumUpDown.TabIndex = 9;
+            this.tableTurfCpuSpecialNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfCpuSpecialNumUpDown_ValueChanged);
+            // 
+            // tableTurfCpuPointsNumUpDown
+            // 
+            this.tableTurfCpuPointsNumUpDown.Enabled = false;
+            this.tableTurfCpuPointsNumUpDown.Location = new System.Drawing.Point(95, 126);
+            this.tableTurfCpuPointsNumUpDown.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.tableTurfCpuPointsNumUpDown.Name = "tableTurfCpuPointsNumUpDown";
+            this.tableTurfCpuPointsNumUpDown.Size = new System.Drawing.Size(40, 23);
+            this.tableTurfCpuPointsNumUpDown.TabIndex = 7;
+            this.tableTurfCpuPointsNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfCpuPointsNumUpDown_ValueChanged);
+            // 
+            // tableTurfSpecialLabel2
+            // 
+            this.tableTurfSpecialLabel2.AutoSize = true;
+            this.tableTurfSpecialLabel2.ForeColor = System.Drawing.Color.SlateBlue;
+            this.tableTurfSpecialLabel2.Location = new System.Drawing.Point(6, 157);
+            this.tableTurfSpecialLabel2.Name = "tableTurfSpecialLabel2";
+            this.tableTurfSpecialLabel2.Size = new System.Drawing.Size(83, 15);
+            this.tableTurfSpecialLabel2.TabIndex = 9;
+            this.tableTurfSpecialLabel2.Text = "Special points:";
+            // 
+            // tableTurfPointsLabel2
+            // 
+            this.tableTurfPointsLabel2.AutoSize = true;
+            this.tableTurfPointsLabel2.ForeColor = System.Drawing.Color.SlateBlue;
+            this.tableTurfPointsLabel2.Location = new System.Drawing.Point(5, 128);
+            this.tableTurfPointsLabel2.Name = "tableTurfPointsLabel2";
+            this.tableTurfPointsLabel2.Size = new System.Drawing.Size(72, 15);
+            this.tableTurfPointsLabel2.TabIndex = 8;
+            this.tableTurfPointsLabel2.Text = "Painted turf:";
+            // 
+            // tableTurfCpuLabel
+            // 
+            this.tableTurfCpuLabel.AutoSize = true;
+            this.tableTurfCpuLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tableTurfCpuLabel.ForeColor = System.Drawing.Color.SlateBlue;
+            this.tableTurfCpuLabel.Location = new System.Drawing.Point(6, 108);
+            this.tableTurfCpuLabel.Name = "tableTurfCpuLabel";
+            this.tableTurfCpuLabel.Size = new System.Drawing.Size(97, 15);
+            this.tableTurfCpuLabel.TabIndex = 7;
+            this.tableTurfCpuLabel.Text = "Opponent (CPU):";
+            // 
+            // tableTurfSpecialLockCheckbox
+            // 
+            this.tableTurfSpecialLockCheckbox.AutoSize = true;
+            this.tableTurfSpecialLockCheckbox.Enabled = false;
+            this.tableTurfSpecialLockCheckbox.Location = new System.Drawing.Point(141, 67);
+            this.tableTurfSpecialLockCheckbox.Name = "tableTurfSpecialLockCheckbox";
+            this.tableTurfSpecialLockCheckbox.Size = new System.Drawing.Size(48, 19);
+            this.tableTurfSpecialLockCheckbox.TabIndex = 6;
+            this.tableTurfSpecialLockCheckbox.Text = "lock";
+            this.tableTurfSpecialLockCheckbox.UseVisualStyleBackColor = true;
+            this.tableTurfSpecialLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfSpecialLockCheckbox_CheckedChanged);
+            // 
+            // tableTurfPointLockCheckbox
+            // 
+            this.tableTurfPointLockCheckbox.AutoSize = true;
+            this.tableTurfPointLockCheckbox.Enabled = false;
+            this.tableTurfPointLockCheckbox.Location = new System.Drawing.Point(141, 38);
+            this.tableTurfPointLockCheckbox.Name = "tableTurfPointLockCheckbox";
+            this.tableTurfPointLockCheckbox.Size = new System.Drawing.Size(48, 19);
+            this.tableTurfPointLockCheckbox.TabIndex = 4;
+            this.tableTurfPointLockCheckbox.Text = "lock";
+            this.tableTurfPointLockCheckbox.UseVisualStyleBackColor = true;
+            this.tableTurfPointLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfPointLockCheckbox_CheckedChanged);
+            // 
+            // tableTurfSpecialNumUpDown
+            // 
+            this.tableTurfSpecialNumUpDown.Enabled = false;
+            this.tableTurfSpecialNumUpDown.Location = new System.Drawing.Point(95, 66);
+            this.tableTurfSpecialNumUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.tableTurfSpecialNumUpDown.Name = "tableTurfSpecialNumUpDown";
+            this.tableTurfSpecialNumUpDown.Size = new System.Drawing.Size(40, 23);
+            this.tableTurfSpecialNumUpDown.TabIndex = 5;
+            this.tableTurfSpecialNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfSpecialNumUpDown_ValueChanged);
+            // 
+            // tableTurfPointsNumUpDown
+            // 
+            this.tableTurfPointsNumUpDown.Enabled = false;
+            this.tableTurfPointsNumUpDown.Location = new System.Drawing.Point(95, 37);
+            this.tableTurfPointsNumUpDown.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.tableTurfPointsNumUpDown.Name = "tableTurfPointsNumUpDown";
+            this.tableTurfPointsNumUpDown.Size = new System.Drawing.Size(40, 23);
+            this.tableTurfPointsNumUpDown.TabIndex = 3;
+            this.tableTurfPointsNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfPointsNumUpDown_ValueChanged);
+            // 
+            // tableTurfSpecialLabel1
+            // 
+            this.tableTurfSpecialLabel1.AutoSize = true;
+            this.tableTurfSpecialLabel1.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.tableTurfSpecialLabel1.Location = new System.Drawing.Point(6, 68);
+            this.tableTurfSpecialLabel1.Name = "tableTurfSpecialLabel1";
+            this.tableTurfSpecialLabel1.Size = new System.Drawing.Size(83, 15);
+            this.tableTurfSpecialLabel1.TabIndex = 2;
+            this.tableTurfSpecialLabel1.Text = "Special points:";
+            // 
+            // tableTurfPointsLabel1
+            // 
+            this.tableTurfPointsLabel1.AutoSize = true;
+            this.tableTurfPointsLabel1.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.tableTurfPointsLabel1.Location = new System.Drawing.Point(5, 39);
+            this.tableTurfPointsLabel1.Name = "tableTurfPointsLabel1";
+            this.tableTurfPointsLabel1.Size = new System.Drawing.Size(72, 15);
+            this.tableTurfPointsLabel1.TabIndex = 1;
+            this.tableTurfPointsLabel1.Text = "Painted turf:";
+            // 
+            // tableTurfMeLabel
+            // 
+            this.tableTurfMeLabel.AutoSize = true;
+            this.tableTurfMeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tableTurfMeLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.tableTurfMeLabel.Location = new System.Drawing.Point(6, 19);
+            this.tableTurfMeLabel.Name = "tableTurfMeLabel";
+            this.tableTurfMeLabel.Size = new System.Drawing.Size(27, 15);
+            this.tableTurfMeLabel.TabIndex = 0;
+            this.tableTurfMeLabel.Text = "Me:";
+            // 
+            // tableTurfRetrieveMatchButton
+            // 
+            this.tableTurfRetrieveMatchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tableTurfRetrieveMatchButton.Location = new System.Drawing.Point(3, 157);
+            this.tableTurfRetrieveMatchButton.Name = "tableTurfRetrieveMatchButton";
+            this.tableTurfRetrieveMatchButton.Size = new System.Drawing.Size(151, 34);
+            this.tableTurfRetrieveMatchButton.TabIndex = 14;
+            this.tableTurfRetrieveMatchButton.Text = "retrieve match";
+            this.tableTurfRetrieveMatchButton.UseVisualStyleBackColor = true;
+            this.tableTurfRetrieveMatchButton.Click += new System.EventHandler(this.tableTurfRetrieveMatchButton_Click);
+            // 
+            // tableTurfExplLabel
+            // 
+            this.tableTurfExplLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.tableTurfExplLabel.ForeColor = System.Drawing.Color.SlateGray;
+            this.tableTurfExplLabel.Location = new System.Drawing.Point(3, 82);
+            this.tableTurfExplLabel.Name = "tableTurfExplLabel";
+            this.tableTurfExplLabel.Size = new System.Drawing.Size(151, 72);
+            this.tableTurfExplLabel.TabIndex = 13;
+            this.tableTurfExplLabel.Text = "Click the button after you\r\nenter a tableturf battle.\r\nIf you leave the match,\r\ny" +
+    "ou have to click it again.";
+            this.tableTurfExplLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableTurfLabel
+            // 
+            this.tableTurfLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.tableTurfLabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.tableTurfLabel.Location = new System.Drawing.Point(3, 11);
+            this.tableTurfLabel.Name = "tableTurfLabel";
+            this.tableTurfLabel.Size = new System.Drawing.Size(151, 15);
+            this.tableTurfLabel.TabIndex = 12;
+            this.tableTurfLabel.Text = "TABLETURF";
+            this.tableTurfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableTurfExpLabel
             // 
-            this.tableTurfExpLabel.AutoSize = true;
             this.tableTurfExpLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.tableTurfExpLabel.Location = new System.Drawing.Point(6, 36);
+            this.tableTurfExpLabel.Location = new System.Drawing.Point(3, 50);
             this.tableTurfExpLabel.Name = "tableTurfExpLabel";
-            this.tableTurfExpLabel.Size = new System.Drawing.Size(161, 15);
+            this.tableTurfExpLabel.Size = new System.Drawing.Size(151, 15);
             this.tableTurfExpLabel.TabIndex = 0;
-            this.tableTurfExpLabel.Text = "Table Turf Level: {0} ({1} EXP)";
+            this.tableTurfExpLabel.Text = "Rank: {0} ({1} EXP)";
+            this.tableTurfExpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gearTabPage
             // 
@@ -1806,16 +2065,6 @@
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
             // 
-            // readAbsButton
-            // 
-            this.readAbsButton.Location = new System.Drawing.Point(217, 24);
-            this.readAbsButton.Name = "readAbsButton";
-            this.readAbsButton.Size = new System.Drawing.Size(158, 23);
-            this.readAbsButton.TabIndex = 110;
-            this.readAbsButton.Text = "read absolute";
-            this.readAbsButton.UseVisualStyleBackColor = true;
-            this.readAbsButton.Click += new System.EventHandler(this.readAbsButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1915,7 +2164,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.tableTurfTabPage.ResumeLayout(false);
-            this.tableTurfTabPage.PerformLayout();
+            this.tableTurfMatchGroupBox.ResumeLayout(false);
+            this.tableTurfMatchGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuSpecialNumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuPointsNumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfSpecialNumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTurfPointsNumUpDown)).EndInit();
             this.gearTabPage.ResumeLayout(false);
             this.gearTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).EndInit();
@@ -2047,8 +2301,26 @@
         private Label gearSubAbility2Label;
         private ComboBox gearS1ComboBox;
         private Label gearSubAbility1Label;
-        private Label label1;
+        private Label tableTurfLabel;
         private Label tableTurfExpLabel;
         private Button readAbsButton;
+        private Button metaDataButton;
+        private GroupBox tableTurfMatchGroupBox;
+        private Label tableTurfSpecialLabel1;
+        private Label tableTurfPointsLabel1;
+        private Label tableTurfMeLabel;
+        private Button tableTurfRetrieveMatchButton;
+        private Label tableTurfExplLabel;
+        private CheckBox tableTurfCpuSpecialLockCheckbox;
+        private CheckBox tableTurfCpuPointLockCheckbox;
+        private NumericUpDown tableTurfCpuSpecialNumUpDown;
+        private NumericUpDown tableTurfCpuPointsNumUpDown;
+        private Label tableTurfSpecialLabel2;
+        private Label tableTurfPointsLabel2;
+        private Label tableTurfCpuLabel;
+        private CheckBox tableTurfSpecialLockCheckbox;
+        private CheckBox tableTurfPointLockCheckbox;
+        private NumericUpDown tableTurfSpecialNumUpDown;
+        private NumericUpDown tableTurfPointsNumUpDown;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace ShiverBot.IO
+﻿using ShiverBot.Network;
+
+namespace ShiverBot.IO
 {
     internal class SavedBuildReader
     {
@@ -18,6 +20,12 @@
                 string? drinkTicketBase = null;
                 string? gearBase = null;
                 string? tableTurfRankBase = null;
+
+                // table turf dynamic addressing
+                string? tableTurfSpecialBase = null;
+                string? tableTurfSpecialStep = null;
+                string? tableTurfPointBase = null;
+                string? tableTurfPointStep = null;
 
                 foreach (string line in contents)
                 {
@@ -59,17 +67,45 @@
                             case "tableTurfRankBase":
                                 tableTurfRankBase = data[1];
                                 break;
+
+                            case "tableTurfSpecialBase":
+                                tableTurfSpecialBase = data[1];
+                                break;
+
+                            case "tableTurfSpecialStep":
+                                tableTurfSpecialStep = data[1];
+                                break;
+
+                            case "tableTurfPointBase":
+                                tableTurfPointBase = data[1]; 
+                                break;
+
+                            case "tableTurfPointStep":
+                                tableTurfPointStep = data[1];
+                                break;
                         }
                     }
                 }
 
-                if (version == null || moneyBase == null || chunkBase == null || foodTicketBase == null || drinkTicketBase == null || gearBase == null || tableTurfRankBase == null)
+                if (version == null || moneyBase == null || chunkBase == null || foodTicketBase == null || drinkTicketBase == null || gearBase == null || tableTurfRankBase == null || tableTurfSpecialBase == null || tableTurfSpecialStep == null || tableTurfPointBase == null || tableTurfPointStep == null)
                 {
                     MessageBox.Show("error: build file {buildId} is incomplete.");
                 }
                 else
                 {
-                    _savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, gearBase, tableTurfRankBase));
+                    List<MemoryStep> specialSteps = new();
+                    foreach (string sStep in tableTurfSpecialStep.Split(','))
+                    {
+                        specialSteps.Add(new(sStep[0], Convert.ToInt64(sStep[1..], 16)));
+                    }
+
+                    List<MemoryStep> pointSteps = new();
+                    foreach (string pStep in tableTurfPointStep.Split(','))
+                    {
+                        pointSteps.Add(new(pStep[0], Convert.ToInt64(pStep[1..], 16)));
+                    }
+
+                    _savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, gearBase, tableTurfRankBase, new(tableTurfSpecialBase, specialSteps, tableTurfPointBase, pointSteps)));
                 }
             }
 
