@@ -1,5 +1,6 @@
 using ShiverBot.IO;
 using ShiverBot.Network;
+using ShiverBot.Properties;
 using ShiverBot.Thunder;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -35,6 +36,7 @@ namespace ShiverBot.Forms
             tableTurfSpecialAddress = 0;
             tableTurfPointAddress = 0;
 
+            ipTextBox.Text = Settings.Default.ipAddress;
             statusLabel.Text = "unconnected";
             gearTypeComboBox.SelectedIndex = 0;
             gearMAComboBox.SelectedIndex = 0;
@@ -1497,6 +1499,11 @@ namespace ShiverBot.Forms
             {
                 _connectionManager.UnfreezeAddress(tableTurfSpecialAddress + 4);
             }
+        }
+
+        private void ipTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ipAddress = ipTextBox.Text;
         }
     }
 }

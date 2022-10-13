@@ -264,6 +264,7 @@
             this.ipTextBox.PlaceholderText = "IP Address";
             this.ipTextBox.Size = new System.Drawing.Size(100, 23);
             this.ipTextBox.TabIndex = 1;
+            this.ipTextBox.TextChanged += new System.EventHandler(this.ipTextBox_TextChanged);
             // 
             // connectButton
             // 
