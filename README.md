@@ -1,12 +1,22 @@
 # About ShiverBot
 This is a Splatoon 3 memory modifier that connects to a Nintendo Switch console that has sys-botbase running. This program is still a WIP.
 
-At the moment you can easily edit money, ability chunks and food/drink ticket amount.
+Current features:
+- Includes addresses for version 1.1.2 of the game.
+- Edit money
+- Edit ability chunks
+- Edit food and drink tickets.
+- Search for your gear's RNG seed (only view, NOT change)
+- Cheat in tableturf against AI.
+
+<details>
+  <summary>Screenshots</summary>
+
 ![Screenshot showing the ability chunks tab](https://i.imgur.com/WpC7khW.png)
 ![Screenshot showing the food tickets tab](https://i.imgur.com/kUIMNOb.png)
-
-**Update:** From version 1.1, you can now search for your gear's RNG seed :)
 ![Screenshot showing the gear seed finder](https://i.imgur.com/8ItDfs1.png)
+![Screenshot showing the tableturf tab](https://i.imgur.com/xdHpPwC.png)
+</details>
 
 
 # Read this
