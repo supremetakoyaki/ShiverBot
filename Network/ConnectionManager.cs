@@ -186,16 +186,19 @@ namespace ShiverBot.Network
         {
             if (frozenAddresses != null)
             {
-                foreach (string address in frozenAddresses)
+                lock (frozenAddresses)
                 {
-                    long address64 = Convert.ToInt64(address, 16);
-                    if (address64 > 0xFFFFFFFF)
+                    foreach (string address in frozenAddresses)
                     {
-                        UnfreezeAddress($"{address64 - heapBase:x8}");
-                    }
-                    else
-                    {
-                        UnfreezeAddress(address);
+                        long address64 = Convert.ToInt64(address, 16);
+                        if (address64 > 0xFFFFFFFF)
+                        {
+                            UnfreezeAddress($"{address64 - heapBase:x8}");
+                        }
+                        else
+                        {
+                            UnfreezeAddress(address);
+                        }
                     }
                 }
             }
