@@ -45,9 +45,9 @@ namespace ShiverBot.Imaging
                     {
                         if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
                         {
-                            sb.Append("A,W50,");
+                            sb.Append("A,W30,");
                         }
-                        sb.Append("DR,W50,");
+                        sb.Append("DR,W30,");
 
                     }
                 }
@@ -57,9 +57,9 @@ namespace ShiverBot.Imaging
                     {
                         if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
                         {
-                            sb.Append("A,W50,");
+                            sb.Append("A,W30,");
                         }
-                        sb.Append("DL,W50,");
+                        sb.Append("DL,W30,");
                     }
                 }
                 sb.Append("DD");

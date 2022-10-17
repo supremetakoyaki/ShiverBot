@@ -164,6 +164,7 @@
             this.gearTypeLabel = new System.Windows.Forms.Label();
             this.gearSeedFinderLabel = new System.Windows.Forms.Label();
             this.postPrinterTabPage = new System.Windows.Forms.TabPage();
+            this.postPrinterLabel = new System.Windows.Forms.Label();
             this.printPostManuallyButton = new System.Windows.Forms.Button();
             this.browseImageButton = new System.Windows.Forms.Button();
             this.openedImagePictureBox = new System.Windows.Forms.PictureBox();
@@ -174,7 +175,6 @@
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
-            this.postPrinterLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -2008,8 +2008,19 @@
             this.postPrinterTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.postPrinterTabPage.Size = new System.Drawing.Size(363, 194);
             this.postPrinterTabPage.TabIndex = 5;
-            this.postPrinterTabPage.Text = "Post Printer";
+            this.postPrinterTabPage.Text = "Post Printer (BETA)";
             this.postPrinterTabPage.UseVisualStyleBackColor = true;
+            // 
+            // postPrinterLabel
+            // 
+            this.postPrinterLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.postPrinterLabel.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.postPrinterLabel.Location = new System.Drawing.Point(141, 133);
+            this.postPrinterLabel.Name = "postPrinterLabel";
+            this.postPrinterLabel.Size = new System.Drawing.Size(83, 55);
+            this.postPrinterLabel.TabIndex = 111;
+            this.postPrinterLabel.Text = "POST PRINTER";
+            this.postPrinterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // printPostManuallyButton
             // 
@@ -2121,17 +2132,6 @@
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
             // 
-            // postPrinterLabel
-            // 
-            this.postPrinterLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.postPrinterLabel.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.postPrinterLabel.Location = new System.Drawing.Point(141, 133);
-            this.postPrinterLabel.Name = "postPrinterLabel";
-            this.postPrinterLabel.Size = new System.Drawing.Size(83, 55);
-            this.postPrinterLabel.TabIndex = 111;
-            this.postPrinterLabel.Text = "POST PRINTER";
-            this.postPrinterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2151,7 +2151,7 @@
             this.MaximumSize = new System.Drawing.Size(423, 531);
             this.MinimumSize = new System.Drawing.Size(423, 531);
             this.Name = "MainForm";
-            this.Text = "ShiverBot v1.3";
+            this.Text = "ShiverBot v1.3-beta";
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).EndInit();
             this.advancedGroupBox.ResumeLayout(false);

@@ -1605,13 +1605,13 @@ namespace ShiverBot.Forms
             else if (printPostManuallyButton.Tag is 1)
             {
                 printPostManuallyButton.Tag = null;
-                _connectionManager.SendMessage("clickCancel\r\n");
+                //DONT USE (buggy): _connectionManager.SendMessage("clickCancel\r\n");
                 printPostManuallyButton.Text = "Begin printing";
                 openedImage.ResetPointer();
                 return;
             }
 
-            if (printPostManuallyButton.Tag is not 1 && MessageBox.Show("Open the post drawer, position yourself at the left and topmost pixel and set the pencil size to the smallest one.\nwhen you're ready, click Yes.\r\nPlease note this may take around 20 minutes.", "Instructions", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+            if (printPostManuallyButton.Tag is not 1 && MessageBox.Show("Open the post drawer, position yourself at the left and topmost pixel and set the pencil size to the smallest one.\nwhen you're ready, click Yes.\r\nPlease note this may take a while.\r\nThis feature is still BETA so if it's not working as intended, don't cry.", "Instructions", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
             {
                 return;
             }
