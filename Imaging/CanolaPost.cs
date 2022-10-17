@@ -7,8 +7,9 @@ namespace ShiverBot.Imaging
         private readonly Bitmap _bitmap;
         private readonly string[] _clickSequence;
         private int clickSeqPointer;
+        private int maxPointer;
 
-        internal bool EndOfSequence => clickSeqPointer == 119;
+        internal bool EndOfSequence => clickSeqPointer == maxPointer;
 
         internal CanolaPost(Bitmap bitmap)
         {
@@ -32,42 +33,129 @@ namespace ShiverBot.Imaging
             clickSeqPointer = 0;
         }
 
+        private bool LineIsEmpty(int line, bool vertical)
+        {
+            if (vertical)
+            {
+                for (int y = 0; y < _bitmap.Height; y++)
+                {
+                    if (_bitmap.GetPixel(line, y) == Color.FromArgb(255, 0, 0, 0))
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                for (int x = 0; x < _bitmap.Width; x++)
+                {
+                    if (_bitmap.GetPixel(x, line) == Color.FromArgb(255, 0, 0, 0))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         private string[] ToClickSequence()
         {
-            string[] output = new string[120];
             StringBuilder sb = new();
 
-            for (int y = 0; y < _bitmap.Height; y++)
-            {
-                if (y % 2 == 0)
-                {
-                    for (int x = 0; x < _bitmap.Width; x++)
-                    {
-                        if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
-                        {
-                            sb.Append("A,W30,");
-                        }
-                        sb.Append("DR,W30,");
+            string[] verticalOutput = new string[320];
+            string[] horizontalOutput = new string[120];
+            int verticalLength = 0;
+            int horizontalLength = 0;
+            bool currentDirection = true;
 
-                    }
-                }
-                else
+            // Get vertical path
+            for (int x = 0; x < _bitmap.Width; x++)
+            {
+                if (!LineIsEmpty(x, true))
                 {
-                    for (int x = _bitmap.Width - 1; x >= 0; x--)
+                    if (currentDirection)
                     {
-                        if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
+                        for (int y = 0; y < _bitmap.Height; y++)
                         {
-                            sb.Append("A,W30,");
+                            if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
+                            {
+                                sb.Append("A,W25,");
+                            }
+                            sb.Append("DD,W25,");
                         }
-                        sb.Append("DL,W30,");
                     }
+                    else
+                    {
+                        for (int y = _bitmap.Height - 1; y >= 0; y--)
+                        {
+                            if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
+                            {
+                                sb.Append("A,W25,");
+                            }
+                            sb.Append("DU,W25,");
+                        }
+                    }
+
+                    currentDirection = !currentDirection;
                 }
-                sb.Append("DD");
-                output[y] = sb.ToString();
+
+                sb.Append("W25,DR");
+                verticalLength += sb.Length;
+                verticalOutput[x] = sb.ToString();
                 sb.Clear();
             }
 
-            return output;
+            // Get horizontal path
+            currentDirection = true;
+
+            for (int y = 0; y < _bitmap.Height; y++)
+            {
+                if (!LineIsEmpty(y, false))
+                {
+                    if (currentDirection)
+                    {
+                        for (int x = 0; x < _bitmap.Width; x++)
+                        {
+                            if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
+                            {
+                                sb.Append("A,W25,");
+                            }
+                            sb.Append("DR,W25,");
+
+                        }
+                    }
+                    else
+                    {
+                        for (int x = _bitmap.Width - 1; x >= 0; x--)
+                        {
+                            if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
+                            {
+                                sb.Append("A,W25,");
+                            }
+                            sb.Append("DL,W25,");
+                        }
+                    }
+
+                    currentDirection = !currentDirection;
+                }
+
+                sb.Append("W30,DD");
+                horizontalLength += sb.Length;
+                horizontalOutput[y] = sb.ToString();
+                sb.Clear();
+            }
+
+            if (horizontalLength > verticalLength)
+            {
+                maxPointer = 120;
+                return horizontalOutput;
+            }
+            else
+            {
+                maxPointer = 320;
+                return verticalOutput;
+            }
         }
     }
 }
