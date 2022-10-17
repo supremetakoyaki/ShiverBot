@@ -1,3 +1,4 @@
+using ShiverBot.Imaging;
 using ShiverBot.IO;
 using ShiverBot.Network;
 using ShiverBot.Properties;
@@ -25,6 +26,9 @@ namespace ShiverBot.Forms
         private long tableTurfPointAddress;
         private bool ismFlag = false;
 
+        private CanolaPost? openedImage;
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -37,7 +41,7 @@ namespace ShiverBot.Forms
             tableTurfPointAddress = 0;
 
             ipTextBox.Text = Settings.Default.ipAddress;
-            statusLabel.Text = "unconnected";
+            statusLabel.Text = "not connected";
             gearTypeComboBox.SelectedIndex = 0;
             gearMAComboBox.SelectedIndex = 0;
             gearS1ComboBox.SelectedIndex = 0;
@@ -327,7 +331,14 @@ namespace ShiverBot.Forms
             {
                 try
                 {
-                    if (autoUpdateCheckbox.Checked && _connectionManager.IsSwitchConnected)
+                    if (printPostManuallyButton.Tag is not null)
+                    {
+                        Invoke(() =>
+                        {
+                            updatingLabel.Text = "can't update\nwhile printing...";
+                        });
+                    }
+                    else if (autoUpdateCheckbox.Checked && _connectionManager.IsSwitchConnected)
                     {
                         Invoke(() =>
                         {
@@ -379,6 +390,20 @@ namespace ShiverBot.Forms
             }
         }
 
+        private void PostPrintThread()
+        {
+            if (openedImage == null || !_connectionManager.IsSwitchConnected)
+            {
+                return;
+            }
+
+            while (printPostManuallyButton.Tag is 1)
+            {
+                _connectionManager.SendCommandAsIs($"clickSeq {openedImage.GetNextClickSequence()}\r\n", 128);
+                Thread.Sleep(1);
+            }
+        }
+
         private void connectButton_Click(object sender, EventArgs e)
         {
             if (_connectionManager.IsSwitchConnected)
@@ -390,43 +415,44 @@ namespace ShiverBot.Forms
             connectButton.Enabled = false;
             connectButton.Text = "Connecting...";
 
-            if (!_connectionManager.TryConnect(ipTextBox.Text, 6000, out byte responseCode))
+            if (!_connectionManager.TryConnect(ipTextBox.Text, 6000, out string error))
             {
-                if (responseCode == 0)
+                if (error != string.Empty)
                 {
                     MessageBox.Show($"error: failed to connect to the IP address.");
                 }
                 else
                 {
-                    MessageBox.Show($"error: code {responseCode}");
+                    MessageBox.Show($"error:\r\n{error}");
                 }
                 connectButton.Enabled = true;
                 connectButton.Text = "Connect";
-                statusLabel.Text = "unconnected";
+                statusLabel.Text = "not connected";
                 return;
             }
             else
             {
-                string titleId = _connectionManager.SendCommandAsIs("getTitleID", 33)[..16];
-                if (titleId != "0100C2500FC20000")
+                string titleId = _connectionManager.SendCommandAsIs("getTitleID", 33)[..16].Trim();
+                if (titleId != "0100C2500FC20000" && titleId != "100C2500FC20000")
                 {
                     MessageBox.Show($"error: the game is not Splatoon 3.\nReceived title id is {titleId}");
                     connectButton.Enabled = true;
                     connectButton.Text = "Connect";
-                    statusLabel.Text = "unconnected";
+                    statusLabel.Text = "not connected";
                     return;
                 }
 
-                string buildId = _connectionManager.SendCommandAsIs("getBuildID", 33)[..16];
+                string buildId = _connectionManager.SendCommandAsIs("getBuildID", 33)[..16].Trim();
                 SavedBuild? build = _savedBuildReader.GetBuild(buildId);
                 if (build == null)
                 {
                     MessageBox.Show($"error: no addresses found for this build id.\nReceived build id is {buildId}");
                     connectButton.Enabled = true;
                     connectButton.Text = "Connect";
-                    statusLabel.Text = "unconnected";
+                    statusLabel.Text = "not connected";
                     return;
                 }
+
                 gameBuild = build;
             }
 
@@ -1520,6 +1546,79 @@ namespace ShiverBot.Forms
         {
             Settings.Default.ipAddress = ipTextBox.Text;
             Settings.Default.Save();
+        }
+
+        private void browseImageButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new();
+            ofd.Filter = "PNG images|*.png";
+            if (ofd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            try
+            {
+                if (Image.FromFile(ofd.FileName) is Image loadedImage)
+                {
+                    Bitmap bitmap = new(loadedImage);
+                    if (bitmap.Height != 120 || bitmap.Width != 320)
+                    {
+                        MessageBox.Show("error: image must be 320x120.");
+                        return;
+                    }
+
+                    for (int y = 0; y < bitmap.Height; y++)
+                    {
+                        for (int x = 0; x < bitmap.Width; x++)
+                        {
+                            if (bitmap.GetPixel(x, y) != Color.FromArgb(255, 255, 255, 255) && bitmap.GetPixel(x, y) != Color.FromArgb(255, 0, 0, 0))
+                            {
+                                MessageBox.Show($"error: not a 1-bit image.\nat position ({x},{y}), a color that was neither black or white was found.\ncolor: {bitmap.GetPixel(x, y)}", "error");
+                                return;
+                            }
+                        }
+                    }
+
+                    openedImagePictureBox.Image = bitmap;
+                    openedImage = new(bitmap);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error while reading image file:\n{ex}", "error");
+            }
+        }
+
+        private void printPostManuallyButton_Click(object sender, EventArgs e)
+        {
+            if (openedImage == null)
+            {
+                MessageBox.Show("no opened image >:(");
+                return;
+            }
+            else if (!_connectionManager.IsSwitchConnected)
+            {
+                MessageBox.Show("not connected >:(");
+                return;
+            }
+            else if (printPostManuallyButton.Tag is 1)
+            {
+                printPostManuallyButton.Tag = null;
+                _connectionManager.SendMessage("clickCancel\r\n");
+                printPostManuallyButton.Text = "Begin printing";
+                openedImage.ResetPointer();
+                return;
+            }
+
+            if (printPostManuallyButton.Tag is not 1 && MessageBox.Show("Open the post drawer, position yourself at the left and topmost pixel and set the pencil size to the smallest one.\nwhen you're ready, click Yes.\r\nPlease note this may take around 20 minutes.", "Instructions", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            Task.Factory.StartNew(PostPrintThread);
+            printPostManuallyButton.Tag = 1;
+            printPostManuallyButton.Text = "Done printing";
         }
     }
 }

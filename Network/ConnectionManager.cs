@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
+using System.Text;
 
 namespace ShiverBot.Network
 {
@@ -16,12 +11,12 @@ namespace ShiverBot.Network
         internal bool IsSwitchConnected => sysSocket != null && sysSocket.Connected;
         private long heapBase;
 
-        internal bool TryConnect(string ipAddress, int port, out byte responseCode)
+        internal bool TryConnect(string ipAddress, int port, out string error)
         {
             IPEndPoint endPoint;
             if (!IPAddress.TryParse(ipAddress, out IPAddress? ip))
             {
-                responseCode = 0;
+                error = "Not a valid IP address.";
                 return false;
             }
 
@@ -42,18 +37,18 @@ namespace ShiverBot.Network
                 {
                     // TODO Program.GetLoggingInstance().LogException(ex, "(TryConnect)");
                     sysSocket.Close();
-                    responseCode = 1;
+                    error = ex.ToString();
                     return false;
                 }
 
-                responseCode = 2;
+                error = string.Empty;
                 frozenAddresses = new();
                 heapBase = Convert.ToInt64(SendCommandAsIs("getHeapBase", 33)[..16], 16);
                 return true;
             }
 
             sysSocket.Close();
-            responseCode = 0;
+            error = "Timed out. There was nothing at the specified IP address.";
             return false;
         }
 
@@ -261,7 +256,7 @@ namespace ShiverBot.Network
             return Encoding.ASCII.GetString(buffer).ToUpper();
         }
 
-        private void SendMessage(string message)
+        public void SendMessage(string message)
         {
             if (sysSocket == null || !IsSwitchConnected)
             {

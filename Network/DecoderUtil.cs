@@ -47,7 +47,8 @@
             }
             else
             {
-                throw new ArgumentOutOfRangeException(nameof(_0));
+                result = 0;
+                //throw new ArgumentOutOfRangeException(nameof(_0));
             }
 
             if (IsNum(_1))
@@ -64,7 +65,8 @@
             }
             else
             {
-                throw new ArgumentOutOfRangeException(nameof(_1));
+                result = 0;
+                //throw new ArgumentOutOfRangeException(nameof(_1));
             }
 
             return result;

@@ -163,12 +163,18 @@
             this.gearTypeComboBox = new System.Windows.Forms.ComboBox();
             this.gearTypeLabel = new System.Windows.Forms.Label();
             this.gearSeedFinderLabel = new System.Windows.Forms.Label();
+            this.postPrinterTabPage = new System.Windows.Forms.TabPage();
+            this.printPostManuallyButton = new System.Windows.Forms.Button();
+            this.browseImageButton = new System.Windows.Forms.Button();
+            this.openedImagePictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.restoreMoneyButton = new System.Windows.Forms.Button();
             this.saveMoneyButton = new System.Windows.Forms.Button();
             this.moneyLabel = new System.Windows.Forms.Label();
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
+            this.postPrinterLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -254,6 +260,8 @@
             this.gearTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).BeginInit();
+            this.postPrinterTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.openedImagePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -299,23 +307,13 @@
             // 
             this.bytesToReadNumUpDown.Location = new System.Drawing.Point(136, 38);
             this.bytesToReadNumUpDown.Maximum = new decimal(new int[] {
-            40000000,
-            0,
-            0,
-            0});
-            this.bytesToReadNumUpDown.Minimum = new decimal(new int[] {
-            1,
+            104857600,
             0,
             0,
             0});
             this.bytesToReadNumUpDown.Name = "bytesToReadNumUpDown";
             this.bytesToReadNumUpDown.Size = new System.Drawing.Size(70, 23);
             this.bytesToReadNumUpDown.TabIndex = 103;
-            this.bytesToReadNumUpDown.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
             // 
             // addressTextBox
             // 
@@ -488,6 +486,7 @@
             this.optionTabControl.Controls.Add(this.drinkTicketsTabPage);
             this.optionTabControl.Controls.Add(this.tableTurfTabPage);
             this.optionTabControl.Controls.Add(this.gearTabPage);
+            this.optionTabControl.Controls.Add(this.postPrinterTabPage);
             this.optionTabControl.Location = new System.Drawing.Point(6, 73);
             this.optionTabControl.Name = "optionTabControl";
             this.optionTabControl.SelectedIndex = 0;
@@ -1997,6 +1996,62 @@
             this.gearSeedFinderLabel.Text = "GEAR SEED FINDER";
             this.gearSeedFinderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // postPrinterTabPage
+            // 
+            this.postPrinterTabPage.Controls.Add(this.postPrinterLabel);
+            this.postPrinterTabPage.Controls.Add(this.printPostManuallyButton);
+            this.postPrinterTabPage.Controls.Add(this.browseImageButton);
+            this.postPrinterTabPage.Controls.Add(this.openedImagePictureBox);
+            this.postPrinterTabPage.Controls.Add(this.label1);
+            this.postPrinterTabPage.Location = new System.Drawing.Point(4, 24);
+            this.postPrinterTabPage.Name = "postPrinterTabPage";
+            this.postPrinterTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.postPrinterTabPage.Size = new System.Drawing.Size(363, 194);
+            this.postPrinterTabPage.TabIndex = 5;
+            this.postPrinterTabPage.Text = "Post Printer";
+            this.postPrinterTabPage.UseVisualStyleBackColor = true;
+            // 
+            // printPostManuallyButton
+            // 
+            this.printPostManuallyButton.Location = new System.Drawing.Point(247, 152);
+            this.printPostManuallyButton.Name = "printPostManuallyButton";
+            this.printPostManuallyButton.Size = new System.Drawing.Size(97, 36);
+            this.printPostManuallyButton.TabIndex = 28;
+            this.printPostManuallyButton.Text = "Begin printing";
+            this.printPostManuallyButton.UseVisualStyleBackColor = true;
+            this.printPostManuallyButton.Click += new System.EventHandler(this.printPostManuallyButton_Click);
+            // 
+            // browseImageButton
+            // 
+            this.browseImageButton.Location = new System.Drawing.Point(24, 165);
+            this.browseImageButton.Name = "browseImageButton";
+            this.browseImageButton.Size = new System.Drawing.Size(96, 23);
+            this.browseImageButton.TabIndex = 27;
+            this.browseImageButton.Text = "Browse image";
+            this.browseImageButton.UseVisualStyleBackColor = true;
+            this.browseImageButton.Click += new System.EventHandler(this.browseImageButton_Click);
+            // 
+            // openedImagePictureBox
+            // 
+            this.openedImagePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.openedImagePictureBox.Location = new System.Drawing.Point(24, 6);
+            this.openedImagePictureBox.Name = "openedImagePictureBox";
+            this.openedImagePictureBox.Size = new System.Drawing.Size(320, 120);
+            this.openedImagePictureBox.TabIndex = 26;
+            this.openedImagePictureBox.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.SlateGray;
+            this.label1.Location = new System.Drawing.Point(24, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 30);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Select a 320x120\r\n1-bit .PNG image";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // restoreMoneyButton
             // 
             this.restoreMoneyButton.Location = new System.Drawing.Point(131, 45);
@@ -2066,6 +2121,17 @@
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
             // 
+            // postPrinterLabel
+            // 
+            this.postPrinterLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.postPrinterLabel.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.postPrinterLabel.Location = new System.Drawing.Point(141, 133);
+            this.postPrinterLabel.Name = "postPrinterLabel";
+            this.postPrinterLabel.Size = new System.Drawing.Size(83, 55);
+            this.postPrinterLabel.TabIndex = 111;
+            this.postPrinterLabel.Text = "POST PRINTER";
+            this.postPrinterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2085,7 +2151,7 @@
             this.MaximumSize = new System.Drawing.Size(423, 531);
             this.MinimumSize = new System.Drawing.Size(423, 531);
             this.Name = "MainForm";
-            this.Text = "ShiverBot v1.2";
+            this.Text = "ShiverBot v1.3";
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).EndInit();
             this.advancedGroupBox.ResumeLayout(false);
@@ -2175,6 +2241,9 @@
             this.gearTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).EndInit();
+            this.postPrinterTabPage.ResumeLayout(false);
+            this.postPrinterTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.openedImagePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -2323,5 +2392,11 @@
         private CheckBox tableTurfPointLockCheckbox;
         private NumericUpDown tableTurfSpecialNumUpDown;
         private NumericUpDown tableTurfPointsNumUpDown;
+        private TabPage postPrinterTabPage;
+        private Button browseImageButton;
+        private Label label1;
+        private PictureBox openedImagePictureBox;
+        private Button printPostManuallyButton;
+        private Label postPrinterLabel;
     }
 }
