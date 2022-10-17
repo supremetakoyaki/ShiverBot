@@ -1605,7 +1605,7 @@ namespace ShiverBot.Forms
             else if (printPostManuallyButton.Tag is 1)
             {
                 printPostManuallyButton.Tag = null;
-                //DONT USE (buggy): _connectionManager.SendMessage("clickCancel\r\n");
+                _connectionManager.SendMessage("clickCancel\r\n");
                 printPostManuallyButton.Text = "Begin printing";
                 openedImage.ResetPointer();
                 return;

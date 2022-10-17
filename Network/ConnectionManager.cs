@@ -275,9 +275,16 @@ namespace ShiverBot.Network
             }
 
             int bytesReceived = sysSocket.Receive(buffer, 0, 1, SocketFlags.None);
-            while (buffer[bytesReceived - 1] != (byte)'\n')
+            try
             {
-                bytesReceived += sysSocket.Receive(buffer, bytesReceived, 1, SocketFlags.None);
+                while (buffer[bytesReceived - 1] != (byte)'\n')
+                {
+                    bytesReceived += sysSocket.Receive(buffer, bytesReceived, 1, SocketFlags.None);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"error while receiving bytes:\r\n{ex}", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
