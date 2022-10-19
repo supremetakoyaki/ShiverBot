@@ -80,9 +80,9 @@ namespace ShiverBot.Imaging
                         {
                             if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
                             {
-                                sb.Append("A,W128,");
+                                sb.Append("A,Wnu,");
                             }
-                            sb.Append("DD,W128,");
+                            sb.Append("DD,Wnu,");
                         }
                     }
                     else
@@ -91,16 +91,16 @@ namespace ShiverBot.Imaging
                         {
                             if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
                             {
-                                sb.Append("A,W128,");
+                                sb.Append("A,Wnu,");
                             }
-                            sb.Append("DU,W128,");
+                            sb.Append("DU,Wnu,");
                         }
                     }
 
                     currentDirection = !currentDirection;
                 }
 
-                sb.Append("DR,W128,");
+                sb.Append("DR,Wnu,");
                 verticalLength += sb.Length;
                 verticalOutput[x] = sb.ToString();
                 sb.Clear();
@@ -119,9 +119,9 @@ namespace ShiverBot.Imaging
                         {
                             if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
                             {
-                                sb.Append("A,W128,");
+                                sb.Append("A,Wnu,");
                             }
-                            sb.Append("DR,W128,");
+                            sb.Append("DR,Wnu,");
 
                         }
                     }
@@ -131,16 +131,16 @@ namespace ShiverBot.Imaging
                         {
                             if (_bitmap.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
                             {
-                                sb.Append("A,W128,");
+                                sb.Append("A,Wnu,");
                             }
-                            sb.Append("DL,W128,");
+                            sb.Append("DL,Wnu,");
                         }
                     }
 
                     currentDirection = !currentDirection;
                 }
 
-                sb.Append("DD,W128");
+                sb.Append("DD,Wnu");
                 horizontalLength += sb.Length;
                 horizontalOutput[y] = sb.ToString();
                 sb.Clear();

@@ -400,7 +400,7 @@ namespace ShiverBot.Forms
             string? clickSequence = openedImage.GetNextClickSequence();
             while (printPostManuallyButton.Tag is 1 && clickSequence is not null)
             {
-                _connectionManager.SendCommandAsIs($"clickSeq {clickSequence}\r\n", 256);
+                _connectionManager.SendCommandAsIs($"clickSeq {clickSequence.Replace("nu", postPrinterWaitNumUpDown.Value.ToString())}\r\n", 256);
                 Thread.Sleep(10);
                 clickSequence = openedImage.GetNextClickSequence();
             }
