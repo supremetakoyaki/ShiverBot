@@ -175,6 +175,7 @@
             this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
+            this.postPrinterHintLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
             this.advancedGroupBox.SuspendLayout();
@@ -1998,6 +1999,7 @@
             // 
             // postPrinterTabPage
             // 
+            this.postPrinterTabPage.Controls.Add(this.postPrinterHintLabel);
             this.postPrinterTabPage.Controls.Add(this.postPrinterLabel);
             this.postPrinterTabPage.Controls.Add(this.printPostManuallyButton);
             this.postPrinterTabPage.Controls.Add(this.browseImageButton);
@@ -2015,7 +2017,7 @@
             // 
             this.postPrinterLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.postPrinterLabel.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.postPrinterLabel.Location = new System.Drawing.Point(141, 133);
+            this.postPrinterLabel.Location = new System.Drawing.Point(138, 133);
             this.postPrinterLabel.Name = "postPrinterLabel";
             this.postPrinterLabel.Size = new System.Drawing.Size(83, 55);
             this.postPrinterLabel.TabIndex = 111;
@@ -2024,9 +2026,9 @@
             // 
             // printPostManuallyButton
             // 
-            this.printPostManuallyButton.Location = new System.Drawing.Point(247, 152);
+            this.printPostManuallyButton.Location = new System.Drawing.Point(244, 162);
             this.printPostManuallyButton.Name = "printPostManuallyButton";
-            this.printPostManuallyButton.Size = new System.Drawing.Size(97, 36);
+            this.printPostManuallyButton.Size = new System.Drawing.Size(97, 26);
             this.printPostManuallyButton.TabIndex = 28;
             this.printPostManuallyButton.Text = "Begin printing";
             this.printPostManuallyButton.UseVisualStyleBackColor = true;
@@ -2034,7 +2036,7 @@
             // 
             // browseImageButton
             // 
-            this.browseImageButton.Location = new System.Drawing.Point(24, 165);
+            this.browseImageButton.Location = new System.Drawing.Point(21, 165);
             this.browseImageButton.Name = "browseImageButton";
             this.browseImageButton.Size = new System.Drawing.Size(96, 23);
             this.browseImageButton.TabIndex = 27;
@@ -2045,7 +2047,7 @@
             // openedImagePictureBox
             // 
             this.openedImagePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.openedImagePictureBox.Location = new System.Drawing.Point(24, 6);
+            this.openedImagePictureBox.Location = new System.Drawing.Point(21, 6);
             this.openedImagePictureBox.Name = "openedImagePictureBox";
             this.openedImagePictureBox.Size = new System.Drawing.Size(320, 120);
             this.openedImagePictureBox.TabIndex = 26;
@@ -2056,7 +2058,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.SlateGray;
-            this.label1.Location = new System.Drawing.Point(24, 132);
+            this.label1.Location = new System.Drawing.Point(21, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 30);
             this.label1.TabIndex = 25;
@@ -2131,6 +2133,18 @@
             this.creatorLabel2.TabIndex = 102;
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
+            // 
+            // postPrinterHintLabel
+            // 
+            this.postPrinterHintLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.postPrinterHintLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.postPrinterHintLabel.Location = new System.Drawing.Point(225, 129);
+            this.postPrinterHintLabel.Name = "postPrinterHintLabel";
+            this.postPrinterHintLabel.Size = new System.Drawing.Size(116, 26);
+            this.postPrinterHintLabel.TabIndex = 112;
+            this.postPrinterHintLabel.Text = "Not printing anything?\r\nRestart your Switch...";
+            this.postPrinterHintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.postPrinterHintLabel.Visible = false;
             // 
             // MainForm
             // 
@@ -2398,5 +2412,6 @@
         private PictureBox openedImagePictureBox;
         private Button printPostManuallyButton;
         private Label postPrinterLabel;
+        private Label postPrinterHintLabel;
     }
 }

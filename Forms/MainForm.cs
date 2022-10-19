@@ -400,8 +400,9 @@ namespace ShiverBot.Forms
             string? clickSequence = openedImage.GetNextClickSequence();
             while (printPostManuallyButton.Tag is 1 && clickSequence is not null)
             {
-                _connectionManager.SendCommandAsIs($"clickSeq {clickSequence}\r\n", 128);
-                Thread.Sleep(1);
+                _connectionManager.SendCommandAsIs($"clickSeq {clickSequence}\r\n", 256);
+                Thread.Sleep(10);
+                clickSequence = openedImage.GetNextClickSequence();
             }
 
             Invoke(() =>
@@ -409,7 +410,10 @@ namespace ShiverBot.Forms
                 printPostManuallyButton.Tag = null;
                 printPostManuallyButton.Text = "Begin printing";
                 openedImage.ResetPointer();
+                postPrinterHintLabel.Visible = false;
             });
+
+            _connectionManager.SendMessage("click PLUS\r\n");
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -1614,8 +1618,10 @@ namespace ShiverBot.Forms
             {
                 printPostManuallyButton.Tag = null;
                 _connectionManager.SendMessage("clickCancel\r\n");
+                _connectionManager.SendMessage("click PLUS\r\n");
                 printPostManuallyButton.Text = "Begin printing";
                 openedImage.ResetPointer();
+                postPrinterHintLabel.Visible = false;
                 return;
             }
 
@@ -1626,7 +1632,8 @@ namespace ShiverBot.Forms
 
             Task.Factory.StartNew(PostPrintThread);
             printPostManuallyButton.Tag = 1;
-            printPostManuallyButton.Text = "Done printing";
+            printPostManuallyButton.Text = "Stop printing";
+            postPrinterHintLabel.Visible = true;
         }
     }
 }
