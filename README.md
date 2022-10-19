@@ -8,6 +8,7 @@ Current features:
 - Edit food and drink tickets.
 - Search for your gear's RNG seed (only view, NOT change)
 - Cheat in tableturf against AI.
+- BETA: printing drawing posts
 
 <details>
   <summary>Screenshots</summary>
@@ -20,7 +21,7 @@ Current features:
 
 
 # Read this
-There is a ban risk associated to anything you modify in this game because every action you do sends telemetry, but the easy options this tool has are considered the safest, harmless and have a minimal risk (10+ days without ban, as of October 10th 2022).
+There is a ban risk associated to anything you modify in this game because every action you do sends telemetry, but the easy options this tool has are considered the safest, harmless and have a minimal risk (18+ days without ban, as of October 18th 2022).
 
 There is also an advanced RAM editing option, for debugging and making tests. If you ever use it, I assume you know what you're doing.
 
