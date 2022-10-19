@@ -455,6 +455,11 @@ namespace ShiverBot.Forms
                 }
 
                 string buildId = _connectionManager.SendCommandAsIs("getBuildID", 33)[..16].Trim();
+                string languageCode = _connectionManager.SendCommandAsIs("getSystemLanguage", 5)[..2].Trim();
+                if (languageCode != "1" && _savedBuildReader.GetBuild($"{buildId}.{languageCode}") is not null)
+                {
+                    buildId += $".{languageCode}";
+                }
                 SavedBuild? build = _savedBuildReader.GetBuild(buildId);
                 if (build == null)
                 {
@@ -689,7 +694,7 @@ namespace ShiverBot.Forms
 
             string titleId = _connectionManager.SendCommandAsIs("getTitleID", 33)[..16];
             string buildId = _connectionManager.SendCommandAsIs("getBuildID", 33)[..16];
-            string languageCode = _connectionManager.SendCommandAsIs("getSystemLanguage", 4)[..1];
+            string languageCode = _connectionManager.SendCommandAsIs("getSystemLanguage", 5)[..2].Trim();
             string mainAddress = _connectionManager.SendCommandAsIs("getMainNsoBase", 33)[..16];
             string heapAddress = _connectionManager.SendCommandAsIs("getHeapBase", 33)[..16];
 

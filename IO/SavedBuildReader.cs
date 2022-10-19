@@ -12,7 +12,8 @@ namespace ShiverBot.IO
             foreach (string fileName in Directory.GetFiles("addresses/"))
             {
                 string[] contents = File.ReadAllLines(fileName);
-                string buildId = Path.GetFileNameWithoutExtension(fileName);
+                string buildId = Path.GetFileNameWithoutExtension(fileName)[..16];
+                string? language = null;
                 string? version = null;
                 string? moneyBase = null;
                 string? chunkBase = null;
@@ -42,6 +43,10 @@ namespace ShiverBot.IO
                         {
                             case "version":
                                 version = data[1];
+                                break;
+
+                            case "language":
+                                language = data[1];
                                 break;
 
                             case "moneyBase":
@@ -105,7 +110,14 @@ namespace ShiverBot.IO
                         pointSteps.Add(new(pStep[0], Convert.ToInt64(pStep[1..], 16)));
                     }
 
-                    _savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, gearBase, tableTurfRankBase, new(tableTurfSpecialBase, specialSteps, tableTurfPointBase, pointSteps)));
+                    if (language == "1")
+                    {
+                        _savedBuilds.Add(buildId, new(buildId, version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, gearBase, tableTurfRankBase, new(tableTurfSpecialBase, specialSteps, tableTurfPointBase, pointSteps)));
+                    }
+                    else
+                    {
+                        _savedBuilds.Add($"{buildId}.{language}", new($"{buildId}.{language}", version, moneyBase, chunkBase, foodTicketBase, drinkTicketBase, gearBase, tableTurfRankBase, new(tableTurfSpecialBase, specialSteps, tableTurfPointBase, pointSteps)));
+                    }
                 }
             }
 
