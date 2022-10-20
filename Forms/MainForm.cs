@@ -429,7 +429,7 @@ namespace ShiverBot.Forms
 
             if (!_connectionManager.TryConnect(ipTextBox.Text, 6000, out string error))
             {
-                if (error != string.Empty)
+                if (error == string.Empty)
                 {
                     MessageBox.Show($"error: failed to connect to the IP address.");
                 }
