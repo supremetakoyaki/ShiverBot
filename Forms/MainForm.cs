@@ -113,7 +113,7 @@ namespace ShiverBot.Forms
                         ismFlag = true;
                     }
 
-                    if (chunkAmount < 0 || chunkAmount > 1000)
+                    if (chunkAmount < 0 || chunkAmount > 9999)
                     {
                         MessageBox.Show($"error: retrieved an invalid amount of chunks for ability {abilityId} ({ability}). please delete all AMS cheat files, restart the game and try again.");
                         return;
@@ -1623,6 +1623,7 @@ namespace ShiverBot.Forms
             {
                 printPostManuallyButton.Tag = null;
                 _connectionManager.SendMessage("clickCancel\r\n");
+                Thread.Sleep(10);
                 _connectionManager.SendMessage("click PLUS\r\n");
                 printPostManuallyButton.Text = "Begin printing";
                 openedImage.ResetPointer();
@@ -1630,7 +1631,7 @@ namespace ShiverBot.Forms
                 return;
             }
 
-            if (printPostManuallyButton.Tag is not 1 && MessageBox.Show("Open the post drawer, position yourself at the left and topmost pixel and set the pencil size to the smallest one.\nwhen you're ready, click Yes.\r\nPlease note this may take a while.\r\nThis feature is still BETA so if it's not working as intended, don't cry.", "Instructions", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+            if (printPostManuallyButton.Tag is not 1 && MessageBox.Show("Open the post drawer, position yourself at the left and topmost pixel and set the pencil size to the smallest one.\nwhen you're ready, click Yes.\r\nIf nothing prints, restart your Switch and try again.", "Instructions", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
             {
                 return;
             }
