@@ -31,119 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ipTextBox = new System.Windows.Forms.TextBox();
             this.connectButton = new System.Windows.Forms.Button();
-            this.readButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.bytesToReadNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
-            this.moneyPictureBox = new System.Windows.Forms.PictureBox();
-            this.advancedGroupBox = new System.Windows.Forms.GroupBox();
-            this.metaDataButton = new System.Windows.Forms.Button();
-            this.readAbsButton = new System.Windows.Forms.Button();
-            this.readMainButton = new System.Windows.Forms.Button();
-            this.saveToFileCheckBox = new System.Windows.Forms.CheckBox();
-            this.writeButton = new System.Windows.Forms.Button();
-            this.pokeDataTextBox = new System.Windows.Forms.TextBox();
-            this.pokeAddressTextBox = new System.Windows.Forms.TextBox();
-            this.pokeLabel = new System.Windows.Forms.Label();
-            this.peekLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.updatingLabel = new System.Windows.Forms.Label();
-            this.autoUpdateCheckbox = new System.Windows.Forms.CheckBox();
             this.optionTabControl = new System.Windows.Forms.TabControl();
-            this.chunksTabPage = new System.Windows.Forms.TabPage();
-            this.chunk13NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.chunksLabel = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.chunk0PictureBox = new System.Windows.Forms.PictureBox();
-            this.chunk12NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.chunk0NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.chunk11NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.chunk1NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.chunk10NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.chunk2NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.chunk9NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.chunk3NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.chunk8NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.chunk4NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.chunk7NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.chunk5NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.chunk6NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.foodTicketsTabPage = new System.Windows.Forms.TabPage();
-            this.food5NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.food3NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.food1NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.food6NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.food4NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.food2NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.foodTicketsLabel = new System.Windows.Forms.Label();
-            this.drinkTicketsTabPage = new System.Windows.Forms.TabPage();
-            this.drinkTicketsLabel = new System.Windows.Forms.Label();
-            this.drink13NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink12NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink11NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink10NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink8NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink9NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink7NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox32 = new System.Windows.Forms.PictureBox();
-            this.pictureBox33 = new System.Windows.Forms.PictureBox();
-            this.drink5NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink6NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink4NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink3NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink2NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink1NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.drink0NumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
-            this.pictureBox30 = new System.Windows.Forms.PictureBox();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.pictureBox28 = new System.Windows.Forms.PictureBox();
-            this.pictureBox27 = new System.Windows.Forms.PictureBox();
-            this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.pictureBox25 = new System.Windows.Forms.PictureBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.pictureBox23 = new System.Windows.Forms.PictureBox();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.tableTurfTabPage = new System.Windows.Forms.TabPage();
-            this.tableTurfMatchGroupBox = new System.Windows.Forms.GroupBox();
-            this.tableTurfCpuSpecialLockCheckbox = new System.Windows.Forms.CheckBox();
-            this.tableTurfCpuPointLockCheckbox = new System.Windows.Forms.CheckBox();
-            this.tableTurfCpuSpecialNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.tableTurfCpuPointsNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.tableTurfSpecialLabel2 = new System.Windows.Forms.Label();
-            this.tableTurfPointsLabel2 = new System.Windows.Forms.Label();
-            this.tableTurfCpuLabel = new System.Windows.Forms.Label();
-            this.tableTurfSpecialLockCheckbox = new System.Windows.Forms.CheckBox();
-            this.tableTurfPointLockCheckbox = new System.Windows.Forms.CheckBox();
-            this.tableTurfSpecialNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.tableTurfPointsNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.tableTurfSpecialLabel1 = new System.Windows.Forms.Label();
-            this.tableTurfPointsLabel1 = new System.Windows.Forms.Label();
-            this.tableTurfMeLabel = new System.Windows.Forms.Label();
-            this.tableTurfRetrieveMatchButton = new System.Windows.Forms.Button();
-            this.tableTurfExplLabel = new System.Windows.Forms.Label();
-            this.tableTurfLabel = new System.Windows.Forms.Label();
-            this.tableTurfExpLabel = new System.Windows.Forms.Label();
             this.gearTabPage = new System.Windows.Forms.TabPage();
             this.gearSeedFinderLabel2 = new System.Windows.Forms.Label();
             this.gearSearchButton = new System.Windows.Forms.Button();
@@ -164,109 +54,35 @@
             this.gearTypeLabel = new System.Windows.Forms.Label();
             this.gearSeedFinderLabel = new System.Windows.Forms.Label();
             this.postPrinterTabPage = new System.Windows.Forms.TabPage();
+            this.postPrinterWaitNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.postPrinterHintLabel = new System.Windows.Forms.Label();
             this.postPrinterLabel = new System.Windows.Forms.Label();
             this.printPostManuallyButton = new System.Windows.Forms.Button();
             this.browseImageButton = new System.Windows.Forms.Button();
             this.openedImagePictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.restoreMoneyButton = new System.Windows.Forms.Button();
-            this.saveMoneyButton = new System.Windows.Forms.Button();
-            this.moneyLabel = new System.Windows.Forms.Label();
-            this.moneyNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.creatorLabel = new System.Windows.Forms.Label();
             this.creatorLabel2 = new System.Windows.Forms.Label();
-            this.postPrinterHintLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.postPrinterWaitNumUpDown = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).BeginInit();
-            this.advancedGroupBox.SuspendLayout();
+            this.bytesToReadNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.readButton = new System.Windows.Forms.Button();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.peekLabel = new System.Windows.Forms.Label();
+            this.saveToFileCheckBox = new System.Windows.Forms.CheckBox();
+            this.readMainButton = new System.Windows.Forms.Button();
+            this.readAbsButton = new System.Windows.Forms.Button();
+            this.metaDataButton = new System.Windows.Forms.Button();
+            this.advancedGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.optionTabControl.SuspendLayout();
-            this.chunksTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk13NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk0PictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk12NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk0NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk11NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk1NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk10NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk2NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk9NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk3NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk8NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk4NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk7NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk5NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).BeginInit();
-            this.foodTicketsTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.food5NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food3NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food1NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food6NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food4NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food2NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            this.drinkTicketsTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drink13NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink12NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink11NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink10NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink8NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink9NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink7NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink5NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink6NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink4NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink3NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink2NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink1NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink0NumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            this.tableTurfTabPage.SuspendLayout();
-            this.tableTurfMatchGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuSpecialNumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuPointsNumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfSpecialNumUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfPointsNumUpDown)).BeginInit();
             this.gearTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).BeginInit();
             this.postPrinterTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.openedImagePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postPrinterWaitNumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openedImagePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).BeginInit();
+            this.advancedGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ipTextBox
@@ -288,16 +104,6 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
-            // readButton
-            // 
-            this.readButton.Location = new System.Drawing.Point(217, 53);
-            this.readButton.Name = "readButton";
-            this.readButton.Size = new System.Drawing.Size(77, 23);
-            this.readButton.TabIndex = 105;
-            this.readButton.Text = "read heap";
-            this.readButton.UseVisualStyleBackColor = true;
-            this.readButton.Click += new System.EventHandler(this.readButton_Click);
-            // 
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
@@ -307,153 +113,9 @@
             this.statusLabel.TabIndex = 0;
             this.statusLabel.Text = "status";
             // 
-            // bytesToReadNumUpDown
-            // 
-            this.bytesToReadNumUpDown.Location = new System.Drawing.Point(136, 38);
-            this.bytesToReadNumUpDown.Maximum = new decimal(new int[] {
-            104857600,
-            0,
-            0,
-            0});
-            this.bytesToReadNumUpDown.Name = "bytesToReadNumUpDown";
-            this.bytesToReadNumUpDown.Size = new System.Drawing.Size(70, 23);
-            this.bytesToReadNumUpDown.TabIndex = 103;
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Location = new System.Drawing.Point(6, 37);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.PlaceholderText = "Address (without 0x)";
-            this.addressTextBox.Size = new System.Drawing.Size(124, 23);
-            this.addressTextBox.TabIndex = 102;
-            // 
-            // moneyPictureBox
-            // 
-            this.moneyPictureBox.Image = global::ShiverBot.Properties.Resources.Money;
-            this.moneyPictureBox.Location = new System.Drawing.Point(6, 22);
-            this.moneyPictureBox.Name = "moneyPictureBox";
-            this.moneyPictureBox.Size = new System.Drawing.Size(45, 45);
-            this.moneyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.moneyPictureBox.TabIndex = 7;
-            this.moneyPictureBox.TabStop = false;
-            // 
-            // advancedGroupBox
-            // 
-            this.advancedGroupBox.Controls.Add(this.metaDataButton);
-            this.advancedGroupBox.Controls.Add(this.readAbsButton);
-            this.advancedGroupBox.Controls.Add(this.readMainButton);
-            this.advancedGroupBox.Controls.Add(this.saveToFileCheckBox);
-            this.advancedGroupBox.Controls.Add(this.writeButton);
-            this.advancedGroupBox.Controls.Add(this.pokeDataTextBox);
-            this.advancedGroupBox.Controls.Add(this.pokeAddressTextBox);
-            this.advancedGroupBox.Controls.Add(this.pokeLabel);
-            this.advancedGroupBox.Controls.Add(this.peekLabel);
-            this.advancedGroupBox.Controls.Add(this.addressTextBox);
-            this.advancedGroupBox.Controls.Add(this.readButton);
-            this.advancedGroupBox.Controls.Add(this.bytesToReadNumUpDown);
-            this.advancedGroupBox.Location = new System.Drawing.Point(12, 348);
-            this.advancedGroupBox.Name = "advancedGroupBox";
-            this.advancedGroupBox.Size = new System.Drawing.Size(383, 132);
-            this.advancedGroupBox.TabIndex = 100;
-            this.advancedGroupBox.TabStop = false;
-            this.advancedGroupBox.Text = "Advanced";
-            // 
-            // metaDataButton
-            // 
-            this.metaDataButton.Location = new System.Drawing.Point(319, 24);
-            this.metaDataButton.Name = "metaDataButton";
-            this.metaDataButton.Size = new System.Drawing.Size(58, 23);
-            this.metaDataButton.TabIndex = 111;
-            this.metaDataButton.Text = "meta";
-            this.metaDataButton.UseVisualStyleBackColor = true;
-            this.metaDataButton.Click += new System.EventHandler(this.metaDataButton_Click);
-            // 
-            // readAbsButton
-            // 
-            this.readAbsButton.Location = new System.Drawing.Point(217, 24);
-            this.readAbsButton.Name = "readAbsButton";
-            this.readAbsButton.Size = new System.Drawing.Size(96, 23);
-            this.readAbsButton.TabIndex = 110;
-            this.readAbsButton.Text = "read absolute";
-            this.readAbsButton.UseVisualStyleBackColor = true;
-            this.readAbsButton.Click += new System.EventHandler(this.readAbsButton_Click);
-            // 
-            // readMainButton
-            // 
-            this.readMainButton.Location = new System.Drawing.Point(300, 53);
-            this.readMainButton.Name = "readMainButton";
-            this.readMainButton.Size = new System.Drawing.Size(77, 23);
-            this.readMainButton.TabIndex = 106;
-            this.readMainButton.Text = "read main";
-            this.readMainButton.UseVisualStyleBackColor = true;
-            this.readMainButton.Click += new System.EventHandler(this.readMainButton_Click);
-            // 
-            // saveToFileCheckBox
-            // 
-            this.saveToFileCheckBox.AutoSize = true;
-            this.saveToFileCheckBox.Checked = true;
-            this.saveToFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.saveToFileCheckBox.Location = new System.Drawing.Point(136, 67);
-            this.saveToFileCheckBox.Name = "saveToFileCheckBox";
-            this.saveToFileCheckBox.Size = new System.Drawing.Size(82, 19);
-            this.saveToFileCheckBox.TabIndex = 104;
-            this.saveToFileCheckBox.Text = "save to file";
-            this.saveToFileCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // writeButton
-            // 
-            this.writeButton.Location = new System.Drawing.Point(300, 103);
-            this.writeButton.Name = "writeButton";
-            this.writeButton.Size = new System.Drawing.Size(77, 23);
-            this.writeButton.TabIndex = 109;
-            this.writeButton.Text = "write heap";
-            this.writeButton.UseVisualStyleBackColor = true;
-            this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
-            // 
-            // pokeDataTextBox
-            // 
-            this.pokeDataTextBox.Location = new System.Drawing.Point(136, 103);
-            this.pokeDataTextBox.Name = "pokeDataTextBox";
-            this.pokeDataTextBox.PlaceholderText = "Data (without 0x)";
-            this.pokeDataTextBox.Size = new System.Drawing.Size(124, 23);
-            this.pokeDataTextBox.TabIndex = 108;
-            // 
-            // pokeAddressTextBox
-            // 
-            this.pokeAddressTextBox.Location = new System.Drawing.Point(6, 103);
-            this.pokeAddressTextBox.Name = "pokeAddressTextBox";
-            this.pokeAddressTextBox.PlaceholderText = "Address (without 0x)";
-            this.pokeAddressTextBox.Size = new System.Drawing.Size(124, 23);
-            this.pokeAddressTextBox.TabIndex = 107;
-            // 
-            // pokeLabel
-            // 
-            this.pokeLabel.AutoSize = true;
-            this.pokeLabel.Location = new System.Drawing.Point(6, 85);
-            this.pokeLabel.Name = "pokeLabel";
-            this.pokeLabel.Size = new System.Drawing.Size(62, 15);
-            this.pokeLabel.TabIndex = 106;
-            this.pokeLabel.Text = "Poke data:";
-            // 
-            // peekLabel
-            // 
-            this.peekLabel.AutoSize = true;
-            this.peekLabel.Location = new System.Drawing.Point(6, 19);
-            this.peekLabel.Name = "peekLabel";
-            this.peekLabel.Size = new System.Drawing.Size(66, 15);
-            this.peekLabel.TabIndex = 101;
-            this.peekLabel.Text = "Peek bytes:";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.updatingLabel);
-            this.groupBox1.Controls.Add(this.autoUpdateCheckbox);
             this.groupBox1.Controls.Add(this.optionTabControl);
-            this.groupBox1.Controls.Add(this.restoreMoneyButton);
-            this.groupBox1.Controls.Add(this.saveMoneyButton);
-            this.groupBox1.Controls.Add(this.moneyLabel);
-            this.groupBox1.Controls.Add(this.moneyNumUpDown);
-            this.groupBox1.Controls.Add(this.moneyPictureBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(383, 301);
@@ -461,34 +123,8 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Easy Edit";
             // 
-            // updatingLabel
-            // 
-            this.updatingLabel.AutoSize = true;
-            this.updatingLabel.Location = new System.Drawing.Point(278, 42);
-            this.updatingLabel.Name = "updatingLabel";
-            this.updatingLabel.Size = new System.Drawing.Size(99, 15);
-            this.updatingLabel.TabIndex = 102;
-            this.updatingLabel.Text = "updating in {0}s...";
-            // 
-            // autoUpdateCheckbox
-            // 
-            this.autoUpdateCheckbox.AutoSize = true;
-            this.autoUpdateCheckbox.Checked = true;
-            this.autoUpdateCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoUpdateCheckbox.Location = new System.Drawing.Point(285, 20);
-            this.autoUpdateCheckbox.Name = "autoUpdateCheckbox";
-            this.autoUpdateCheckbox.Size = new System.Drawing.Size(92, 19);
-            this.autoUpdateCheckbox.TabIndex = 101;
-            this.autoUpdateCheckbox.Text = "auto-update";
-            this.autoUpdateCheckbox.UseVisualStyleBackColor = true;
-            this.autoUpdateCheckbox.CheckedChanged += new System.EventHandler(this.autoUpdateCheckbox_CheckedChanged);
-            // 
             // optionTabControl
             // 
-            this.optionTabControl.Controls.Add(this.chunksTabPage);
-            this.optionTabControl.Controls.Add(this.foodTicketsTabPage);
-            this.optionTabControl.Controls.Add(this.drinkTicketsTabPage);
-            this.optionTabControl.Controls.Add(this.tableTurfTabPage);
             this.optionTabControl.Controls.Add(this.gearTabPage);
             this.optionTabControl.Controls.Add(this.postPrinterTabPage);
             this.optionTabControl.Location = new System.Drawing.Point(6, 73);
@@ -496,1202 +132,6 @@
             this.optionTabControl.SelectedIndex = 0;
             this.optionTabControl.Size = new System.Drawing.Size(371, 222);
             this.optionTabControl.TabIndex = 8;
-            // 
-            // chunksTabPage
-            // 
-            this.chunksTabPage.Controls.Add(this.chunk13NumUpDown);
-            this.chunksTabPage.Controls.Add(this.chunksLabel);
-            this.chunksTabPage.Controls.Add(this.pictureBox7);
-            this.chunksTabPage.Controls.Add(this.chunk0PictureBox);
-            this.chunksTabPage.Controls.Add(this.chunk12NumUpDown);
-            this.chunksTabPage.Controls.Add(this.chunk0NumUpDown);
-            this.chunksTabPage.Controls.Add(this.pictureBox8);
-            this.chunksTabPage.Controls.Add(this.pictureBox1);
-            this.chunksTabPage.Controls.Add(this.chunk11NumUpDown);
-            this.chunksTabPage.Controls.Add(this.chunk1NumUpDown);
-            this.chunksTabPage.Controls.Add(this.pictureBox9);
-            this.chunksTabPage.Controls.Add(this.pictureBox2);
-            this.chunksTabPage.Controls.Add(this.chunk10NumUpDown);
-            this.chunksTabPage.Controls.Add(this.chunk2NumUpDown);
-            this.chunksTabPage.Controls.Add(this.pictureBox10);
-            this.chunksTabPage.Controls.Add(this.pictureBox3);
-            this.chunksTabPage.Controls.Add(this.chunk9NumUpDown);
-            this.chunksTabPage.Controls.Add(this.chunk3NumUpDown);
-            this.chunksTabPage.Controls.Add(this.pictureBox11);
-            this.chunksTabPage.Controls.Add(this.pictureBox4);
-            this.chunksTabPage.Controls.Add(this.chunk8NumUpDown);
-            this.chunksTabPage.Controls.Add(this.chunk4NumUpDown);
-            this.chunksTabPage.Controls.Add(this.pictureBox12);
-            this.chunksTabPage.Controls.Add(this.pictureBox5);
-            this.chunksTabPage.Controls.Add(this.chunk7NumUpDown);
-            this.chunksTabPage.Controls.Add(this.chunk5NumUpDown);
-            this.chunksTabPage.Controls.Add(this.pictureBox13);
-            this.chunksTabPage.Controls.Add(this.pictureBox6);
-            this.chunksTabPage.Controls.Add(this.chunk6NumUpDown);
-            this.chunksTabPage.Location = new System.Drawing.Point(4, 24);
-            this.chunksTabPage.Name = "chunksTabPage";
-            this.chunksTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.chunksTabPage.Size = new System.Drawing.Size(363, 194);
-            this.chunksTabPage.TabIndex = 0;
-            this.chunksTabPage.Text = "Ability Chunks";
-            this.chunksTabPage.UseVisualStyleBackColor = true;
-            // 
-            // chunk13NumUpDown
-            // 
-            this.chunk13NumUpDown.Enabled = false;
-            this.chunk13NumUpDown.Location = new System.Drawing.Point(312, 162);
-            this.chunk13NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk13NumUpDown.Name = "chunk13NumUpDown";
-            this.chunk13NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk13NumUpDown.TabIndex = 23;
-            this.chunk13NumUpDown.ValueChanged += new System.EventHandler(this.chunk13NumUpDown_ValueChanged);
-            // 
-            // chunksLabel
-            // 
-            this.chunksLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.chunksLabel.ForeColor = System.Drawing.Color.DeepPink;
-            this.chunksLabel.Location = new System.Drawing.Point(6, 3);
-            this.chunksLabel.Name = "chunksLabel";
-            this.chunksLabel.Size = new System.Drawing.Size(348, 15);
-            this.chunksLabel.TabIndex = 9;
-            this.chunksLabel.Text = "ABILITY CHUNKS";
-            this.chunksLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::ShiverBot.Properties.Resources.Action_Up;
-            this.pictureBox7.Location = new System.Drawing.Point(312, 111);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 39;
-            this.pictureBox7.TabStop = false;
-            // 
-            // chunk0PictureBox
-            // 
-            this.chunk0PictureBox.Image = global::ShiverBot.Properties.Resources.MainInk_Save;
-            this.chunk0PictureBox.Location = new System.Drawing.Point(6, 21);
-            this.chunk0PictureBox.Name = "chunk0PictureBox";
-            this.chunk0PictureBox.Size = new System.Drawing.Size(45, 45);
-            this.chunk0PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.chunk0PictureBox.TabIndex = 13;
-            this.chunk0PictureBox.TabStop = false;
-            // 
-            // chunk12NumUpDown
-            // 
-            this.chunk12NumUpDown.Enabled = false;
-            this.chunk12NumUpDown.Location = new System.Drawing.Point(261, 162);
-            this.chunk12NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk12NumUpDown.Name = "chunk12NumUpDown";
-            this.chunk12NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk12NumUpDown.TabIndex = 22;
-            this.chunk12NumUpDown.ValueChanged += new System.EventHandler(this.chunk12NumUpDown_ValueChanged);
-            // 
-            // chunk0NumUpDown
-            // 
-            this.chunk0NumUpDown.Enabled = false;
-            this.chunk0NumUpDown.Location = new System.Drawing.Point(6, 72);
-            this.chunk0NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk0NumUpDown.Name = "chunk0NumUpDown";
-            this.chunk0NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk0NumUpDown.TabIndex = 10;
-            this.chunk0NumUpDown.ValueChanged += new System.EventHandler(this.chunk0NumUpDown_ValueChanged);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::ShiverBot.Properties.Resources.SubEffect_Reduction;
-            this.pictureBox8.Location = new System.Drawing.Point(261, 111);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 37;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ShiverBot.Properties.Resources.SubInk_Save;
-            this.pictureBox1.Location = new System.Drawing.Point(57, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // chunk11NumUpDown
-            // 
-            this.chunk11NumUpDown.Enabled = false;
-            this.chunk11NumUpDown.Location = new System.Drawing.Point(210, 162);
-            this.chunk11NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk11NumUpDown.Name = "chunk11NumUpDown";
-            this.chunk11NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk11NumUpDown.TabIndex = 21;
-            this.chunk11NumUpDown.ValueChanged += new System.EventHandler(this.chunk11NumUpDown_ValueChanged);
-            // 
-            // chunk1NumUpDown
-            // 
-            this.chunk1NumUpDown.Enabled = false;
-            this.chunk1NumUpDown.Location = new System.Drawing.Point(57, 72);
-            this.chunk1NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk1NumUpDown.Name = "chunk1NumUpDown";
-            this.chunk1NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk1NumUpDown.TabIndex = 11;
-            this.chunk1NumUpDown.ValueChanged += new System.EventHandler(this.chunk1NumUpDown_ValueChanged);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::ShiverBot.Properties.Resources.OpInkEffect_Reduction;
-            this.pictureBox9.Location = new System.Drawing.Point(210, 111);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 35;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ShiverBot.Properties.Resources.InkRecovery_Up;
-            this.pictureBox2.Location = new System.Drawing.Point(108, 21);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 17;
-            this.pictureBox2.TabStop = false;
-            // 
-            // chunk10NumUpDown
-            // 
-            this.chunk10NumUpDown.Enabled = false;
-            this.chunk10NumUpDown.Location = new System.Drawing.Point(159, 162);
-            this.chunk10NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk10NumUpDown.Name = "chunk10NumUpDown";
-            this.chunk10NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk10NumUpDown.TabIndex = 20;
-            this.chunk10NumUpDown.ValueChanged += new System.EventHandler(this.chunk10NumUpDown_ValueChanged);
-            // 
-            // chunk2NumUpDown
-            // 
-            this.chunk2NumUpDown.Enabled = false;
-            this.chunk2NumUpDown.Location = new System.Drawing.Point(108, 72);
-            this.chunk2NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk2NumUpDown.Name = "chunk2NumUpDown";
-            this.chunk2NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk2NumUpDown.TabIndex = 12;
-            this.chunk2NumUpDown.ValueChanged += new System.EventHandler(this.chunk2NumUpDown_ValueChanged);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::ShiverBot.Properties.Resources.SubSpec_Up;
-            this.pictureBox10.Location = new System.Drawing.Point(159, 111);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 33;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ShiverBot.Properties.Resources.HumanMove_Up;
-            this.pictureBox3.Location = new System.Drawing.Point(159, 21);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 19;
-            this.pictureBox3.TabStop = false;
-            // 
-            // chunk9NumUpDown
-            // 
-            this.chunk9NumUpDown.Enabled = false;
-            this.chunk9NumUpDown.Location = new System.Drawing.Point(108, 162);
-            this.chunk9NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk9NumUpDown.Name = "chunk9NumUpDown";
-            this.chunk9NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk9NumUpDown.TabIndex = 19;
-            this.chunk9NumUpDown.ValueChanged += new System.EventHandler(this.chunk9NumUpDown_ValueChanged);
-            // 
-            // chunk3NumUpDown
-            // 
-            this.chunk3NumUpDown.Enabled = false;
-            this.chunk3NumUpDown.Location = new System.Drawing.Point(159, 72);
-            this.chunk3NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk3NumUpDown.Name = "chunk3NumUpDown";
-            this.chunk3NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk3NumUpDown.TabIndex = 13;
-            this.chunk3NumUpDown.ValueChanged += new System.EventHandler(this.chunk3NumUpDown_ValueChanged);
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::ShiverBot.Properties.Resources.JumpTime_Save;
-            this.pictureBox11.Location = new System.Drawing.Point(108, 111);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 31;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ShiverBot.Properties.Resources.SquidMove_Up;
-            this.pictureBox4.Location = new System.Drawing.Point(210, 21);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 21;
-            this.pictureBox4.TabStop = false;
-            // 
-            // chunk8NumUpDown
-            // 
-            this.chunk8NumUpDown.Enabled = false;
-            this.chunk8NumUpDown.Location = new System.Drawing.Point(57, 162);
-            this.chunk8NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk8NumUpDown.Name = "chunk8NumUpDown";
-            this.chunk8NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk8NumUpDown.TabIndex = 18;
-            this.chunk8NumUpDown.ValueChanged += new System.EventHandler(this.chunk8NumUpDown_ValueChanged);
-            // 
-            // chunk4NumUpDown
-            // 
-            this.chunk4NumUpDown.Enabled = false;
-            this.chunk4NumUpDown.Location = new System.Drawing.Point(210, 72);
-            this.chunk4NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk4NumUpDown.Name = "chunk4NumUpDown";
-            this.chunk4NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk4NumUpDown.TabIndex = 14;
-            this.chunk4NumUpDown.ValueChanged += new System.EventHandler(this.chunk4NumUpDown_ValueChanged);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = global::ShiverBot.Properties.Resources.RespawnTime_Save;
-            this.pictureBox12.Location = new System.Drawing.Point(57, 111);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 29;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ShiverBot.Properties.Resources.SpecialIncrease_Up;
-            this.pictureBox5.Location = new System.Drawing.Point(261, 21);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 23;
-            this.pictureBox5.TabStop = false;
-            // 
-            // chunk7NumUpDown
-            // 
-            this.chunk7NumUpDown.Enabled = false;
-            this.chunk7NumUpDown.Location = new System.Drawing.Point(6, 162);
-            this.chunk7NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk7NumUpDown.Name = "chunk7NumUpDown";
-            this.chunk7NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk7NumUpDown.TabIndex = 17;
-            this.chunk7NumUpDown.ValueChanged += new System.EventHandler(this.chunk7NumUpDown_ValueChanged);
-            // 
-            // chunk5NumUpDown
-            // 
-            this.chunk5NumUpDown.Enabled = false;
-            this.chunk5NumUpDown.Location = new System.Drawing.Point(261, 72);
-            this.chunk5NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk5NumUpDown.Name = "chunk5NumUpDown";
-            this.chunk5NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk5NumUpDown.TabIndex = 15;
-            this.chunk5NumUpDown.ValueChanged += new System.EventHandler(this.chunk5NumUpDown_ValueChanged);
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = global::ShiverBot.Properties.Resources.SpecialSpec_Up;
-            this.pictureBox13.Location = new System.Drawing.Point(6, 111);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 27;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::ShiverBot.Properties.Resources.RespawnSpecialGauge_Save;
-            this.pictureBox6.Location = new System.Drawing.Point(312, 21);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 25;
-            this.pictureBox6.TabStop = false;
-            // 
-            // chunk6NumUpDown
-            // 
-            this.chunk6NumUpDown.Enabled = false;
-            this.chunk6NumUpDown.Location = new System.Drawing.Point(312, 72);
-            this.chunk6NumUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.chunk6NumUpDown.Name = "chunk6NumUpDown";
-            this.chunk6NumUpDown.Size = new System.Drawing.Size(45, 23);
-            this.chunk6NumUpDown.TabIndex = 16;
-            this.chunk6NumUpDown.ValueChanged += new System.EventHandler(this.chunk6NumUpDown_ValueChanged);
-            // 
-            // foodTicketsTabPage
-            // 
-            this.foodTicketsTabPage.Controls.Add(this.food5NumUpDown);
-            this.foodTicketsTabPage.Controls.Add(this.food3NumUpDown);
-            this.foodTicketsTabPage.Controls.Add(this.food1NumUpDown);
-            this.foodTicketsTabPage.Controls.Add(this.food6NumUpDown);
-            this.foodTicketsTabPage.Controls.Add(this.food4NumUpDown);
-            this.foodTicketsTabPage.Controls.Add(this.food2NumUpDown);
-            this.foodTicketsTabPage.Controls.Add(this.pictureBox20);
-            this.foodTicketsTabPage.Controls.Add(this.pictureBox19);
-            this.foodTicketsTabPage.Controls.Add(this.pictureBox18);
-            this.foodTicketsTabPage.Controls.Add(this.pictureBox16);
-            this.foodTicketsTabPage.Controls.Add(this.pictureBox15);
-            this.foodTicketsTabPage.Controls.Add(this.pictureBox14);
-            this.foodTicketsTabPage.Controls.Add(this.foodTicketsLabel);
-            this.foodTicketsTabPage.Location = new System.Drawing.Point(4, 24);
-            this.foodTicketsTabPage.Name = "foodTicketsTabPage";
-            this.foodTicketsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.foodTicketsTabPage.Size = new System.Drawing.Size(363, 194);
-            this.foodTicketsTabPage.TabIndex = 1;
-            this.foodTicketsTabPage.Text = "Food Tickets";
-            this.foodTicketsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // food5NumUpDown
-            // 
-            this.food5NumUpDown.Enabled = false;
-            this.food5NumUpDown.Location = new System.Drawing.Point(227, 164);
-            this.food5NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.food5NumUpDown.Name = "food5NumUpDown";
-            this.food5NumUpDown.Size = new System.Drawing.Size(35, 23);
-            this.food5NumUpDown.TabIndex = 23;
-            this.food5NumUpDown.ValueChanged += new System.EventHandler(this.food5NumUpDown_ValueChanged);
-            // 
-            // food3NumUpDown
-            // 
-            this.food3NumUpDown.Enabled = false;
-            this.food3NumUpDown.Location = new System.Drawing.Point(141, 164);
-            this.food3NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.food3NumUpDown.Name = "food3NumUpDown";
-            this.food3NumUpDown.Size = new System.Drawing.Size(35, 23);
-            this.food3NumUpDown.TabIndex = 22;
-            this.food3NumUpDown.ValueChanged += new System.EventHandler(this.food3NumUpDown_ValueChanged);
-            // 
-            // food1NumUpDown
-            // 
-            this.food1NumUpDown.Enabled = false;
-            this.food1NumUpDown.Location = new System.Drawing.Point(55, 164);
-            this.food1NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.food1NumUpDown.Name = "food1NumUpDown";
-            this.food1NumUpDown.Size = new System.Drawing.Size(35, 23);
-            this.food1NumUpDown.TabIndex = 21;
-            this.food1NumUpDown.ValueChanged += new System.EventHandler(this.food1NumUpDown_ValueChanged);
-            // 
-            // food6NumUpDown
-            // 
-            this.food6NumUpDown.Enabled = false;
-            this.food6NumUpDown.Location = new System.Drawing.Point(227, 78);
-            this.food6NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.food6NumUpDown.Name = "food6NumUpDown";
-            this.food6NumUpDown.Size = new System.Drawing.Size(35, 23);
-            this.food6NumUpDown.TabIndex = 20;
-            this.food6NumUpDown.ValueChanged += new System.EventHandler(this.food6NumUpDown_ValueChanged);
-            // 
-            // food4NumUpDown
-            // 
-            this.food4NumUpDown.Enabled = false;
-            this.food4NumUpDown.Location = new System.Drawing.Point(141, 78);
-            this.food4NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.food4NumUpDown.Name = "food4NumUpDown";
-            this.food4NumUpDown.Size = new System.Drawing.Size(35, 23);
-            this.food4NumUpDown.TabIndex = 19;
-            this.food4NumUpDown.ValueChanged += new System.EventHandler(this.food4NumUpDown_ValueChanged);
-            // 
-            // food2NumUpDown
-            // 
-            this.food2NumUpDown.Enabled = false;
-            this.food2NumUpDown.Location = new System.Drawing.Point(55, 78);
-            this.food2NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.food2NumUpDown.Name = "food2NumUpDown";
-            this.food2NumUpDown.Size = new System.Drawing.Size(35, 23);
-            this.food2NumUpDown.TabIndex = 18;
-            this.food2NumUpDown.ValueChanged += new System.EventHandler(this.food2NumUpDown_ValueChanged);
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.Image = global::ShiverBot.Properties.Resources.IconShopParty_01;
-            this.pictureBox20.Location = new System.Drawing.Point(227, 107);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox20.TabIndex = 17;
-            this.pictureBox20.TabStop = false;
-            // 
-            // pictureBox19
-            // 
-            this.pictureBox19.Image = global::ShiverBot.Properties.Resources.IconShopFoodRankL;
-            this.pictureBox19.Location = new System.Drawing.Point(141, 107);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox19.TabIndex = 16;
-            this.pictureBox19.TabStop = false;
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Image = global::ShiverBot.Properties.Resources.IconShopFoodRank_cropped;
-            this.pictureBox18.Location = new System.Drawing.Point(55, 107);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox18.TabIndex = 15;
-            this.pictureBox18.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Image = global::ShiverBot.Properties.Resources.IconShopParty_00_cropped;
-            this.pictureBox16.Location = new System.Drawing.Point(227, 21);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox16.TabIndex = 13;
-            this.pictureBox16.TabStop = false;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Image = global::ShiverBot.Properties.Resources.IconShopFoodL_cropped;
-            this.pictureBox15.Location = new System.Drawing.Point(141, 21);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox15.TabIndex = 12;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Image = global::ShiverBot.Properties.Resources.IconShopFood_cropped;
-            this.pictureBox14.Location = new System.Drawing.Point(55, 21);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 11;
-            this.pictureBox14.TabStop = false;
-            // 
-            // foodTicketsLabel
-            // 
-            this.foodTicketsLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.foodTicketsLabel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.foodTicketsLabel.Location = new System.Drawing.Point(6, 3);
-            this.foodTicketsLabel.Name = "foodTicketsLabel";
-            this.foodTicketsLabel.Size = new System.Drawing.Size(348, 15);
-            this.foodTicketsLabel.TabIndex = 10;
-            this.foodTicketsLabel.Text = "FOOD TICKETS";
-            this.foodTicketsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // drinkTicketsTabPage
-            // 
-            this.drinkTicketsTabPage.Controls.Add(this.drinkTicketsLabel);
-            this.drinkTicketsTabPage.Controls.Add(this.drink13NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink12NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink11NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink10NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink8NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink9NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink7NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox32);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox33);
-            this.drinkTicketsTabPage.Controls.Add(this.drink5NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink6NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink4NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink3NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink2NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink1NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.drink0NumUpDown);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox31);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox30);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox29);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox28);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox27);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox26);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox25);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox24);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox23);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox22);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox21);
-            this.drinkTicketsTabPage.Controls.Add(this.pictureBox17);
-            this.drinkTicketsTabPage.Location = new System.Drawing.Point(4, 24);
-            this.drinkTicketsTabPage.Name = "drinkTicketsTabPage";
-            this.drinkTicketsTabPage.Size = new System.Drawing.Size(363, 194);
-            this.drinkTicketsTabPage.TabIndex = 3;
-            this.drinkTicketsTabPage.Text = "Drink Tickets";
-            this.drinkTicketsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // drinkTicketsLabel
-            // 
-            this.drinkTicketsLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.drinkTicketsLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.drinkTicketsLabel.Location = new System.Drawing.Point(277, 135);
-            this.drinkTicketsLabel.Name = "drinkTicketsLabel";
-            this.drinkTicketsLabel.Size = new System.Drawing.Size(83, 55);
-            this.drinkTicketsLabel.TabIndex = 110;
-            this.drinkTicketsLabel.Text = "DRINK TICKETS";
-            this.drinkTicketsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // drink13NumUpDown
-            // 
-            this.drink13NumUpDown.Enabled = false;
-            this.drink13NumUpDown.Location = new System.Drawing.Point(215, 167);
-            this.drink13NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink13NumUpDown.Name = "drink13NumUpDown";
-            this.drink13NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink13NumUpDown.TabIndex = 109;
-            this.drink13NumUpDown.ValueChanged += new System.EventHandler(this.drink13NumUpDown_ValueChanged);
-            // 
-            // drink12NumUpDown
-            // 
-            this.drink12NumUpDown.Enabled = false;
-            this.drink12NumUpDown.Location = new System.Drawing.Point(153, 167);
-            this.drink12NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink12NumUpDown.Name = "drink12NumUpDown";
-            this.drink12NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink12NumUpDown.TabIndex = 108;
-            this.drink12NumUpDown.ValueChanged += new System.EventHandler(this.drink12NumUpDown_ValueChanged);
-            // 
-            // drink11NumUpDown
-            // 
-            this.drink11NumUpDown.Enabled = false;
-            this.drink11NumUpDown.Location = new System.Drawing.Point(91, 167);
-            this.drink11NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink11NumUpDown.Name = "drink11NumUpDown";
-            this.drink11NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink11NumUpDown.TabIndex = 107;
-            this.drink11NumUpDown.ValueChanged += new System.EventHandler(this.drink11NumUpDown_ValueChanged);
-            // 
-            // drink10NumUpDown
-            // 
-            this.drink10NumUpDown.Enabled = false;
-            this.drink10NumUpDown.Location = new System.Drawing.Point(30, 167);
-            this.drink10NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink10NumUpDown.Name = "drink10NumUpDown";
-            this.drink10NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink10NumUpDown.TabIndex = 106;
-            this.drink10NumUpDown.ValueChanged += new System.EventHandler(this.drink10NumUpDown_ValueChanged);
-            // 
-            // drink8NumUpDown
-            // 
-            this.drink8NumUpDown.Enabled = false;
-            this.drink8NumUpDown.Location = new System.Drawing.Point(215, 102);
-            this.drink8NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink8NumUpDown.Name = "drink8NumUpDown";
-            this.drink8NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink8NumUpDown.TabIndex = 105;
-            this.drink8NumUpDown.ValueChanged += new System.EventHandler(this.drink8NumUpDown_ValueChanged);
-            // 
-            // drink9NumUpDown
-            // 
-            this.drink9NumUpDown.Enabled = false;
-            this.drink9NumUpDown.Location = new System.Drawing.Point(277, 102);
-            this.drink9NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink9NumUpDown.Name = "drink9NumUpDown";
-            this.drink9NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink9NumUpDown.TabIndex = 105;
-            this.drink9NumUpDown.ValueChanged += new System.EventHandler(this.drink9NumUpDown_ValueChanged);
-            // 
-            // drink7NumUpDown
-            // 
-            this.drink7NumUpDown.Enabled = false;
-            this.drink7NumUpDown.Location = new System.Drawing.Point(153, 102);
-            this.drink7NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink7NumUpDown.Name = "drink7NumUpDown";
-            this.drink7NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink7NumUpDown.TabIndex = 104;
-            this.drink7NumUpDown.ValueChanged += new System.EventHandler(this.drink7NumUpDown_ValueChanged);
-            // 
-            // pictureBox32
-            // 
-            this.pictureBox32.Image = global::ShiverBot.Properties.Resources.Drink11;
-            this.pictureBox32.Location = new System.Drawing.Point(92, 135);
-            this.pictureBox32.Name = "pictureBox32";
-            this.pictureBox32.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox32.TabIndex = 12;
-            this.pictureBox32.TabStop = false;
-            // 
-            // pictureBox33
-            // 
-            this.pictureBox33.Image = global::ShiverBot.Properties.Resources.Drink13;
-            this.pictureBox33.Location = new System.Drawing.Point(215, 135);
-            this.pictureBox33.Name = "pictureBox33";
-            this.pictureBox33.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox33.TabIndex = 103;
-            this.pictureBox33.TabStop = false;
-            // 
-            // drink5NumUpDown
-            // 
-            this.drink5NumUpDown.Enabled = false;
-            this.drink5NumUpDown.Location = new System.Drawing.Point(29, 102);
-            this.drink5NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink5NumUpDown.Name = "drink5NumUpDown";
-            this.drink5NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink5NumUpDown.TabIndex = 18;
-            this.drink5NumUpDown.ValueChanged += new System.EventHandler(this.drink5NumUpDown_ValueChanged);
-            // 
-            // drink6NumUpDown
-            // 
-            this.drink6NumUpDown.Enabled = false;
-            this.drink6NumUpDown.Location = new System.Drawing.Point(91, 102);
-            this.drink6NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink6NumUpDown.Name = "drink6NumUpDown";
-            this.drink6NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink6NumUpDown.TabIndex = 17;
-            this.drink6NumUpDown.ValueChanged += new System.EventHandler(this.drink6NumUpDown_ValueChanged);
-            // 
-            // drink4NumUpDown
-            // 
-            this.drink4NumUpDown.Enabled = false;
-            this.drink4NumUpDown.Location = new System.Drawing.Point(277, 40);
-            this.drink4NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink4NumUpDown.Name = "drink4NumUpDown";
-            this.drink4NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink4NumUpDown.TabIndex = 16;
-            this.drink4NumUpDown.ValueChanged += new System.EventHandler(this.drink4NumUpDown_ValueChanged);
-            // 
-            // drink3NumUpDown
-            // 
-            this.drink3NumUpDown.Enabled = false;
-            this.drink3NumUpDown.Location = new System.Drawing.Point(215, 40);
-            this.drink3NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink3NumUpDown.Name = "drink3NumUpDown";
-            this.drink3NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink3NumUpDown.TabIndex = 15;
-            this.drink3NumUpDown.ValueChanged += new System.EventHandler(this.drink3NumUpDown_ValueChanged);
-            // 
-            // drink2NumUpDown
-            // 
-            this.drink2NumUpDown.Enabled = false;
-            this.drink2NumUpDown.Location = new System.Drawing.Point(153, 40);
-            this.drink2NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink2NumUpDown.Name = "drink2NumUpDown";
-            this.drink2NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink2NumUpDown.TabIndex = 14;
-            this.drink2NumUpDown.ValueChanged += new System.EventHandler(this.drink2NumUpDown_ValueChanged);
-            // 
-            // drink1NumUpDown
-            // 
-            this.drink1NumUpDown.Enabled = false;
-            this.drink1NumUpDown.Location = new System.Drawing.Point(91, 40);
-            this.drink1NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink1NumUpDown.Name = "drink1NumUpDown";
-            this.drink1NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink1NumUpDown.TabIndex = 13;
-            this.drink1NumUpDown.ValueChanged += new System.EventHandler(this.drink1NumUpDown_ValueChanged);
-            // 
-            // drink0NumUpDown
-            // 
-            this.drink0NumUpDown.Enabled = false;
-            this.drink0NumUpDown.Location = new System.Drawing.Point(29, 40);
-            this.drink0NumUpDown.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.drink0NumUpDown.Name = "drink0NumUpDown";
-            this.drink0NumUpDown.Size = new System.Drawing.Size(56, 23);
-            this.drink0NumUpDown.TabIndex = 12;
-            this.drink0NumUpDown.ValueChanged += new System.EventHandler(this.drink0NumUpDown_ValueChanged);
-            // 
-            // pictureBox31
-            // 
-            this.pictureBox31.Image = global::ShiverBot.Properties.Resources.Drink8;
-            this.pictureBox31.Location = new System.Drawing.Point(215, 70);
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox31.TabIndex = 11;
-            this.pictureBox31.TabStop = false;
-            // 
-            // pictureBox30
-            // 
-            this.pictureBox30.Image = global::ShiverBot.Properties.Resources.Drink9;
-            this.pictureBox30.Location = new System.Drawing.Point(277, 70);
-            this.pictureBox30.Name = "pictureBox30";
-            this.pictureBox30.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox30.TabIndex = 10;
-            this.pictureBox30.TabStop = false;
-            // 
-            // pictureBox29
-            // 
-            this.pictureBox29.Image = global::ShiverBot.Properties.Resources.Drink12;
-            this.pictureBox29.Location = new System.Drawing.Point(153, 135);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox29.TabIndex = 9;
-            this.pictureBox29.TabStop = false;
-            // 
-            // pictureBox28
-            // 
-            this.pictureBox28.Image = global::ShiverBot.Properties.Resources.Drink10;
-            this.pictureBox28.Location = new System.Drawing.Point(30, 135);
-            this.pictureBox28.Name = "pictureBox28";
-            this.pictureBox28.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox28.TabIndex = 8;
-            this.pictureBox28.TabStop = false;
-            // 
-            // pictureBox27
-            // 
-            this.pictureBox27.Image = global::ShiverBot.Properties.Resources.Drink7;
-            this.pictureBox27.Location = new System.Drawing.Point(153, 70);
-            this.pictureBox27.Name = "pictureBox27";
-            this.pictureBox27.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox27.TabIndex = 7;
-            this.pictureBox27.TabStop = false;
-            // 
-            // pictureBox26
-            // 
-            this.pictureBox26.Image = global::ShiverBot.Properties.Resources.Drink6;
-            this.pictureBox26.Location = new System.Drawing.Point(91, 70);
-            this.pictureBox26.Name = "pictureBox26";
-            this.pictureBox26.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox26.TabIndex = 6;
-            this.pictureBox26.TabStop = false;
-            // 
-            // pictureBox25
-            // 
-            this.pictureBox25.Image = global::ShiverBot.Properties.Resources.Drink5;
-            this.pictureBox25.Location = new System.Drawing.Point(29, 70);
-            this.pictureBox25.Name = "pictureBox25";
-            this.pictureBox25.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox25.TabIndex = 5;
-            this.pictureBox25.TabStop = false;
-            // 
-            // pictureBox24
-            // 
-            this.pictureBox24.Image = global::ShiverBot.Properties.Resources.Drink4;
-            this.pictureBox24.Location = new System.Drawing.Point(277, 8);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox24.TabIndex = 4;
-            this.pictureBox24.TabStop = false;
-            // 
-            // pictureBox23
-            // 
-            this.pictureBox23.Image = global::ShiverBot.Properties.Resources.Drink3;
-            this.pictureBox23.Location = new System.Drawing.Point(215, 8);
-            this.pictureBox23.Name = "pictureBox23";
-            this.pictureBox23.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox23.TabIndex = 3;
-            this.pictureBox23.TabStop = false;
-            // 
-            // pictureBox22
-            // 
-            this.pictureBox22.Image = global::ShiverBot.Properties.Resources.Drink2;
-            this.pictureBox22.Location = new System.Drawing.Point(153, 8);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox22.TabIndex = 2;
-            this.pictureBox22.TabStop = false;
-            // 
-            // pictureBox21
-            // 
-            this.pictureBox21.Image = global::ShiverBot.Properties.Resources.Drink1;
-            this.pictureBox21.Location = new System.Drawing.Point(91, 8);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox21.TabIndex = 1;
-            this.pictureBox21.TabStop = false;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Image = global::ShiverBot.Properties.Resources.Drink0;
-            this.pictureBox17.Location = new System.Drawing.Point(29, 8);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(56, 30);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox17.TabIndex = 0;
-            this.pictureBox17.TabStop = false;
-            // 
-            // tableTurfTabPage
-            // 
-            this.tableTurfTabPage.Controls.Add(this.tableTurfMatchGroupBox);
-            this.tableTurfTabPage.Controls.Add(this.tableTurfRetrieveMatchButton);
-            this.tableTurfTabPage.Controls.Add(this.tableTurfExplLabel);
-            this.tableTurfTabPage.Controls.Add(this.tableTurfLabel);
-            this.tableTurfTabPage.Controls.Add(this.tableTurfExpLabel);
-            this.tableTurfTabPage.Location = new System.Drawing.Point(4, 24);
-            this.tableTurfTabPage.Name = "tableTurfTabPage";
-            this.tableTurfTabPage.Size = new System.Drawing.Size(363, 194);
-            this.tableTurfTabPage.TabIndex = 2;
-            this.tableTurfTabPage.Text = "Tableturf";
-            this.tableTurfTabPage.UseVisualStyleBackColor = true;
-            // 
-            // tableTurfMatchGroupBox
-            // 
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuSpecialLockCheckbox);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuPointLockCheckbox);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuSpecialNumUpDown);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuPointsNumUpDown);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialLabel2);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointsLabel2);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfCpuLabel);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialLockCheckbox);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointLockCheckbox);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialNumUpDown);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointsNumUpDown);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfSpecialLabel1);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfPointsLabel1);
-            this.tableTurfMatchGroupBox.Controls.Add(this.tableTurfMeLabel);
-            this.tableTurfMatchGroupBox.Location = new System.Drawing.Point(160, 3);
-            this.tableTurfMatchGroupBox.Name = "tableTurfMatchGroupBox";
-            this.tableTurfMatchGroupBox.Size = new System.Drawing.Size(200, 188);
-            this.tableTurfMatchGroupBox.TabIndex = 15;
-            this.tableTurfMatchGroupBox.TabStop = false;
-            this.tableTurfMatchGroupBox.Text = "Tableturf Match";
-            // 
-            // tableTurfCpuSpecialLockCheckbox
-            // 
-            this.tableTurfCpuSpecialLockCheckbox.AutoSize = true;
-            this.tableTurfCpuSpecialLockCheckbox.Enabled = false;
-            this.tableTurfCpuSpecialLockCheckbox.Location = new System.Drawing.Point(141, 156);
-            this.tableTurfCpuSpecialLockCheckbox.Name = "tableTurfCpuSpecialLockCheckbox";
-            this.tableTurfCpuSpecialLockCheckbox.Size = new System.Drawing.Size(48, 19);
-            this.tableTurfCpuSpecialLockCheckbox.TabIndex = 10;
-            this.tableTurfCpuSpecialLockCheckbox.Text = "lock";
-            this.tableTurfCpuSpecialLockCheckbox.UseVisualStyleBackColor = true;
-            this.tableTurfCpuSpecialLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfCpuSpecialLockCheckbox_CheckedChanged);
-            // 
-            // tableTurfCpuPointLockCheckbox
-            // 
-            this.tableTurfCpuPointLockCheckbox.AutoSize = true;
-            this.tableTurfCpuPointLockCheckbox.Enabled = false;
-            this.tableTurfCpuPointLockCheckbox.Location = new System.Drawing.Point(141, 127);
-            this.tableTurfCpuPointLockCheckbox.Name = "tableTurfCpuPointLockCheckbox";
-            this.tableTurfCpuPointLockCheckbox.Size = new System.Drawing.Size(48, 19);
-            this.tableTurfCpuPointLockCheckbox.TabIndex = 8;
-            this.tableTurfCpuPointLockCheckbox.Text = "lock";
-            this.tableTurfCpuPointLockCheckbox.UseVisualStyleBackColor = true;
-            this.tableTurfCpuPointLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfCpuPointLockCheckbox_CheckedChanged);
-            // 
-            // tableTurfCpuSpecialNumUpDown
-            // 
-            this.tableTurfCpuSpecialNumUpDown.Enabled = false;
-            this.tableTurfCpuSpecialNumUpDown.Location = new System.Drawing.Point(95, 155);
-            this.tableTurfCpuSpecialNumUpDown.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.tableTurfCpuSpecialNumUpDown.Name = "tableTurfCpuSpecialNumUpDown";
-            this.tableTurfCpuSpecialNumUpDown.Size = new System.Drawing.Size(40, 23);
-            this.tableTurfCpuSpecialNumUpDown.TabIndex = 9;
-            this.tableTurfCpuSpecialNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfCpuSpecialNumUpDown_ValueChanged);
-            // 
-            // tableTurfCpuPointsNumUpDown
-            // 
-            this.tableTurfCpuPointsNumUpDown.Enabled = false;
-            this.tableTurfCpuPointsNumUpDown.Location = new System.Drawing.Point(95, 126);
-            this.tableTurfCpuPointsNumUpDown.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.tableTurfCpuPointsNumUpDown.Name = "tableTurfCpuPointsNumUpDown";
-            this.tableTurfCpuPointsNumUpDown.Size = new System.Drawing.Size(40, 23);
-            this.tableTurfCpuPointsNumUpDown.TabIndex = 7;
-            this.tableTurfCpuPointsNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfCpuPointsNumUpDown_ValueChanged);
-            // 
-            // tableTurfSpecialLabel2
-            // 
-            this.tableTurfSpecialLabel2.AutoSize = true;
-            this.tableTurfSpecialLabel2.ForeColor = System.Drawing.Color.SlateBlue;
-            this.tableTurfSpecialLabel2.Location = new System.Drawing.Point(6, 157);
-            this.tableTurfSpecialLabel2.Name = "tableTurfSpecialLabel2";
-            this.tableTurfSpecialLabel2.Size = new System.Drawing.Size(83, 15);
-            this.tableTurfSpecialLabel2.TabIndex = 9;
-            this.tableTurfSpecialLabel2.Text = "Special points:";
-            // 
-            // tableTurfPointsLabel2
-            // 
-            this.tableTurfPointsLabel2.AutoSize = true;
-            this.tableTurfPointsLabel2.ForeColor = System.Drawing.Color.SlateBlue;
-            this.tableTurfPointsLabel2.Location = new System.Drawing.Point(5, 128);
-            this.tableTurfPointsLabel2.Name = "tableTurfPointsLabel2";
-            this.tableTurfPointsLabel2.Size = new System.Drawing.Size(72, 15);
-            this.tableTurfPointsLabel2.TabIndex = 8;
-            this.tableTurfPointsLabel2.Text = "Painted turf:";
-            // 
-            // tableTurfCpuLabel
-            // 
-            this.tableTurfCpuLabel.AutoSize = true;
-            this.tableTurfCpuLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tableTurfCpuLabel.ForeColor = System.Drawing.Color.SlateBlue;
-            this.tableTurfCpuLabel.Location = new System.Drawing.Point(6, 108);
-            this.tableTurfCpuLabel.Name = "tableTurfCpuLabel";
-            this.tableTurfCpuLabel.Size = new System.Drawing.Size(97, 15);
-            this.tableTurfCpuLabel.TabIndex = 7;
-            this.tableTurfCpuLabel.Text = "Opponent (CPU):";
-            // 
-            // tableTurfSpecialLockCheckbox
-            // 
-            this.tableTurfSpecialLockCheckbox.AutoSize = true;
-            this.tableTurfSpecialLockCheckbox.Enabled = false;
-            this.tableTurfSpecialLockCheckbox.Location = new System.Drawing.Point(141, 67);
-            this.tableTurfSpecialLockCheckbox.Name = "tableTurfSpecialLockCheckbox";
-            this.tableTurfSpecialLockCheckbox.Size = new System.Drawing.Size(48, 19);
-            this.tableTurfSpecialLockCheckbox.TabIndex = 6;
-            this.tableTurfSpecialLockCheckbox.Text = "lock";
-            this.tableTurfSpecialLockCheckbox.UseVisualStyleBackColor = true;
-            this.tableTurfSpecialLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfSpecialLockCheckbox_CheckedChanged);
-            // 
-            // tableTurfPointLockCheckbox
-            // 
-            this.tableTurfPointLockCheckbox.AutoSize = true;
-            this.tableTurfPointLockCheckbox.Enabled = false;
-            this.tableTurfPointLockCheckbox.Location = new System.Drawing.Point(141, 38);
-            this.tableTurfPointLockCheckbox.Name = "tableTurfPointLockCheckbox";
-            this.tableTurfPointLockCheckbox.Size = new System.Drawing.Size(48, 19);
-            this.tableTurfPointLockCheckbox.TabIndex = 4;
-            this.tableTurfPointLockCheckbox.Text = "lock";
-            this.tableTurfPointLockCheckbox.UseVisualStyleBackColor = true;
-            this.tableTurfPointLockCheckbox.CheckedChanged += new System.EventHandler(this.tableTurfPointLockCheckbox_CheckedChanged);
-            // 
-            // tableTurfSpecialNumUpDown
-            // 
-            this.tableTurfSpecialNumUpDown.Enabled = false;
-            this.tableTurfSpecialNumUpDown.Location = new System.Drawing.Point(95, 66);
-            this.tableTurfSpecialNumUpDown.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.tableTurfSpecialNumUpDown.Name = "tableTurfSpecialNumUpDown";
-            this.tableTurfSpecialNumUpDown.Size = new System.Drawing.Size(40, 23);
-            this.tableTurfSpecialNumUpDown.TabIndex = 5;
-            this.tableTurfSpecialNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfSpecialNumUpDown_ValueChanged);
-            // 
-            // tableTurfPointsNumUpDown
-            // 
-            this.tableTurfPointsNumUpDown.Enabled = false;
-            this.tableTurfPointsNumUpDown.Location = new System.Drawing.Point(95, 37);
-            this.tableTurfPointsNumUpDown.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.tableTurfPointsNumUpDown.Name = "tableTurfPointsNumUpDown";
-            this.tableTurfPointsNumUpDown.Size = new System.Drawing.Size(40, 23);
-            this.tableTurfPointsNumUpDown.TabIndex = 3;
-            this.tableTurfPointsNumUpDown.ValueChanged += new System.EventHandler(this.tableTurfPointsNumUpDown_ValueChanged);
-            // 
-            // tableTurfSpecialLabel1
-            // 
-            this.tableTurfSpecialLabel1.AutoSize = true;
-            this.tableTurfSpecialLabel1.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.tableTurfSpecialLabel1.Location = new System.Drawing.Point(6, 68);
-            this.tableTurfSpecialLabel1.Name = "tableTurfSpecialLabel1";
-            this.tableTurfSpecialLabel1.Size = new System.Drawing.Size(83, 15);
-            this.tableTurfSpecialLabel1.TabIndex = 2;
-            this.tableTurfSpecialLabel1.Text = "Special points:";
-            // 
-            // tableTurfPointsLabel1
-            // 
-            this.tableTurfPointsLabel1.AutoSize = true;
-            this.tableTurfPointsLabel1.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.tableTurfPointsLabel1.Location = new System.Drawing.Point(5, 39);
-            this.tableTurfPointsLabel1.Name = "tableTurfPointsLabel1";
-            this.tableTurfPointsLabel1.Size = new System.Drawing.Size(72, 15);
-            this.tableTurfPointsLabel1.TabIndex = 1;
-            this.tableTurfPointsLabel1.Text = "Painted turf:";
-            // 
-            // tableTurfMeLabel
-            // 
-            this.tableTurfMeLabel.AutoSize = true;
-            this.tableTurfMeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tableTurfMeLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.tableTurfMeLabel.Location = new System.Drawing.Point(6, 19);
-            this.tableTurfMeLabel.Name = "tableTurfMeLabel";
-            this.tableTurfMeLabel.Size = new System.Drawing.Size(27, 15);
-            this.tableTurfMeLabel.TabIndex = 0;
-            this.tableTurfMeLabel.Text = "Me:";
-            // 
-            // tableTurfRetrieveMatchButton
-            // 
-            this.tableTurfRetrieveMatchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tableTurfRetrieveMatchButton.Location = new System.Drawing.Point(3, 157);
-            this.tableTurfRetrieveMatchButton.Name = "tableTurfRetrieveMatchButton";
-            this.tableTurfRetrieveMatchButton.Size = new System.Drawing.Size(151, 34);
-            this.tableTurfRetrieveMatchButton.TabIndex = 14;
-            this.tableTurfRetrieveMatchButton.Text = "retrieve match";
-            this.tableTurfRetrieveMatchButton.UseVisualStyleBackColor = true;
-            this.tableTurfRetrieveMatchButton.Click += new System.EventHandler(this.tableTurfRetrieveMatchButton_Click);
-            // 
-            // tableTurfExplLabel
-            // 
-            this.tableTurfExplLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.tableTurfExplLabel.ForeColor = System.Drawing.Color.SlateGray;
-            this.tableTurfExplLabel.Location = new System.Drawing.Point(3, 82);
-            this.tableTurfExplLabel.Name = "tableTurfExplLabel";
-            this.tableTurfExplLabel.Size = new System.Drawing.Size(151, 72);
-            this.tableTurfExplLabel.TabIndex = 13;
-            this.tableTurfExplLabel.Text = "Click the button after you\r\nenter a tableturf battle.\r\nIf you leave the match,\r\ny" +
-    "ou have to click it again.";
-            this.tableTurfExplLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableTurfLabel
-            // 
-            this.tableTurfLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.tableTurfLabel.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.tableTurfLabel.Location = new System.Drawing.Point(3, 11);
-            this.tableTurfLabel.Name = "tableTurfLabel";
-            this.tableTurfLabel.Size = new System.Drawing.Size(151, 15);
-            this.tableTurfLabel.TabIndex = 12;
-            this.tableTurfLabel.Text = "TABLETURF";
-            this.tableTurfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableTurfExpLabel
-            // 
-            this.tableTurfExpLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.tableTurfExpLabel.Location = new System.Drawing.Point(3, 50);
-            this.tableTurfExpLabel.Name = "tableTurfExpLabel";
-            this.tableTurfExpLabel.Size = new System.Drawing.Size(151, 15);
-            this.tableTurfExpLabel.TabIndex = 0;
-            this.tableTurfExpLabel.Text = "Rank: {0} ({1} EXP)";
-            this.tableTurfExpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gearTabPage
             // 
@@ -2018,6 +458,49 @@
             this.postPrinterTabPage.Text = "Post Printer";
             this.postPrinterTabPage.UseVisualStyleBackColor = true;
             // 
+            // postPrinterWaitNumUpDown
+            // 
+            this.postPrinterWaitNumUpDown.Location = new System.Drawing.Point(315, 168);
+            this.postPrinterWaitNumUpDown.Maximum = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            this.postPrinterWaitNumUpDown.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.postPrinterWaitNumUpDown.Name = "postPrinterWaitNumUpDown";
+            this.postPrinterWaitNumUpDown.Size = new System.Drawing.Size(42, 23);
+            this.postPrinterWaitNumUpDown.TabIndex = 114;
+            this.postPrinterWaitNumUpDown.Value = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(230, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 30);
+            this.label2.TabIndex = 113;
+            this.label2.Text = "Wait between\r\nbuttons (ms):";
+            // 
+            // postPrinterHintLabel
+            // 
+            this.postPrinterHintLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.postPrinterHintLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.postPrinterHintLabel.Location = new System.Drawing.Point(225, 132);
+            this.postPrinterHintLabel.Name = "postPrinterHintLabel";
+            this.postPrinterHintLabel.Size = new System.Drawing.Size(116, 26);
+            this.postPrinterHintLabel.TabIndex = 112;
+            this.postPrinterHintLabel.Text = "Not printing anything?\r\nRestart your Switch...";
+            this.postPrinterHintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.postPrinterHintLabel.Visible = false;
+            // 
             // postPrinterLabel
             // 
             this.postPrinterLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
@@ -2070,50 +553,6 @@
             this.label1.Text = "Select a 320x120\r\n1-bit .PNG image";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // restoreMoneyButton
-            // 
-            this.restoreMoneyButton.Location = new System.Drawing.Point(131, 45);
-            this.restoreMoneyButton.Name = "restoreMoneyButton";
-            this.restoreMoneyButton.Size = new System.Drawing.Size(83, 23);
-            this.restoreMoneyButton.TabIndex = 6;
-            this.restoreMoneyButton.Text = "restore";
-            this.restoreMoneyButton.UseVisualStyleBackColor = true;
-            this.restoreMoneyButton.Click += new System.EventHandler(this.restoreMoneyButton_Click);
-            // 
-            // saveMoneyButton
-            // 
-            this.saveMoneyButton.Location = new System.Drawing.Point(131, 16);
-            this.saveMoneyButton.Name = "saveMoneyButton";
-            this.saveMoneyButton.Size = new System.Drawing.Size(83, 23);
-            this.saveMoneyButton.TabIndex = 5;
-            this.saveMoneyButton.Text = "save";
-            this.saveMoneyButton.UseVisualStyleBackColor = true;
-            this.saveMoneyButton.Click += new System.EventHandler(this.saveMoneyButton_Click);
-            // 
-            // moneyLabel
-            // 
-            this.moneyLabel.AutoSize = true;
-            this.moneyLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.moneyLabel.ForeColor = System.Drawing.Color.Olive;
-            this.moneyLabel.Location = new System.Drawing.Point(57, 22);
-            this.moneyLabel.Name = "moneyLabel";
-            this.moneyLabel.Size = new System.Drawing.Size(48, 15);
-            this.moneyLabel.TabIndex = 3;
-            this.moneyLabel.Text = "MONEY";
-            // 
-            // moneyNumUpDown
-            // 
-            this.moneyNumUpDown.Enabled = false;
-            this.moneyNumUpDown.Location = new System.Drawing.Point(57, 44);
-            this.moneyNumUpDown.Maximum = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            this.moneyNumUpDown.Name = "moneyNumUpDown";
-            this.moneyNumUpDown.Size = new System.Drawing.Size(63, 23);
-            this.moneyNumUpDown.TabIndex = 4;
-            // 
             // creatorLabel
             // 
             this.creatorLabel.AutoSize = true;
@@ -2139,48 +578,103 @@
             this.creatorLabel2.Text = "<3";
             this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
             // 
-            // postPrinterHintLabel
+            // bytesToReadNumUpDown
             // 
-            this.postPrinterHintLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.postPrinterHintLabel.ForeColor = System.Drawing.Color.Firebrick;
-            this.postPrinterHintLabel.Location = new System.Drawing.Point(225, 132);
-            this.postPrinterHintLabel.Name = "postPrinterHintLabel";
-            this.postPrinterHintLabel.Size = new System.Drawing.Size(116, 26);
-            this.postPrinterHintLabel.TabIndex = 112;
-            this.postPrinterHintLabel.Text = "Not printing anything?\r\nRestart your Switch...";
-            this.postPrinterHintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.postPrinterHintLabel.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(230, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 30);
-            this.label2.TabIndex = 113;
-            this.label2.Text = "Wait between\r\nbuttons (ms):";
-            // 
-            // postPrinterWaitNumUpDown
-            // 
-            this.postPrinterWaitNumUpDown.Location = new System.Drawing.Point(315, 168);
-            this.postPrinterWaitNumUpDown.Maximum = new decimal(new int[] {
-            128,
+            this.bytesToReadNumUpDown.Location = new System.Drawing.Point(136, 38);
+            this.bytesToReadNumUpDown.Maximum = new decimal(new int[] {
+            104857600,
             0,
             0,
             0});
-            this.postPrinterWaitNumUpDown.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.postPrinterWaitNumUpDown.Name = "postPrinterWaitNumUpDown";
-            this.postPrinterWaitNumUpDown.Size = new System.Drawing.Size(42, 23);
-            this.postPrinterWaitNumUpDown.TabIndex = 114;
-            this.postPrinterWaitNumUpDown.Value = new decimal(new int[] {
-            64,
-            0,
-            0,
-            0});
+            this.bytesToReadNumUpDown.Name = "bytesToReadNumUpDown";
+            this.bytesToReadNumUpDown.Size = new System.Drawing.Size(70, 23);
+            this.bytesToReadNumUpDown.TabIndex = 103;
+            // 
+            // readButton
+            // 
+            this.readButton.Location = new System.Drawing.Point(217, 53);
+            this.readButton.Name = "readButton";
+            this.readButton.Size = new System.Drawing.Size(77, 23);
+            this.readButton.TabIndex = 105;
+            this.readButton.Text = "read heap";
+            this.readButton.UseVisualStyleBackColor = true;
+            this.readButton.Click += new System.EventHandler(this.readButton_Click);
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(6, 37);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.PlaceholderText = "Address (without 0x)";
+            this.addressTextBox.Size = new System.Drawing.Size(124, 23);
+            this.addressTextBox.TabIndex = 102;
+            // 
+            // peekLabel
+            // 
+            this.peekLabel.AutoSize = true;
+            this.peekLabel.Location = new System.Drawing.Point(6, 19);
+            this.peekLabel.Name = "peekLabel";
+            this.peekLabel.Size = new System.Drawing.Size(66, 15);
+            this.peekLabel.TabIndex = 101;
+            this.peekLabel.Text = "Peek bytes:";
+            // 
+            // saveToFileCheckBox
+            // 
+            this.saveToFileCheckBox.AutoSize = true;
+            this.saveToFileCheckBox.Checked = true;
+            this.saveToFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.saveToFileCheckBox.Location = new System.Drawing.Point(136, 67);
+            this.saveToFileCheckBox.Name = "saveToFileCheckBox";
+            this.saveToFileCheckBox.Size = new System.Drawing.Size(82, 19);
+            this.saveToFileCheckBox.TabIndex = 104;
+            this.saveToFileCheckBox.Text = "save to file";
+            this.saveToFileCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // readMainButton
+            // 
+            this.readMainButton.Location = new System.Drawing.Point(300, 53);
+            this.readMainButton.Name = "readMainButton";
+            this.readMainButton.Size = new System.Drawing.Size(77, 23);
+            this.readMainButton.TabIndex = 106;
+            this.readMainButton.Text = "read main";
+            this.readMainButton.UseVisualStyleBackColor = true;
+            this.readMainButton.Click += new System.EventHandler(this.readMainButton_Click);
+            // 
+            // readAbsButton
+            // 
+            this.readAbsButton.Location = new System.Drawing.Point(217, 24);
+            this.readAbsButton.Name = "readAbsButton";
+            this.readAbsButton.Size = new System.Drawing.Size(96, 23);
+            this.readAbsButton.TabIndex = 110;
+            this.readAbsButton.Text = "read absolute";
+            this.readAbsButton.UseVisualStyleBackColor = true;
+            this.readAbsButton.Click += new System.EventHandler(this.readAbsButton_Click);
+            // 
+            // metaDataButton
+            // 
+            this.metaDataButton.Location = new System.Drawing.Point(319, 24);
+            this.metaDataButton.Name = "metaDataButton";
+            this.metaDataButton.Size = new System.Drawing.Size(58, 23);
+            this.metaDataButton.TabIndex = 111;
+            this.metaDataButton.Text = "meta";
+            this.metaDataButton.UseVisualStyleBackColor = true;
+            this.metaDataButton.Click += new System.EventHandler(this.metaDataButton_Click);
+            // 
+            // advancedGroupBox
+            // 
+            this.advancedGroupBox.Controls.Add(this.metaDataButton);
+            this.advancedGroupBox.Controls.Add(this.readAbsButton);
+            this.advancedGroupBox.Controls.Add(this.readMainButton);
+            this.advancedGroupBox.Controls.Add(this.saveToFileCheckBox);
+            this.advancedGroupBox.Controls.Add(this.peekLabel);
+            this.advancedGroupBox.Controls.Add(this.addressTextBox);
+            this.advancedGroupBox.Controls.Add(this.readButton);
+            this.advancedGroupBox.Controls.Add(this.bytesToReadNumUpDown);
+            this.advancedGroupBox.Location = new System.Drawing.Point(12, 348);
+            this.advancedGroupBox.Name = "advancedGroupBox";
+            this.advancedGroupBox.Size = new System.Drawing.Size(383, 132);
+            this.advancedGroupBox.TabIndex = 100;
+            this.advancedGroupBox.TabStop = false;
+            this.advancedGroupBox.Text = "Advanced";
             // 
             // MainForm
             // 
@@ -2201,101 +695,20 @@
             this.MaximumSize = new System.Drawing.Size(423, 531);
             this.MinimumSize = new System.Drawing.Size(423, 531);
             this.Name = "MainForm";
-            this.Text = "ShiverBot v1.3";
-            ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moneyPictureBox)).EndInit();
-            this.advancedGroupBox.ResumeLayout(false);
-            this.advancedGroupBox.PerformLayout();
+            this.Text = "ShiverBot v1.4 — the post-banwave version";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.optionTabControl.ResumeLayout(false);
-            this.chunksTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chunk13NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk0PictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk12NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk0NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk11NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk1NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk10NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk2NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk9NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk3NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk8NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk4NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk7NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk5NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chunk6NumUpDown)).EndInit();
-            this.foodTicketsTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.food5NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food3NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food1NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food6NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food4NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.food2NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            this.drinkTicketsTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.drink13NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink12NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink11NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink10NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink8NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink9NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink7NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink5NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink6NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink4NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink3NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink2NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink1NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drink0NumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            this.tableTurfTabPage.ResumeLayout(false);
-            this.tableTurfMatchGroupBox.ResumeLayout(false);
-            this.tableTurfMatchGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuSpecialNumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfCpuPointsNumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfSpecialNumUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTurfPointsNumUpDown)).EndInit();
             this.gearTabPage.ResumeLayout(false);
             this.gearTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gearStarsNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gearExpNumUpDown)).EndInit();
             this.postPrinterTabPage.ResumeLayout(false);
             this.postPrinterTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.openedImagePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moneyNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postPrinterWaitNumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openedImagePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bytesToReadNumUpDown)).EndInit();
+            this.advancedGroupBox.ResumeLayout(false);
+            this.advancedGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2305,102 +718,9 @@
 
         private TextBox ipTextBox;
         private Button connectButton;
-        private Button readButton;
         private Label statusLabel;
-        private NumericUpDown bytesToReadNumUpDown;
-        private TextBox addressTextBox;
-        private PictureBox moneyPictureBox;
-        private GroupBox advancedGroupBox;
-        private Label pokeLabel;
-        private Label peekLabel;
         private GroupBox groupBox1;
-        private CheckBox saveToFileCheckBox;
-        private Button writeButton;
-        private TextBox pokeDataTextBox;
-        private TextBox pokeAddressTextBox;
-        private Button restoreMoneyButton;
-        private Button saveMoneyButton;
-        private Label moneyLabel;
-        private NumericUpDown moneyNumUpDown;
-        private NumericUpDown chunk0NumUpDown;
-        private PictureBox chunk0PictureBox;
-        private NumericUpDown chunk13NumUpDown;
-        private PictureBox pictureBox7;
-        private NumericUpDown chunk12NumUpDown;
-        private PictureBox pictureBox8;
-        private NumericUpDown chunk11NumUpDown;
-        private PictureBox pictureBox9;
-        private NumericUpDown chunk10NumUpDown;
-        private PictureBox pictureBox10;
-        private NumericUpDown chunk9NumUpDown;
-        private PictureBox pictureBox11;
-        private NumericUpDown chunk8NumUpDown;
-        private PictureBox pictureBox12;
-        private NumericUpDown chunk7NumUpDown;
-        private PictureBox pictureBox13;
-        private NumericUpDown chunk6NumUpDown;
-        private PictureBox pictureBox6;
-        private NumericUpDown chunk5NumUpDown;
-        private PictureBox pictureBox5;
-        private NumericUpDown chunk4NumUpDown;
-        private PictureBox pictureBox4;
-        private NumericUpDown chunk3NumUpDown;
-        private PictureBox pictureBox3;
-        private NumericUpDown chunk2NumUpDown;
-        private PictureBox pictureBox2;
-        private NumericUpDown chunk1NumUpDown;
-        private PictureBox pictureBox1;
         private TabControl optionTabControl;
-        private TabPage chunksTabPage;
-        private TabPage foodTicketsTabPage;
-        private Label chunksLabel;
-        private TabPage tableTurfTabPage;
-        private Label foodTicketsLabel;
-        private CheckBox autoUpdateCheckbox;
-        private Label updatingLabel;
-        private Button readMainButton;
-        private PictureBox pictureBox20;
-        private PictureBox pictureBox19;
-        private PictureBox pictureBox18;
-        private PictureBox pictureBox16;
-        private PictureBox pictureBox15;
-        private PictureBox pictureBox14;
-        private PictureBox pictureBox33;
-        private PictureBox pictureBox32;
-        private NumericUpDown food5NumUpDown;
-        private NumericUpDown food3NumUpDown;
-        private NumericUpDown food1NumUpDown;
-        private NumericUpDown food6NumUpDown;
-        private NumericUpDown food4NumUpDown;
-        private NumericUpDown food2NumUpDown;
-        private TabPage drinkTicketsTabPage;
-        private PictureBox pictureBox31;
-        private PictureBox pictureBox30;
-        private PictureBox pictureBox29;
-        private PictureBox pictureBox28;
-        private PictureBox pictureBox27;
-        private PictureBox pictureBox26;
-        private PictureBox pictureBox25;
-        private PictureBox pictureBox24;
-        private PictureBox pictureBox23;
-        private PictureBox pictureBox22;
-        private PictureBox pictureBox21;
-        private PictureBox pictureBox17;
-        private Label drinkTicketsLabel;
-        private NumericUpDown drink13NumUpDown;
-        private NumericUpDown drink12NumUpDown;
-        private NumericUpDown drink11NumUpDown;
-        private NumericUpDown drink10NumUpDown;
-        private NumericUpDown drink8NumUpDown;
-        private NumericUpDown drink9NumUpDown;
-        private NumericUpDown drink7NumUpDown;
-        private NumericUpDown drink5NumUpDown;
-        private NumericUpDown drink6NumUpDown;
-        private NumericUpDown drink4NumUpDown;
-        private NumericUpDown drink3NumUpDown;
-        private NumericUpDown drink2NumUpDown;
-        private NumericUpDown drink1NumUpDown;
-        private NumericUpDown drink0NumUpDown;
         private Label creatorLabel;
         private Label creatorLabel2;
         private TabPage gearTabPage;
@@ -2422,27 +742,6 @@
         private Label gearSubAbility2Label;
         private ComboBox gearS1ComboBox;
         private Label gearSubAbility1Label;
-        private Label tableTurfLabel;
-        private Label tableTurfExpLabel;
-        private Button readAbsButton;
-        private Button metaDataButton;
-        private GroupBox tableTurfMatchGroupBox;
-        private Label tableTurfSpecialLabel1;
-        private Label tableTurfPointsLabel1;
-        private Label tableTurfMeLabel;
-        private Button tableTurfRetrieveMatchButton;
-        private Label tableTurfExplLabel;
-        private CheckBox tableTurfCpuSpecialLockCheckbox;
-        private CheckBox tableTurfCpuPointLockCheckbox;
-        private NumericUpDown tableTurfCpuSpecialNumUpDown;
-        private NumericUpDown tableTurfCpuPointsNumUpDown;
-        private Label tableTurfSpecialLabel2;
-        private Label tableTurfPointsLabel2;
-        private Label tableTurfCpuLabel;
-        private CheckBox tableTurfSpecialLockCheckbox;
-        private CheckBox tableTurfPointLockCheckbox;
-        private NumericUpDown tableTurfSpecialNumUpDown;
-        private NumericUpDown tableTurfPointsNumUpDown;
         private TabPage postPrinterTabPage;
         private Button browseImageButton;
         private Label label1;
@@ -2452,5 +751,14 @@
         private NumericUpDown postPrinterWaitNumUpDown;
         private Label label2;
         private Label postPrinterHintLabel;
+        private NumericUpDown bytesToReadNumUpDown;
+        private Button readButton;
+        private TextBox addressTextBox;
+        private Label peekLabel;
+        private CheckBox saveToFileCheckBox;
+        private Button readMainButton;
+        private Button readAbsButton;
+        private Button metaDataButton;
+        private GroupBox advancedGroupBox;
     }
 }
