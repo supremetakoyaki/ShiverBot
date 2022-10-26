@@ -8,7 +8,7 @@ Features returning:
 - Post printer
 
 Features that will be removed:
-Edit money
+- Edit money
 - Edit ability chunks
 - Edit food and drink tickets.
 - Cheat in tableturf against AI.
@@ -23,7 +23,7 @@ Edit money
 # Read this
 There is a ban risk associated to anything you modify in this game because every action you do sends telemetry.
 
-We [thought] ability chunks and money were safe. The recent banwave proved us wrong.
+We [thought] ability chunks and money had a minimum risk. The recent banwave proved us wrong.
 
 # Preparations
 - You need to have a Nintendo Switch console running Atmosphere CFW.
