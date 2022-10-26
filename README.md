@@ -1,29 +1,29 @@
 # About ShiverBot
-This is a Splatoon 3 memory modifier that connects to a Nintendo Switch console that has sys-botbase running. This program is still a WIP.
+## **There was a recent banwave around the new update Ver1.2.0, so please refrain from using the tool for now.**
+This is a Splatoon 3 memory modifier that connects to a Nintendo Switch console that has sys-botbase running.
+Because of the recent banwave on Ver1.2.0 of the game, any cheating options will be removed in a future update.
 
-Current features:
-- Includes addresses for version 1.1.2 of the game.
-- Edit money
+Features returning:
+- Search for your gear's RNG seed (only view, NOT change)
+- Post printer
+
+Features that will be removed:
+Edit money
 - Edit ability chunks
 - Edit food and drink tickets.
-- Search for your gear's RNG seed (only view, NOT change)
 - Cheat in tableturf against AI.
-- BETA: printing drawing posts
 
 <details>
   <summary>Screenshots</summary>
 
-![Screenshot showing the ability chunks tab](https://i.imgur.com/WpC7khW.png)
-![Screenshot showing the food tickets tab](https://i.imgur.com/kUIMNOb.png)
 ![Screenshot showing the gear seed finder](https://i.imgur.com/8ItDfs1.png)
-![Screenshot showing the tableturf tab](https://i.imgur.com/xdHpPwC.png)
 </details>
 
 
 # Read this
-There is a ban risk associated to anything you modify in this game because every action you do sends telemetry, but the easy options this tool has are considered the safest, harmless and have a minimal risk (18+ days without ban, as of October 18th 2022).
+There is a ban risk associated to anything you modify in this game because every action you do sends telemetry.
 
-There is also an advanced RAM editing option, for debugging and making tests. If you ever use it, I assume you know what you're doing.
+We [thought] ability chunks and money were safe. The recent banwave proved us wrong.
 
 # Preparations
 - You need to have a Nintendo Switch console running Atmosphere CFW.
