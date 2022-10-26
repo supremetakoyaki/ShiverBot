@@ -62,8 +62,6 @@
             this.browseImageButton = new System.Windows.Forms.Button();
             this.openedImagePictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.creatorLabel = new System.Windows.Forms.Label();
-            this.creatorLabel2 = new System.Windows.Forms.Label();
             this.bytesToReadNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.readButton = new System.Windows.Forms.Button();
             this.addressTextBox = new System.Windows.Forms.TextBox();
@@ -553,31 +551,6 @@
             this.label1.Text = "Select a 320x120\r\n1-bit .PNG image";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // creatorLabel
-            // 
-            this.creatorLabel.AutoSize = true;
-            this.creatorLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.creatorLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.creatorLabel.Location = new System.Drawing.Point(292, 26);
-            this.creatorLabel.Name = "creatorLabel";
-            this.creatorLabel.Size = new System.Drawing.Size(85, 13);
-            this.creatorLabel.TabIndex = 101;
-            this.creatorLabel.Text = "made by T with";
-            this.creatorLabel.Click += new System.EventHandler(this.creatorLabel_Click);
-            // 
-            // creatorLabel2
-            // 
-            this.creatorLabel2.AutoSize = true;
-            this.creatorLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.creatorLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.creatorLabel2.ForeColor = System.Drawing.Color.Red;
-            this.creatorLabel2.Location = new System.Drawing.Point(373, 26);
-            this.creatorLabel2.Name = "creatorLabel2";
-            this.creatorLabel2.Size = new System.Drawing.Size(21, 13);
-            this.creatorLabel2.TabIndex = 102;
-            this.creatorLabel2.Text = "<3";
-            this.creatorLabel2.Click += new System.EventHandler(this.creatorLabel2_Click);
-            // 
             // bytesToReadNumUpDown
             // 
             this.bytesToReadNumUpDown.Location = new System.Drawing.Point(136, 38);
@@ -681,8 +654,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 406);
-            this.Controls.Add(this.creatorLabel2);
-            this.Controls.Add(this.creatorLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.advancedGroupBox);
             this.Controls.Add(this.statusLabel);
@@ -721,8 +692,6 @@
         private Label statusLabel;
         private GroupBox groupBox1;
         private TabControl optionTabControl;
-        private Label creatorLabel;
-        private Label creatorLabel2;
         private TabPage gearTabPage;
         private Label gearSeedFinderLabel;
         private ComboBox gearMAComboBox;
